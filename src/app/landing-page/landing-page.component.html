@@ -1,0 +1,396 @@
+<div class="pageLoad" id="pageLoad">
+  <div class="inner">
+    <div id="landing1"></div>
+    <div id="landing2"></div>
+    <div id="landing3"></div>
+    <div id="landing4"></div>
+  </div>
+</div>
+
+
+<!--<div id="wrapper">
+  <div id="sidebar-wrapper">
+     <img src="../assets/wayzooklogo.png" style="width: 175px;"/>
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand">
+        <a href="#">
+                      
+</a>
+</li>
+<li>
+  <a href="#">Why Us?</a>
+</li>
+<li>
+  <a href="#">Tours</a>
+</li>
+<li>
+  <a href="#">Book a tour</a>
+</li>
+<li>
+  <a href="#">Groups</a>
+</li>
+<li>
+  <a href="#contactus">Contact</a>
+</li>
+<div><img src="../assets/wayzookHoliday.png" style="width: 175px ; position: absolute;
+    bottom: 0;"></div>
+</div>
+<div id="page-content-wrapper">-->
+  <div id="comppage">
+    
+  <div class="container-fluid main">
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span> 
+        </button>
+        <a class="navbar-brand" href="#"><img class="logoimg" src="../assets/wayzooklogo.png"/></a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a href="#">Why Us?</a></li>
+          <li><a href="#">Tours</a></li>
+          <li><a href="#">Book A Tour</a></li>
+          <li><a href="#">Groups</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  
+ <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+
+      <div class="item active">
+         <video [muted]="'muted'" autoplay loop  id="video-bg" style="min-width: 100%;min-height: 100%">
+
+        <source src="../../assets/Switzerland.mp4" type="video/mp4">
+
+      </video>
+       <div class="carousel-caption">
+          <h2 class="animated fadeInLeft" style="color: white">Manali</h2>
+          <!-- <p class="animated fadeInUp">Referred to as the Queen of Himachal Pradesh, Manali is an ancient town that is located at an altitude of nearly 2050 meters in Kullu district.</p> -->
+          <p class="animated fadeInUp"><a href="#" class="btn btn-transparent btn-rounded btn-large readmore" style="margin-right: 15px">Read More</a>
+          <a href="#" class="btn btn-transparent btn-rounded btn-large readmore" style="background-color: #1c2d4f;
+          border-color: #1c2d4f;">Book Now</a></p>
+          <div class="box">
+            <h3 class="intro">Queen of Himachal Pradesh</h3><hr style="border: 1px solid white;">
+            <h4 class="intro" >Next Tour Available Fri 03 Apr</h4><hr style="border: 1px solid white;">
+            <h4 class="intro" >Price {{price | currency: 'INR':true}}</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+         <video autoplay loop muted id="video-bg" style="min-width: 100%;min-height: 100%">
+
+        <source src="http://bigcom.com/assets/2014/08/iChooseB.mp4" type="video/mp4">
+
+      </video>
+       <div class="carousel-caption">
+          <h2 class="animated fadeInLeft" style="color: white">Manali</h2>
+          <!-- <p class="animated fadeInUp">Referred to as the Queen of Himachal Pradesh, Manali is an ancient town that is located at an altitude of nearly 2050 meters in Kullu district.</p> -->
+          <p class="animated fadeInUp"><a href="#" style="margin-right: 15px" class="btn btn-transparent btn-rounded btn-large readmore">Read More</a>
+          <a href="#" class="btn btn-transparent btn-rounded btn-large readmore">Book Now</a></p>
+          <div class="box">
+            <h3 class="intro">Queen of Himachal Pradesh</h3><hr style="border: 1px solid white;">
+            <h4 class="intro" >Next Tour Available Fri 03 Apr</h4><hr style="border: 1px solid white;">
+            <h4 class="intro" >Price {{price | currency: 'INR':true}}</h4>
+          </div>
+        </div>
+      </div>
+    
+      <div class="item">
+         <video autoplay loop muted id="video-bg" style="min-width: 100%;min-height: 100%">
+
+        <source src="http://bigcom.com/assets/2014/08/iChooseB.mp4" type="video/mp4">
+
+      </video>
+       <div class="carousel-caption">
+          <h2 class="animated fadeInLeft" style="color: white">Manali</h2>
+          <!-- <p class="animated fadeInUp">Referred to as the Queen of Himachal Pradesh, Manali is an ancient town that is located at an altitude of nearly 2050 meters in Kullu district.</p> -->
+          <p class="animated fadeInUp"><a style="margin-right: 15px" href="#" class="btn btn-transparent btn-rounded btn-large readmore">Read More</a>
+          <a href="#" class="btn btn-transparent btn-rounded btn-large readmore">Book Now</a></p>
+          <div class="box">
+            <h3 class="intro">Queen of Himachal Pradesh</h3><hr style="border: 1px solid white;">
+            <h4 class="intro" >Next Tour Available Fri 03 Apr</h4><hr style="border: 1px solid white;">
+            <h4 class="intro" >Price {{price | currency: 'INR':true}}</h4>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+  
+</div>
+
+  <!--Book a tour-->
+
+  <!--<div class="tour-form">
+    <div class="head">
+      <h1>Book A Tour</h1>
+    </div>
+    <div class="formbooking">
+      <div class="input-group mt-3 mb-3">
+        <div class="input-group-prepend">
+          <span style="padding: 5px;font-weight: 500;">Select Destination: </span><br>
+          <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+      Select Destination
+    </button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Manali</a>
+            <a class="dropdown-item" href="#">Singapore</a>
+        
+          </div>
+        </div>
+        <span style="padding: 5px;margin-left: 20px;font-weight: 500;">Choose Date: </span>
+        <input type="date" class="form-control" placeholder="Choose a Date" style="margin-left: 20px">
+</div>
+<div class="input-group">
+  <span style="padding: 5px;font-weight: 500;">Number of People: </span>
+  <input type="button" value="-" class="button-minus" data-field="quantity" (click)="decrement()">
+  <input type="number" step="1" max="" value="1" name="quantity" class="quantity-field" [(ngModel)]="people">
+  <input type="button" value="+" class="button-plus" data-field="quantity" (click)="increment()">
+  
+  
+</div>
+<br><button type="button" class="booknow">Book Now</button><br>
+</div>
+</div>-->
+
+<!--card-->
+
+<div style="margin-top:30px"><div class="Tours">Our Tours.</div>
+<div class="containerbox">
+  <div class="quote-box">
+    <div class="quote">
+      <blockquote>
+        "The secret of getting ahead is getting started. The secret of getting started is breaking your complex overwhelming tasks into small manageable tasks, and starting on the first one."
+      </blockquote>
+    </div>
+    <div class="name">
+      Mark Twain
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="row cardadv">
+ 
+   <div class="example-2 card">
+    <div class="wrapper" style="background: url(../../assets/2.jpg) center / cover no-repeat;">
+      <div class="header">
+        <div class="date">
+          <span class="day">12</span>
+          <span class="month">Aug</span>
+          <span class="year">2016</span>
+        </div>
+        <ul class="menu-content">
+          <li>
+            <a href="#" class="fa fa-bookmark-o"></a>
+          </li>
+          <li><a href="#" class="fa fa-heart-o"><span>18</span></a></li>
+          <li><a href="#" class="fa fa-comment-o"><span>3</span></a></li>
+        </ul>
+      </div>
+      <div class="data">
+        <div class="content">
+          <span class="author">Mysterious land</span>
+          <h1 class="title"><a href="#">Sinapore 3 Nights / 4 Days</a></h1>
+          <p class="text">Take a backseat from the boredom of daily life and escape to the mysterious land of Singapore for a six-day vacation. </p>
+          <a href="#" class="button">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-2 card">
+    <div class="wrapper" style="background: url(../../assets/2.jpg) center / cover no-repeat;">
+      <div class="header">
+        <div class="date">
+          <span class="day">12</span>
+          <span class="month">Aug</span>
+          <span class="year">2016</span>
+        </div>
+        <ul class="menu-content">
+          <li>
+            <a href="#" class="fa fa-bookmark-o"></a>
+          </li>
+          <li><a href="#" class="fa fa-heart-o"><span>18</span></a></li>
+          <li><a href="#" class="fa fa-comment-o"><span>3</span></a></li>
+        </ul>
+      </div>
+      <div class="data">
+        <div class="content">
+          <span class="author">Mysterious land</span>
+          <h1 class="title"><a href="#">Sinapore 3 Nights / 4 Days</a></h1>
+          <p class="text">Take a backseat from the boredom of daily life and escape to the mysterious land of Singapore for a six-day vacation. </p>
+          <a href="#" class="button">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-2 card">
+    <div class="wrapper" style="background: url(../../assets/2.jpg) center / cover no-repeat;">
+      <div class="header">
+        <div class="date">
+          <span class="day">12</span>
+          <span class="month">Aug</span>
+          <span class="year">2016</span>
+        </div>
+        <ul class="menu-content">
+          <li>
+            <a href="#" class="fa fa-bookmark-o"></a>
+          </li>
+          <li><a href="#" class="fa fa-heart-o"><span>18</span></a></li>
+          <li><a href="#" class="fa fa-comment-o"><span>3</span></a></li>
+        </ul>
+      </div>
+      <div class="data">
+        <div class="content">
+          <span class="author">Mysterious land</span>
+          <h1 class="title"><a href="#">Sinapore 3 Nights / 4 Days</a></h1>
+          <p class="text">Take a backseat from the boredom of daily life and escape to the mysterious land of Singapore for a six-day vacation. </p>
+          <a href="#" class="button">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="example-2 card">
+    <div class="wrapper" style="background: url(../../assets/6.jpg) center / cover no-repeat;">
+      <div class="header">
+        <div class="date">
+          <span class="day">12</span>
+          <span class="month">Aug</span>
+          <span class="year">2016</span>
+        </div>
+        <ul class="menu-content">
+          <li>
+            <a href="#" class="fa fa-bookmark-o"></a>
+          </li>
+          <li><a href="#" class="fa fa-heart-o"><span>18</span></a></li>
+          <li><a href="#" class="fa fa-comment-o"><span>3</span></a></li>
+        </ul>
+      </div>
+      <div class="data">
+        <div class="content">
+          <span class="author">Queen of Himachal Pradesh</span>
+          <h1 class="title"><a href="#">Manali 3 Nights / 4 Days</a></h1>
+          <p class="text">Referred to as the Queen of Himachal Pradesh, Manali is an ancient town that is located at an altitude of nearly 2050 meters in Kullu district.</p>
+          <a href="#" class="button">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--card-->
+
+<!--footer-->
+
+
+<footer class="new_footer_area bg_color" >
+            <div class="new_footer_top" id="contactus">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInLeft;">
+                                <h3 class="f-title f_600 t_color f_size_18">Get in Touch</h3>
+                                <p>Don’t miss any updates of our new tours and trips.</p>
+                                <form action="#" class="f_subscribe_two mailchimp" method="post" novalidate="true" _lpchecked="1">
+                                    <input type="text" name="EMAIL" class="form-control memail" placeholder="Email">
+                                    <button class="btn btn_get btn_get_two" type="submit">Subscribe</button>
+                                    <p class="mchimp-errmessage" style="display: none;"></p>
+                                    <p class="mchimp-sucmessage" style="display: none;"></p>
+                                </form>
+                            </div>
+                        </div>
+                        <!--<div class="col-lg-3 col-md-6">
+                            <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
+                                <h3 class="f-title f_600 t_color f_size_18">Download</h3>
+                                <ul class="list-unstyled f_list">
+                                    <li><a href="#">Company</a></li>
+                                    <li><a href="#">Android App</a></li>
+                                    <li><a href="#">ios App</a></li>
+                                    <li><a href="#">Desktop</a></li>
+                                    <li><a href="#">Projects</a></li>
+                                    <li><a href="#">My tasks</a></li>
+                                </ul>
+                            </div>
+                        </div>-->
+                        <!--<div class="col-lg-3 col-md-6">
+                            <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
+                                <h3 class="f-title f_600 t_color f_size_18">Help</h3>
+                                <ul class="list-unstyled f_list">
+                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="#">Term &amp; conditions</a></li>
+                                    <li><a href="#">Reporting</a></li>
+                                    <li><a href="#">Documentation</a></li>
+                                    <li><a href="#">Support Policy</a></li>
+                                    <li><a href="#">Privacy</a></li>
+                                </ul>
+                            </div>
+                        </div>-->
+                        <div class="col-lg-3 col-md-6">
+                            <div  style="float: right" class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
+                                <h3 class="f-title f_600 t_color f_size_18">Team Solutions</h3>
+                                <div class="f_social_icon">
+                                    <a href="#" class="fab fa-facebook"></a>
+                                    <a href="#" class="fab fa-twitter"></a>
+                                    <a href="#" class="fab fa-linkedin"></a>
+                                    <!--<a href="#" class="fab fa-pinterest"></a>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer_bg">
+                    <div class="footer_bg_one"></div>
+                    <div class="footer_bg_two"></div>
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-sm-7">
+                            <p class="mb-0 f_400">© Wayzook 2019 All rights reserved.</p>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </footer>
+<!--footer-->
+<!--</div>-->
+<!-- /#page-content-wrapper -->
+
+<!--</div>-->
+<!-- /#wrapper -->
+  </div>
