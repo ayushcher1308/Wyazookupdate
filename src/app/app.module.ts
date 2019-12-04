@@ -7,10 +7,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BookingHomeComponent } from './booking-home/booking-home.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 const appRoutes: Routes = [
   { path: 'landing', component: LandingPageComponent },
   { path: 'booking', component: BookingHomeComponent },
+  { path: 'aboutUs', component: AboutUsComponent },
   { path: '',
     redirectTo: 'landing',
     pathMatch: 'full'
@@ -22,7 +24,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     BookingHomeComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    AboutUsComponent
   ],
   imports: [
     RouterModule.forRoot(
