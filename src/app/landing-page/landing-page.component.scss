@@ -6,6 +6,12 @@ body
    font-family: 'Roboto Slab';
 }
 
+.navbar-nav>.active>a
+{
+    background-color: transparent;
+    border-bottom: 5px solid;
+}
+
 #comppage
 {
   display: none;

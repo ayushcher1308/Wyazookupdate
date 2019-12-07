@@ -5,13 +5,12 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { BookingHomeComponent } from './booking-home/booking-home.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { DomesticComponent } from './tourPackages/domestic/domestic.component';
 
 const appRoutes: Routes = [
   { path: 'landing', component: LandingPageComponent },
-  { path: 'booking', component: BookingHomeComponent },
   { path: 'aboutUs', component: AboutUsComponent },
   { path: '',
     redirectTo: 'landing',
@@ -23,9 +22,9 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    BookingHomeComponent,
     LandingPageComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    DomesticComponent
   ],
   imports: [
     RouterModule.forRoot(

@@ -17,6 +17,13 @@
   z-index: 10; /* If you delete this line, your menu link won't be clicked because it is behind the background. Applying this code bring the menu in front of the background */
 }
 
+.navbar-nav>.active>a
+{
+    background-color: transparent;
+    border-bottom: 5px solid;
+    /*border-radius: 5  px;*/
+}
+
 .navbar-default .navbar-brand {
   font-family: Verdana;
   color: #ffffff;
@@ -576,7 +583,7 @@ a:hover, a:focus, .btn:hover, .btn:focus, button:hover, button:focus {
 
 
 
-.new_footer_top .f_widget.about-widget .f_list li a:hover {
+.new_footer_top .f_widget.about-widget .f_list li:hover {
   color: #5e2ced;
 }
 .new_footer_top .f_widget.about-widget .f_list li {
@@ -660,8 +667,9 @@ color:white;
 h1, h2, h3, h4, h5, h6 {
   color: #4b505e;
 }
-.new_footer_top .f_widget.about-widget .f_list li a {
+.new_footer_top .f_widget.about-widget .f_list li {
   color: #6a7695;
+  cursor: pointer;
 }
 
 

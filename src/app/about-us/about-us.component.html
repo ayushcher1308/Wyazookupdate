@@ -10,14 +10,22 @@
         </button>
         <a class="navbar-brand" href="#"><a class="navbar-brand" href="#"><img class="logoimg" src="../assets/wayzooklogo.png"/></a></a>
       </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
+       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li><a [routerLink]="['/landing']">Home</a></li>
-          <li><a [routerLink]="['/aboutUs']">Why Us?</a></li>
-          <li><a href="#">Tours</a></li>
-          <li><a href="#">Book A Tour</a></li>
-          <li><a href="#">Groups</a></li>
-          <li><a href="#">Contact</a></li>
+          <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tours Packages
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Domestic</a></li>
+          <li><a href="#">International</a></li>
+        </ul>
+      </li>
+          <!--<li><a [routerLink]="['/aboutUs']">Why Us?</a></li>-->
+          <li><a href="#">Book Flights</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li class="active"><a [routerLink]="['/aboutUs']">About Us</a></li>
+          <!--<li><a href="#">Contact</a></li>-->
         </ul>
       </div>
     </div>
@@ -163,13 +171,13 @@
                   <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
                       <h3 class="f-title f_600 t_color f_size_18">Tours We Offer</h3>
                       <ul class="list-unstyled f_list">
-                          <li><a href="#">Honeymoon Tours</a></li>
-                          <li><a href="#">Educational Tours</a></li>
-                          <li><a href="#">Family Tours</a></li>
-                          <li><a href="#">Official Tours</a></li>
-                          <li><a href="#">Pilgrimage Tours</a></li>
-                          <li><a href="#">International Tours</a></li>
-                          <li><a href="#">Adventure Tours</a></li>
+                          <li>Honeymoon Tours</li>
+                          <li>Educational Tours</li>
+                          <li>Family Tours</li>
+                          <li>Official Tours</li>
+                          <li>Pilgrimage Tours</li>
+                          <li>International Tours</li>
+                          <li>Adventure Tours</li>
                       </ul>
                   </div>
               </div>
