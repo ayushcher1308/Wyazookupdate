@@ -1683,7 +1683,14 @@ blockquote::after {
   .cb-slideshow li div h3 { font-size: 100px }
 }
 @media screen and (max-width: 600px) { 
-  .cb-slideshow li div h3 { font-size: 50px }
+  .cb-slideshow li div h3 {    line-height: 10px;
+    font-size: 22px; }
+
+  .navbar-default
+  {
+    background-color: #1c2d4f;
+    border:none;
+  }  
 }
 
 .box
@@ -1782,32 +1789,32 @@ blockquote::after {
 }
 
 .accordion ul li:nth-child(1) { 
-  background-image: url("http://dev.fjwestcott.com/media/wysiwyg/home/home_ind_studio_portrait_photography_bob_harrington.jpg"); 
+  background-image: url("../../assets/manalisolang.jpg"); 
   background-position: 50% 30%;
 }
 
 .accordion ul li:nth-child(2) { 
-  background-image: url("http://dev.fjwestcott.com/media/wysiwyg/home/home_ind_cinema_flex_whale_wars_gavin_garrison.jpg"); 
+  background-image: url("../../assets/2.jpg"); 
  background-position: 70% 0%;
 }
 
 .accordion ul li:nth-child(3) { 
-  background-image: url("http://dev.fjwestcott.com/media/wysiwyg/home/home_ind_studio_portrait_photography_bob_harrington_bts.jpg"); 
+  background-image: url("../../assets/3.jpg"); 
 background-position: 50% 50%;
 }
 
 .accordion ul li:nth-child(4) { 
-  background-image: url("http://dev.fjwestcott.com/media/wysiwyg/home/home_ind_travel_rapidbox.jpg"); 
+  background-image: url("../../assets/4.jpg"); 
   background-position: 30% 40%;
 }
 
 .accordion ul li:nth-child(5) { 
-  background-image: url("http://dev.fjwestcott.com/media/wysiwyg/home/home_ind_enthusiast_portrait_photography_little_studio_basics_lights.jpg"); 
+  background-image: url("../../assets/5.jpg"); 
   background-position: 60% 64%;
 }
 
 .accordion ul li:nth-child(6) { 
-  background-image: url("http://dev.fjwestcott.com/media/wysiwyg/home/home_ind_flex_enthusiast_portrait_photography.jpg"); 
+  background-image: url("../../assets/6.jpg"); 
   background-position: 70% 25%;
 }
 
@@ -2211,6 +2218,7 @@ section.contact {
 section.contact h2 {
   margin-top: 0;
   margin-bottom: 25px;
+  color: white;
 }
 
 section.contact h2 i {
@@ -2255,6 +2263,16 @@ section.contact ul.list-social li.social-google-plus a:hover {
   background-color: #d73925;
 }
 
+.blogtext
+{
+      font-weight: 600;
+    font-size: 20px;
+    float: right;
+    text-align: justify;
+    color: white;
+    line-height: 35px;
+}
+
 footer {
   padding: 25px 0;
   text-align: center;
@@ -2280,9 +2298,14 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
   text-decoration: none;
 }
 
+.started:hover
+{
+  background-color: darkblue;
+}
+
 .bg-primary {
   background: #fdcc52;
-  background: linear-gradient(#fdcc52, #fdc539);
+  background: #1c2d4f;
 }
 
 .text-primary {
