@@ -8,10 +8,13 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { DomesticComponent } from './tourPackages/domestic/domestic.component';
+import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
   { path: 'landing', component: LandingPageComponent },
   { path: 'aboutUs', component: AboutUsComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'domesticTour', component: DomesticComponent },
   { path: '',
     redirectTo: 'landing',
     pathMatch: 'full'
@@ -24,7 +27,8 @@ const appRoutes: Routes = [
     AppComponent,
     LandingPageComponent,
     AboutUsComponent,
-    DomesticComponent
+    DomesticComponent,
+    HomeComponent
   ],
   imports: [
     RouterModule.forRoot(
