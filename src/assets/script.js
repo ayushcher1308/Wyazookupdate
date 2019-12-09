@@ -8,9 +8,9 @@ $( document ).ready(function() {
 $(window).scroll(function(){
     $("#myCarousel").css("opacity", 1 - $(window).scrollTop() / 1000);
   });
-window.onscroll = function(){
-   scrollFunction()
-}
+// window.onscroll = function(){
+//    scrollFunction()
+// }
 function scrollFunction(){
    var sn = document.getElementById("sticky_nav");
       if(document.body.scrollTop > 100 || document.documentElement.scrollTop > 100){
