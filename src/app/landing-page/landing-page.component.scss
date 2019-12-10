@@ -1701,7 +1701,24 @@ blockquote::after {
   .cb-slideshow li div h3 { font-size: 100px }
 }
 @media screen and (max-width: 600px) { 
-  .cb-slideshow li div h3 {    line-height: 10px;
+
+  .cb-slideshow li div {
+    z-index: 1000;
+    position: absolute;
+    top: 160px;
+    left: 10%;
+    width: 80%;
+    text-align: center;
+    opacity: 0;
+    -webkit-animation: titleAnimation 36s linear infinite 0s;
+    -moz-animation: titleAnimation 36s linear infinite 0s;
+    -o-animation: titleAnimation 36s linear infinite 0s;
+    -ms-animation: titleAnimation 36s linear infinite 0s;
+    animation: titleAnimation 36s linear infinite 0s;
+}
+
+
+  .cb-slideshow li div h3 {    line-height: 30px;
     font-size: 22px; }
 
   .navbar-default
