@@ -1386,8 +1386,8 @@ blockquote::after {
     z-index: 1000;
     position: absolute;
     top: 160px;
-    left: 0px;
-    width: 100%;
+    left: 35%;
+    width: 30%;
     text-align: center;
     opacity: 0;
     -webkit-animation: titleAnimation 36s linear infinite 0s;
@@ -1398,11 +1398,24 @@ blockquote::after {
 }
 .cb-slideshow li div h3 {
     font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
-    font-size: 60px;
+    background-color: transparent;
+    font-size: 40px;
     font-weight: bold;
-    padding: 0 10px;
+    padding: 10px 10px;
     line-height: 80px;
     color: white;
+    border: 2px solid;
+    border-radius: 10px ;
+}
+
+.cb-slideshow li div h4 {
+    font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    padding: 5px 10px;
+    line-height: 80px;
+    color: white;
+    text-align: left;
 }
 .cb-slideshow li:nth-child(1) span { background-image: url(../../assets/2.jpg) }
 .cb-slideshow li:nth-child(2) span {
@@ -1794,7 +1807,7 @@ blockquote::after {
 }
 
 .accordion ul li:nth-child(1) { 
-  background-image: url("../../assets/manalisolang.jpg"); 
+  background-image: url("../../assets/manalisolang.jpg");  
   background-position: 50% 30%;
 }
 
@@ -2478,3 +2491,6 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
 .cardadv{
   background-color: cadetblue;
 }
+
+
+
