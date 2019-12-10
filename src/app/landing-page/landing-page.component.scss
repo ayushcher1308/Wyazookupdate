@@ -1402,7 +1402,7 @@ blockquote::after {
     font-size: 40px;
     font-weight: bold;
     padding: 10px 10px;
-    line-height: 80px;
+    line-height: 55px;
     color: white;
     border: 2px solid;
     border-radius: 10px ;
@@ -1698,7 +1698,7 @@ blockquote::after {
   opacity: 1;
 }
 @media screen and (max-width: 1140px) { 
-  .cb-slideshow li div h3 { font-size: 100px }
+  .cb-slideshow li div h3 { font-size: 30px }
 }
 @media screen and (max-width: 600px) { 
 
