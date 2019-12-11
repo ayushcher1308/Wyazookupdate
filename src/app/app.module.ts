@@ -11,12 +11,12 @@ import { DomesticComponent } from './tourPackages/domestic/domestic.component';
 import { HomeComponent } from './home/home.component';
 
 const appRoutes: Routes = [
-  { path: 'landing', component: LandingPageComponent },
+  { path: 'wayzook', component: LandingPageComponent },
   { path: 'aboutUs', component: AboutUsComponent },
   { path: 'home', component: HomeComponent },
   { path: 'domesticTour', component: DomesticComponent },
   { path: '',
-    redirectTo: 'landing',
+    redirectTo: 'wayzook',
     pathMatch: 'full'
   },
 
