@@ -15,6 +15,9 @@ export class LandingPageComponent implements OnInit {
   price = 1000;
 
   ngOnInit() {
+     var height = window.innerHeight+20;
+    if(document.getElementById("myCarousel")){
+    document.getElementById("myCarousel").style.height = height+'px';}
     this.people = 1;
     this.loader();
     // setTimeout(()=>this.router.navigate(['/booking']),2000);

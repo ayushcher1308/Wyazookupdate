@@ -9,6 +9,42 @@ export class DomesticComponent implements OnInit {
 
   constructor() { }
 
+  countryName = [
+    {
+      name:"Spain",
+      price:100000,
+      tour:"2 Days/ 1 Night"
+    },
+     {
+      name:"Australia",
+      price:100000,
+      tour:"2 Days/ 1 Night",
+      offer:"20% Off"
+    },
+     {
+      name:"Manali",
+      price:100000,
+      tour:"2 Days/ 1 Night"
+    },
+     {
+      name:"New York",
+      price:100000,
+      tour:"2 Days/ 1 Night"
+    },
+     {
+      name:"China",
+      price:100000,
+      tour:"2 Days/ 1 Night",
+      offer:"10% Off"
+    },
+     {
+      name:"Kerela",
+      price:100000,
+      tour:"2 Days/ 1 Night"
+    }
+
+  ];
+
   ngOnInit() {
   }
 

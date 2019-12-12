@@ -1,8 +1,9 @@
 console.log("scriptworks");
 // heightPage();
 $( document ).ready(function() {
-    var height = $(window).height()+20;
-    document.getElementById("myCarousel").style.height = height+'px';
+    // var height = $(window).height()+20;
+    // if(document.getElementById("myCarousel")){
+    // document.getElementById("myCarousel").style.height = height+'px';}
 });
 
 $(window).scroll(function(){
