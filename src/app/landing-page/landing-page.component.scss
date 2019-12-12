@@ -363,43 +363,6 @@ p{padding:10px}
 /**
  * Change animation duration
  */
-.animated {
-  -webkit-animation-duration: 1.5s;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fadeInRight {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(100px, 0, 0);
-    transform: translate3d(100px, 0, 0);
-  }
-
-  to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    -webkit-transform: translate3d(100px, 0, 0);
-    transform: translate3d(100px, 0, 0);
-  }
-
-  to {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
-}
-
-.fadeInRight {
-  -webkit-animation-name: fadeInRight;
-  animation-name: fadeInRight;
-}
 
 
 .carousel
@@ -520,205 +483,6 @@ body {
     background: #fbfbfd;
 }
 
-.new_footer_area {
-    background: #fbfbfd;
-}
-
-
-.new_footer_top {
-       padding: 0px 0px 215px;
-    position: relative;
-    overflow-x: hidden;
-}
-.new_footer_area .footer_bottom {
-    padding-top: 5px;
-    padding-bottom: 50px;
-}
-.footer_bottom {
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 20px;
-    color: #7f88a6;
-    padding: 27px 0px;
-}
-.new_footer_top .company_widget p {
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 28px;
-    color: #6a7695;
-    margin-bottom: 20px;
-}
-.new_footer_top .company_widget .f_subscribe_two .btn_get {
-    border-width: 1px;
-    margin-top: 20px;
-}
-.btn_get_two:hover {
-    background: transparent;
-    color: #5e2ced;
-}
-.btn_get:hover {
-    color: #fff;
-    background: #6754e2;
-    border-color: #6754e2;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-}
-a:hover, a:focus, .btn:hover, .btn:focus, button:hover, button:focus {
-    text-decoration: none;
-    outline: none;
-}
-
-
-
-.new_footer_top .f_widget.about-widget .f_list li a:hover {
-    color: #5e2ced;
-}
-.new_footer_top .f_widget.about-widget .f_list li {
-    margin-bottom: 11px;
-}
-.f_widget.about-widget .f_list li:last-child {
-    margin-bottom: 0px;
-}
-.f_widget.about-widget .f_list li {
-    margin-bottom: 15px;
-}
-.f_widget.about-widget .f_list {
-    margin-bottom: 0px;
-}
-.new_footer_top .f_social_icon a {
-    width: 44px;
-    height: 44px;
-    line-height: 43px;
-    background: transparent;
-    border: 1px solid #e2e2eb;
-    font-size: 24px;
-}
-.f_social_icon a {
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    font-size: 14px;
-    line-height: 45px;
-    color: #858da8;
-    display: inline-block;
-    background: #ebeef5;
-    text-align: center;
-    -webkit-transition: all 0.2s linear;
-    -o-transition: all 0.2s linear;
-    transition: all 0.2s linear;
-}
-.ti-facebook:before {
-    content: "\e741";
-}
-.ti-twitter-alt:before {
-    content: "\e74b";
-}
-.ti-vimeo-alt:before {
-    content: "\e74a";
-}
-.ti-pinterest:before {
-    content: "\e731";
-}
-
-.btn_get_two {
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    background: #5e2ced;
-    border-color: #5e2ced;
-    color: #fff;
-}
-
-.btn_get_two:hover {
-    background: transparent;
-    color: #5e2ced;
-}
-
-.new_footer_top .f_social_icon a:hover {
-    background: #5e2ced;
-    border-color: #5e2ced;
-  color:white;
-}
-.new_footer_top .f_social_icon a + a {
-    margin-left: 4px;
-}
-.new_footer_top .f-title {
-    margin-bottom: 30px;
-    color: #263b5e;
-}
-.f_600 {
-    font-weight: 600;
-}
-.f_size_18 {
-    font-size: 18px;
-}
-h1, h2, h3, h4, h5, h6 {
-    color: #4b505e;
-}
-.new_footer_top .f_widget.about-widget .f_list li a {
-    color: #6a7695;
-}
-
-
-.new_footer_top .footer_bg {
-    position: absolute;
-    bottom: 0;
-    background: url("http://droitthemes.com/html/saasland/img/seo/footer_bg.png") no-repeat scroll center 0;
-    width: 100%;
-    height: 266px;
-}
-
-.new_footer_top .footer_bg .footer_bg_one {
-    background: url("https://1.bp.blogspot.com/-mvKUJFGEc-k/XclCOUSvCnI/AAAAAAAAUAE/jnBSf6Fe5_8tjjlKrunLBXwceSNvPcp3wCLcBGAsYHQ/s1600/volks.gif") no-repeat center center;
-    width: 330px;
-    height: 105px;
-  background-size:100%;
-    position: absolute;
-    bottom: 0;
-    left: 30%;
-    -webkit-animation: myfirst 22s linear infinite;
-    animation: myfirst 22s linear infinite;
-}
-
-.new_footer_top .footer_bg .footer_bg_two {
-    background: url("https://1.bp.blogspot.com/-hjgfxUW1o1g/Xck--XOdlxI/AAAAAAAAT_4/JWYFJl83usgRFMvRfoKkSDGd--_Sv04UQCLcBGAsYHQ/s1600/cyclist.gif") no-repeat center center;
-    width: 88px;
-    height: 100px;
-  background-size:100%;
-    bottom: 0;
-    left: 38%;
-    position: absolute;
-    -webkit-animation: myfirst 30s linear infinite;
-    animation: myfirst 30s linear infinite;
-}
-
-
-
-@-moz-keyframes myfirst {
-  0% {
-    left: -25%;
-  }
-  100% {
-    left: 100%;
-  }
-}
-
-@-webkit-keyframes myfirst {
-  0% {
-    left: -25%;
-  }
-  100% {
-    left: 100%;
-  }
-}
-
-@keyframes myfirst {
-  0% {
-    left: -25%;
-  }
-  100% {
-    left: 100%;
-  }
-}
 
 /*************footer End*****************/
 
@@ -1417,9 +1181,11 @@ blockquote::after {
     color: white;
     text-align: left;
 }
-.cb-slideshow li:nth-child(1) span { background-image: url(../../assets/2.jpg) }
+.cb-slideshow li:nth-child(1) span {
+  //  background-image: url(../../assets/2.jpg) 
+   }
 .cb-slideshow li:nth-child(2) span {
-    background-image: url(../../assets/manalisolang.jpg);
+    // background-image: url(../../assets/manalisolang.jpg);
     -webkit-animation-delay: 6s;
     -moz-animation-delay: 6s;
     -o-animation-delay: 6s;
@@ -1427,7 +1193,7 @@ blockquote::after {
     animation-delay: 6s;
 }
 .cb-slideshow li:nth-child(3) span {
-    background-image: url(../../assets/3.jpg);
+    // background-image: url(../../assets/3.jpg);
     -webkit-animation-delay: 12s;
     -moz-animation-delay: 12s;
     -o-animation-delay: 12s;
@@ -1435,7 +1201,7 @@ blockquote::after {
     animation-delay: 12s;
 }
 .cb-slideshow li:nth-child(4) span {
-    background-image: url(../../assets/4.jpg);
+    // background-image: url(../../assets/4.jpg);
     -webkit-animation-delay: 18s;
     -moz-animation-delay: 18s;
     -o-animation-delay: 18s;
@@ -1443,7 +1209,7 @@ blockquote::after {
     animation-delay: 18s;
 }
 .cb-slideshow li:nth-child(5) span {
-    background-image: url(../../assets/5.jpg);
+    // background-image: url(../../assets/5.jpg);
     -webkit-animation-delay: 24s;
     -moz-animation-delay: 24s;
     -o-animation-delay: 24s;
@@ -1451,7 +1217,7 @@ blockquote::after {
     animation-delay: 24s;
 }
 .cb-slideshow li:nth-child(6) span {
-    background-image: url(../../assets/6.jpg);
+    // background-image: url(../../assets/6.jpg);
     -webkit-animation-delay: 30s;
     -moz-animation-delay: 30s;
     -o-animation-delay: 30s;
