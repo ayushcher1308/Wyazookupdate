@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-domestic',
   templateUrl: './domestic.component.html',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class DomesticComponent implements OnInit {
 
   constructor() { }
+
+
 
   countryName = [
     {
@@ -29,13 +32,13 @@ export class DomesticComponent implements OnInit {
      {
       name:"New York",
       price:100000,
-      tour:"2 Days/ 1 Night"
+      tour:"2 Days/ 1 Night",
+       offer:"10% Off"
     },
      {
       name:"China",
       price:100000,
-      tour:"2 Days/ 1 Night",
-      offer:"10% Off"
+      tour:"2 Days/ 1 Night"
     },
      {
       name:"Kerela",
@@ -46,6 +49,7 @@ export class DomesticComponent implements OnInit {
   ];
 
   ngOnInit() {
+    
   }
 
 }

@@ -1,5 +1,8 @@
 
 
+body{
+  background-color: grey;
+}
 
 /*✂------------ OFFERS-NEW PODS ¸.·´¯`·.´¯`·.¸¸.·´¯`·.¸><(((º>*/
 
@@ -513,3 +516,30 @@ figcaption > i{
 .enquiry-form .form-control { margin-bottom: 0px; }
 
 
+.holidays
+{
+      -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 3px 30px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 3px 30px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 30px 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+       padding: 20px;
+    margin-top: 20px;
+    // margin: 10px 80px;
+}
+
+section{
+  // background-color: #f2f2f2;
+}
+
+
+@media (max-width: 768px)
+{
+   .holidays{
+     padding: 0px;
+    // margin-top: 20px;
+    margin: 0px;
+   }
+}

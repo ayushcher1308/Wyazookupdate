@@ -10,6 +10,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { DomesticComponent } from './tourPackages/domestic/domestic.component';
 import { HomeComponent } from './home/home.component';
 
+
 const appRoutes: Routes = [
   { path: 'wayzook', component: LandingPageComponent },
   { path: 'aboutUs', component: AboutUsComponent },

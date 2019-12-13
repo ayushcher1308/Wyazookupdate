@@ -20,14 +20,14 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tours Packages
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Domestic</a></li>
+          <li ><a href="#">Domestic</a></li>
           <li><a href="#">International</a></li>
         </ul>
       </li>
           <!--<li><a [routerLink]="['/aboutUs']">Why Us?</a></li>-->
           <li><a href="#">Book Flights</a></li>
           <li><a href="#">Contact Us</a></li>
-          <li class="active"><a [routerLink]="['/aboutUs']">About Us</a></li>
+          <li><a [routerLink]="['/aboutUs']">About Us</a></li>
           <!--<li><a href="#">Contact</a></li>-->
         </ul>
       </div>
@@ -68,7 +68,7 @@
                                     <div class="form-group">
                                         <label class="control-label sr-only" for="datepicker"></label>
                                         <div class="input-group">
-                                            <input id="datepicker" name="datepicker" type="text" placeholder="Date" class="form-control" required>
+                                            <input id="datepicker" name="datepicker" type="date" placeholder="Date" class="form-control" required>
                                             <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                         </div>
                                     </div>
@@ -107,8 +107,8 @@
  
 
 <section class="content whitebg" style="margin-top: 20px">
-  <div  class="container" style="padding-top:0" >
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 pod" url="#" number="1" *ngFor="let data of countryName">
+  <div  class="container holidays" style="padding-top:0" >
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 pod" style="    margin-top: 20px" url="#" number="1" *ngFor="let data of countryName">
       <div class="hover-offer ehover1"><img class="img-responsive" src="https://www.edreams.es/content/img/OF/WebMasterPages/merch/img/672sized/672x584_barcelona-min.jpg" alt="Barcelona" />
         <div class="offer-content">
           <div class="ribbon orange" *ngIf="data.offer">{{data.offer}}</div>
