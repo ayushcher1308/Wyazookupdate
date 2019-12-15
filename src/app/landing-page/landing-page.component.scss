@@ -776,6 +776,19 @@ h1 {
 }
 
 @media only screen and (max-width: 600px) {
+
+ 
+
+// .card-cb
+// {
+//   display:none;
+// }
+
+// .intro
+// {
+//   display: block;
+// }
+
   .card {
     width: 98%;
     margin-bottom: 5px;
@@ -866,6 +879,8 @@ h1 {
   margin-top: 20px;
   margin-bottom: 20px;
   font-weight: 700;
+  
+  
 }
 
 .container-fluid.main{
@@ -1146,7 +1161,7 @@ blockquote::after {
     -ms-animation: imageAnimation 36s linear infinite 0s;
     animation: imageAnimation 36s linear infinite 0s;
 }
-.cb-slideshow li div {
+.cb-slideshow li .cb-list {
     z-index: 1000;
     position: absolute;
     top: 160px;
@@ -1160,19 +1175,24 @@ blockquote::after {
     -ms-animation: titleAnimation 36s linear infinite 0s;
     animation: titleAnimation 36s linear infinite 0s;
 }
-.cb-slideshow li div h3 {
+.cb-slideshow li .cb-list h3 {
     font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
     background-color: transparent;
-    font-size: 35px;
+    font-size: 25px;
     font-weight: bold;
     padding: 10px 10px;
     line-height: 55px;
     color: white;
-    border: 2px solid;
-    border-radius: 10px ;
+    // border: 2px solid;
+    // border-radius: 10px ;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    -webkit-transition: .25s box-shadow;
+    transition: .25s box-shadow;
+    border:2px solid white;
+    border-radius: 5px;
 }
 
-.cb-slideshow li div h4 {
+.cb-slideshow li .cb-list h4 {
     font-family: 'BebasNeueRegular', 'Arial Narrow', Arial, sans-serif;
     font-size: 40px;
     font-weight: bold;
@@ -1224,35 +1244,35 @@ blockquote::after {
     -ms-animation-delay: 30s;
     animation-delay: 30s;
 }
-.cb-slideshow li:nth-child(2) div {
+.cb-slideshow li:nth-child(2) .cb-list {
     -webkit-animation-delay: 6s;
     -moz-animation-delay: 6s;
     -o-animation-delay: 6s;
     -ms-animation-delay: 6s;
     animation-delay: 6s;
 }
-.cb-slideshow li:nth-child(3) div {
+.cb-slideshow li:nth-child(3) .cb-list {
     -webkit-animation-delay: 12s;
     -moz-animation-delay: 12s;
     -o-animation-delay: 12s;
     -ms-animation-delay: 12s;
     animation-delay: 12s;
 }
-.cb-slideshow li:nth-child(4) div {
+.cb-slideshow li:nth-child(4) .cb-list {
     -webkit-animation-delay: 18s;
     -moz-animation-delay: 18s;
     -o-animation-delay: 18s;
     -ms-animation-delay: 18s;
     animation-delay: 18s;
 }
-.cb-slideshow li:nth-child(5) div {
+.cb-slideshow li:nth-child(5) .cb-list {
     -webkit-animation-delay: 24s;
     -moz-animation-delay: 24s;
     -o-animation-delay: 24s;
     -ms-animation-delay: 24s;
     animation-delay: 24s;
 }
-.cb-slideshow li:nth-child(6) div {
+.cb-slideshow li:nth-child(6) .cb-list {
     -webkit-animation-delay: 30s;
     -moz-animation-delay: 30s;
     -o-animation-delay: 30s;
@@ -1631,6 +1651,17 @@ background-position: 50% 50%;
   transform: translateX(0);
 }
  @media screen and (max-width: 680px) {
+
+  .cb-slideshow li .cb-list
+  {
+    left: 10%;
+    width: 80%;
+  }
+
+  .cb-slideshow li .cb-list h3
+  {
+    font-size:20px;
+  }
   
   body { margin: 0; }
   .accordion { height: auto; }
@@ -2501,4 +2532,55 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
   color: #878787;
 }
 
+.price-tag {
+  background: red;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.875rem;
+  height: 30px;
+  line-height: 30px;
+  margin-right: 1rem;
+  padding: 0 0.666rem;
+  position: relative;
+  text-align: center;
+  font-weight: bold;
+}
+.price-tag:after {
+  background: inherit;
+  border-radius: 4px;
+  display: block;
+  content: "";
+  height: 22px;
+  position: absolute;
+  right: -8px;
+  top: 4px;
+  -ms-transform: rotate(45deg); /* IE 9 */
+  -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+  transform: rotate(45deg);
+  width: 22px;
+  z-index: -1;
+}
+.price-tag:hover {
+  background: #07b;
+}
 
+.card {
+  padding-left:auto;
+  padding-right:auto;
+  min-height:220px;
+  margin-top:15px;
+ box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+ -webkit-transition: .25s box-shadow;
+ transition: .25s box-shadow;
+ border:2px solid white;
+ border-radius: 5px;
+}
+.card:focus, .card:hover {
+ box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+}
+.card-inverse .card-img-overlay {
+ background-color: rgba(51, 51, 51, 0.85);
+ border-color: rgba(51, 51, 51, 0.85);
+}

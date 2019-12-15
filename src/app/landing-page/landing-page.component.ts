@@ -1,6 +1,8 @@
  
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToursService } from '../service/tours.service';
+import { Response } from '@angular/http';
 
 @Component({
   selector: 'app-landing-page',
@@ -9,19 +11,31 @@ import { Router } from '@angular/router';
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private tours:ToursService) { }
 
   people;
   price = 1000;
+  tour;
 
   ngOnInit() {
      var height = window.innerHeight+20;
     if(document.getElementById("myCarousel")){
     document.getElementById("myCarousel").style.height = height+'px';}
     this.people = 1;
+    this.getDestination();
     this.loader();
     // setTimeout(()=>this.router.navigate(['/booking']),2000);
     // this.router.navigate(['/booking']);
+  }
+
+  getDestination()
+  {
+      this.tours.getTours('wayzook/tours').subscribe(Response=>
+        {
+            console.log(Response);
+            this.tour = Response;
+        })
   }
 
   loader()
