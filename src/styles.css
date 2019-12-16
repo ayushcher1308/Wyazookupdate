@@ -3,3 +3,18 @@ body
 {
     font-family: Courier;
 }
+
+.navbar-nav>li>.dropdown-menu
+{
+background-color: transparent;
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    /* color: white; */
+    font-size: 24px;
+}
+
+.dropdown-menu>li>a
+{
+    color:white;
+}
