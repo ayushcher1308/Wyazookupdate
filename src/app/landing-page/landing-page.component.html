@@ -63,7 +63,7 @@
       </ul>
     </li>
     <!--<li><a [routerLink]="['/aboutUs']">Why Us?</a></li>-->
-    <li><a href="#">Book Flights</a></li>
+    <!-- <li><a href="#">Book Flights</a></li> -->
     <li><a href="#">Contact Us</a></li>
     <li><a [routerLink]="['/aboutUs']">About Us</a></li>
     <!--<li><a href="#">Contact</a></li>-->
@@ -93,7 +93,7 @@
 </video>
 <div class="carousel-caption">
   <ul class="cb-slideshow">
-    <li *ngFor="let data of tour"><span>Image 01</span>
+    <li *ngFor="let data of upcomingTrips"><span>Image 01</span>
       <div class="cb-list">
     
         <h3 class="intro"> {{data.name | titlecase}}<br/>Next Tour:{{data.startDate | date}}<br/>
@@ -211,7 +211,7 @@
 
 
 
-<section class="features" id="features">
+<!-- <section class="features" id="features">
   <div class="container">
     <div class="section-heading text-center">
       <h2>Unlimited Discount, Unlimited Fun</h2>
@@ -224,20 +224,17 @@
           <div class="device-mockup iphone6_plus portrait white">
             <div class="device">
               <div class="screen">
-                <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
                 <a href="#">
                   <div class="badges"><br>
                     <p>
                       <span class="firstLine">GET UP TO</span><br>
                       <span class="secondLine">40% OFF</span><br>
                       <span class="thirdLine">Instant Discount</span><br>
-                      <!--<span class="fourthLine">AS A POPULAR INVESTOR</span>-->
                     </p>
                   </div>
                 </a>
               </div>
               <div class="button">
-                <!-- You can hook the "home button" to some JavaScript events or just remove it -->
               </div>
             </div>
           </div>
@@ -250,14 +247,12 @@
               <div class="feature-item">
                 <i class="fa fa-calendar"></i>
                 <h3>Holiday Packages</h3>
-                <!--<p class="text-muted">Ready to use HTML/CSS device mockups, no Photoshop required!</p>-->
               </div>
             </div>
             <div class="col-lg-6">
               <div class="feature-item">
                 <i class="fa fa-plane"></i>
                 <h3>Air Ticket Bookings</h3>
-                <!--<p class="text-muted">Put an image, video, animation, or anything else in the screen!</p>-->
               </div>
             </div>
           </div>
@@ -266,14 +261,12 @@
               <div class="feature-item">
                 <i class="fa fa-hotel"></i>
                 <h3>Hotel Bookings</h3>
-                <!--<p class="text-muted">As always, this theme is free to download and use for any purpose!</p>-->
               </div>
             </div>
             <div class="col-lg-6">
               <div class="feature-item">
                 <i class="fa fa-cab"></i>
                 <h3>Rental Cars</h3>
-                <!--<p class="text-muted">Since this theme is MIT licensed, you can use it commercially!</p>-->
               </div>
             </div>
           </div>
@@ -281,10 +274,14 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
+<div class="section-heading text-center">
+  <h2>Unlimited Discount, Unlimited Fun</h2>
+  <p class="text-muted">Check out what with our premium trips!</p>
+  <hr>
+</div>
+
 <div class="w3-container w3-margin-top">
-    <!--<h1 style="margin-bottom: 20px">Good Offers Right Now</h1>-->
-    <!--<h6>Up to <strong>50%</strong> discount.</h6>-->
   </div>
   <div class="w3-row-padding w3-text-white w3-large">
     <div class="w3-half w3-margin-bottom">

@@ -36,7 +36,10 @@ export class LandingPageComponent implements OnInit {
             this.tour = Response;
             for(var i=0;i<5;i++)
             {
+                if(this.tour[i])
                 this.upcomingTrips.push(this.tour[i]);
+                else
+                break;
             }
         })
   }
