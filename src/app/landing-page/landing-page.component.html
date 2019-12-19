@@ -148,16 +148,16 @@
 
 <div class="accordion">
   <ul>
-    <li>
+    <li *ngFor="let data of upcomingTrips">
       <div>
         <a href="#" class="sliderLink">
-          <h2>Studio Lighting</h2>
-          <p>Lighting<br> Light Modifiers<br> Light Controls<br> Backdrops
+          <h2 style="font-weight: bold;">{{data.name | titlecase}}</h2>
+          <p>Start Date: {{data.startDate | date}}<br> End Date: {{data.endDate | date}}<br><span *ngIf="data.destAbout"> About: {{data.destAbout | titlecase}}</span><br> Departure: {{data.departure}}
           </p>
         </a>
       </div>
     </li>
-    <li>
+    <!-- <li>
       <div>
         <a href="#" class="sliderLink">
           <h2>Filmmaking Gear</h2>
@@ -204,7 +204,7 @@
           </p>
         </a>
       </div>
-    </li>
+    </li> -->
   </ul>
 </div>
 

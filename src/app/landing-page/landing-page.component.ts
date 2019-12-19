@@ -17,6 +17,7 @@ export class LandingPageComponent implements OnInit {
   people;
   price = 1000;
   tour;
+  upcomingTrips = [];
 
   ngOnInit() {
      var height = window.innerHeight+20;
@@ -25,8 +26,6 @@ export class LandingPageComponent implements OnInit {
     this.people = 1;
     this.getDestination();
     this.loader();
-    // setTimeout(()=>this.router.navigate(['/booking']),2000);
-    // this.router.navigate(['/booking']);
   }
 
   getDestination()
@@ -35,6 +34,10 @@ export class LandingPageComponent implements OnInit {
         {
             console.log(Response);
             this.tour = Response;
+            for(var i=0;i<5;i++)
+            {
+                this.upcomingTrips.push(this.tour[i]);
+            }
         })
   }
 
@@ -64,20 +67,5 @@ export class LandingPageComponent implements OnInit {
 console.log("anii");
   }
 
-  decrement()
-  {
-    if(this.people > 1)
-    {
-      this.people = this.people - 1;
-    }
-  }
-
-  increment()
-  {
-    if(this.people < 8)
-    {
-      this.people = this.people + 1;
-    }
-  }
 
 }

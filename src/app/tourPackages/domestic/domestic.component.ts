@@ -51,5 +51,6 @@ export class DomesticComponent implements OnInit {
   ngOnInit() {
     
   }
+  
 
 }
