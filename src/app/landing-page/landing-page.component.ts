@@ -41,7 +41,9 @@ this.carouselBanner = {
   slide: 1,
   speed: 400,
   interval: 4000,
-  point: true,
+  point: {
+    visible: true
+  },
   load: 2,
   loop: true,
   custom: 'banner',
