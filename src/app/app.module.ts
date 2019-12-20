@@ -10,6 +10,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { DomesticComponent } from './tourPackages/domestic/domestic.component';
 import { HomeComponent } from './home/home.component';
+import { NgxCarouselModule } from 'ngx-carousel';
+import 'hammerjs';
 
 
 const appRoutes: Routes = [
@@ -40,7 +42,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

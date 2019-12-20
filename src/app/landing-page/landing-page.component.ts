@@ -2,7 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToursService } from '../service/tours.service';
-import { Response } from '@angular/http';
+// import { Response } from '@angular/http';
+import { NgxCarousel } from 'ngx-carousel';
 
 @Component({
   selector: 'app-landing-page',
@@ -10,6 +11,8 @@ import { Response } from '@angular/http';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
+  public carouselBannerItems: Array<any>;
+  public carouselBanner: NgxCarousel;
 
   constructor(private router: Router,
     private tours:ToursService) { }
@@ -25,7 +28,27 @@ export class LandingPageComponent implements OnInit {
     document.getElementById("myCarousel").style.height = height+'px';}
     this.people = 1;
     this.getDestination();
+    this.carouselBannerItems = [
+'https://www.tripsinegypt.com/wp-content/uploads/2019/07/Egypt-Deals-2020-Egypt-Holiday-Deals-Egypt-Tours-2020-Nile-Cruise-2020-Trips-In-Egypt-1.jpg',
+'https://www.tripsinegypt.com/wp-content/uploads/2019/07/Egypt-Deals-2020-Egypt-Holiday-Deals-Egypt-Tours-2020-Nile-Cruise-2020-Trips-In-Egypt-1.jpg',
+'https://www.tripsinegypt.com/wp-content/uploads/2019/07/Egypt-Deals-2020-Egypt-Holiday-Deals-Egypt-Tours-2020-Nile-Cruise-2020-Trips-In-Egypt-1.jpg',
+'https://www.tripsinegypt.com/wp-content/uploads/2019/07/Egypt-Deals-2020-Egypt-Holiday-Deals-Egypt-Tours-2020-Nile-Cruise-2020-Trips-In-Egypt-1.jpg',
+'https://www.tripsinegypt.com/wp-content/uploads/2019/07/Egypt-Deals-2020-Egypt-Holiday-Deals-Egypt-Tours-2020-Nile-Cruise-2020-Trips-In-Egypt-1.jpg',
+'https://www.tripsinegypt.com/wp-content/uploads/2019/07/Egypt-Deals-2020-Egypt-Holiday-Deals-Egypt-Tours-2020-Nile-Cruise-2020-Trips-In-Egypt-1.jpg',
+'https://www.tripsinegypt.com/wp-content/uploads/2019/07/Egypt-Deals-2020-Egypt-Holiday-Deals-Egypt-Tours-2020-Nile-Cruise-2020-Trips-In-Egypt-1.jpg'];
+this.carouselBanner = {
+  grid: {xs: 1, sm: 1, md: 1, lg: 1, all: 0},
+  slide: 1,
+  speed: 400,
+  interval: 4000,
+  point: true,
+  load: 2,
+  loop: true,
+  custom: 'banner',
+  touch: true
+}
     this.loader();
+
   }
 
   getDestination()
@@ -69,6 +92,23 @@ export class LandingPageComponent implements OnInit {
 }, 1500);
 console.log("anii");
   }
+
+  scrollToElement($element): void {
+    console.log($element);
+    $element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+  }
+
+  public carouselBannerLoad(evt: any) {
+ 
+    const len = this.carouselBannerItems.length
+    console.log("hii");
+      for (let i = 0; i < len; i++) {
+        this.carouselBannerItems.push(i);
+      }
+   
+ 
+  }
+
 
 
 }

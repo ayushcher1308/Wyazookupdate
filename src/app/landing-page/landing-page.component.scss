@@ -789,6 +789,11 @@ h1 {
 //   display: block;
 // }
 
+.offer-image
+{
+  height: 200px;
+}
+
   .card {
     width: 98%;
     margin-bottom: 5px;
@@ -2395,7 +2400,7 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
 .single-cta i {
   color: #ff5e14;
   font-size: 30px;
-  float: left;
+  margin:20px;
   margin-top: 8px;
 }
 .cta-text {
@@ -2595,3 +2600,35 @@ footer ul li a:hover, footer ul li a:focus, footer ul li a:active, footer ul li 
  background-color: rgba(51, 51, 51, 0.85);
  border-color: rgba(51, 51, 51, 0.85);
 }
+
+.bannerStyle h1 {
+  background-color: #ccc;
+  min-height: 300px;
+  text-align: center;
+  line-height: 300px;
+}
+.leftRs {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
+  border-radius: 999px;
+  left: 0;
+}
+
+.rightRs {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  height: 50px;
+  box-shadow: 1px 2px 10px -1px rgba(0, 0, 0, .3);
+  border-radius: 999px;
+  right: 0;
+}
+
+
