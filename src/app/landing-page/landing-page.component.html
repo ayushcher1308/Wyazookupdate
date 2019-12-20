@@ -96,7 +96,7 @@
     <li *ngFor="let data of upcomingTrips"><span>Image 01</span>
       <div class="cb-list">
     
-        <h3 class="intro"> {{data.name | titlecase}}<hr><br/>Next Tour:{{data.startDate | date}}<br/>
+        <h3 class="intro"> {{data.name | titlecase}}<br/>Next Tour:{{data.startDate | date}}<br/>
           {{price | currency: 'INR':true}}
         </h3> 
       </div>
