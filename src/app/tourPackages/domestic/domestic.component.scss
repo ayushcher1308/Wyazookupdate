@@ -1124,4 +1124,21 @@ overflow: hidden; }
 
 
 
+    .tourtab
+    {
+      color: black;
+      cursor: pointer;
+      display: block;
+      font-size: 1.1em;
+      font-weight: 300;
+      line-height: 1em;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    .selected
+    {
+      border-bottom: 5px solid #fd264f;
+    }
+
     

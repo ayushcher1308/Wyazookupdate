@@ -12,6 +12,7 @@ import { DomesticComponent } from './tourPackages/domestic/domestic.component';
 import { HomeComponent } from './home/home.component';
 import { NgxCarouselModule } from 'ngx-carousel';
 import {NgxPaginationModule} from 'ngx-pagination'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import 'hammerjs';
 
 
@@ -45,7 +46,8 @@ const appRoutes: Routes = [
     HttpModule,
     HttpClientModule,
     NgxCarouselModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
