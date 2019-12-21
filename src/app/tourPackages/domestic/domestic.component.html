@@ -17,7 +17,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a [routerLink]="['/wayzook']">Home</a></li>
           <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tours Packages
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="margin-top:-15px">Tours Packages
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li ><a href="#">Domestic</a></li>
@@ -68,21 +68,27 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-3 col-12">
-                                    <div class="form-group">
-                                        <label class="control-label sr-only" for="datepicker"></label>
-                                        <div class="input-group">
-                                            <input id="datepicker" name="datepicker" type="date" placeholder="Date" class="form-control" required>
-                                            <span class="input-group-addon" ><i class="fa fa-calendar"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
+                               
                                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-3 col-12">
                                     <div class="form-group">
                                         <label class="control-label sr-only" for="select"></label>
                                         <div class="select">
                                             <select id="select" name="select" class="form-control">
                                                 <option value="">Number of Peoples</option>
+                                                <option value="">6</option>
+                                                <option value="">10</option>
+                                                <option value="">25</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-3 col-12">
+                                    <div class="form-group">
+                                        <label class="control-label sr-only" for="select"></label>
+                                        <div class="select">
+                                            <select id="select" name="select" class="form-control">
+                                                <option value="">Number of Days</option>
                                                 <option value="">6</option>
                                                 <option value="">10</option>
                                                 <option value="">25</option>
@@ -102,7 +108,7 @@
         </div>
         <!-- /.enguiry-form -->
     <div class="col-xs-12 explore">
-      <a href="#"><button type="button" class="btn btn-lg explorebtn">Enquiry Now</button></a>
+      <a href="#"><button type="button" class="btn btn-lg explorebtn">Search Now</button></a>
     </div>
   </div>
   
@@ -126,7 +132,7 @@
           <i class="fa fa-plane"></i>
           <i class="fa fa-cab"></i>
           <i class="fa fa-cutlery"></i>
-            <h4>{{data.name}}</h4>
+            <h4 style="color: white">{{data.name}}</h4>
             <p class="detail">{{data.tour}}</p>
             <!--<p class="price-offer"><span>Price</span>{{data.price | currency: 'INR':true}}</p>-->
             <div class="price-tag">{{data.price | currency: 'INR':true}}</div>
@@ -167,16 +173,56 @@
     
 
 <hr>
-<div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <div  class="text-center">
-                    <button type="button" class="btn btn-lg btn-default" style="margin-right: 20px">Domestic</button>
-                    <button type="button" class="btn btn-lg">International</button>
-                </div>
+<div class="tabs">
+  <div class="tab-2">
+    <label for="tab2-1">Domestic Tours</label>
+    <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
+    <div>
+        <div class="wrapper" *ngFor="let data of totalTours">
+            <div class="product-img">
+              <img src="../../../assets/tour-3.jpg" height="420" width="327">
             </div>
-        </div>
+            <div class="product-info">
+              <div class="product-text">
+                <h1>{{data.name | titlecase}}</h1>
+                <h2>by studio and friends</h2>
+                <p>Harvest Vases are a reinterpretation of peeled fruits and vegetables as functional objects. The surfaces appear to be sliced and pulled aside, allowing room for growth. </p>
+              </div>
+              <div class="product-price-btn">
+                <p><span>78</span>$</p>
+                <button type="button">buy now</button>
+              </div>
+            </div>
+          </div>
+      <!-- <h4>Domestic Trips</h4> -->
+      <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas consequat id velit quis vestibulum. Nam id orci eu urna mollis porttitor. Nunc nisi ante, gravida at velit eu, aliquet sodales dui. Sed laoreet condimentum nisi a egestas.</p><p>Donec interdum ante ut enim consequat, quis varius nulla dapibus. Vivamus mollis fermentum augue a varius. Vestibulum in sapien at lectus gravida lobortis vulputate sed metus. Duis scelerisque justo et maximus efficitur. Donec eu eleifend quam. Curabitur aliquet commodo sapien eget vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum vel aliquet nunc, finibus posuere lorem. Suspendisse consectetur volutpat est ut ornare.</p> -->
     </div>
+  </div>
+  <div class="tab-2">
+    <label for="tab2-2">International Tours</label>
+    <input id="tab2-2" name="tabs-two" type="radio">
+    <div>
+        <div class="wrapper" *ngFor="let data of totalTours">
+            <div class="product-img">
+              <img src="../../../assets/tour-3.jpg" height="420" width="327">
+            </div>
+            <div class="product-info">
+              <div class="product-text">
+                <h1>{{data.name | titlecase}}</h1>
+                <h2>by studio and friends</h2>
+                <p>Harvest Vases are a reinterpretation of peeled fruits and vegetables as functional objects. The surfaces appear to be sliced and pulled aside, allowing room for growth. </p>
+              </div>
+              <div class="product-price-btn">
+                <p><span>78</span>$</p>
+                <button type="button">buy now</button>
+              </div>
+            </div>
+          </div>
+      <!-- <h4>Internztion</h4> -->
+      <!-- <p>Quisque sit amet turpis leo. Maecenas sed dolor mi. Pellentesque varius elit in neque ornare commodo ac non tellus. Mauris id iaculis quam. Donec eu felis quam. Morbi tristique lorem eget iaculis consectetur. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean at tellus eget risus tempus ultrices. Nam condimentum nisi enim, scelerisque faucibus lectus sodales at.</p> -->
+    </div>
+  </div>
+</div>
 <section class="cta">
   <div class="cta-content">
     <div class="col-lg-10" style="float:none; margin:0 auto;">

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxCarousel } from 'ngx-carousel';
+import { ToursService } from '../../service/tours.service';
 
 @Component({
   selector: 'app-domestic',
@@ -8,7 +9,7 @@ import { NgxCarousel } from 'ngx-carousel';
 })
 export class DomesticComponent implements OnInit {
 
-  constructor() { }
+  constructor(private tours:ToursService) { }
 
   public carouselTile: NgxCarousel;
 
@@ -48,6 +49,8 @@ export class DomesticComponent implements OnInit {
 
   ];
 
+  totalTours;
+
   ngOnInit() {
 
     this.carouselTile = {
@@ -62,6 +65,12 @@ export class DomesticComponent implements OnInit {
       touch: true,
       easing: 'ease'
     }
+
+    this.tours.getTours('wayzook/tours').subscribe(Response=>
+      {
+          this.totalTours = Response;
+      });
+
     
   }
   
