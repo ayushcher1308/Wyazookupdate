@@ -79,4 +79,6 @@ export class DomesticComponent implements OnInit {
     $element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
   }
 
+  
+
 }
