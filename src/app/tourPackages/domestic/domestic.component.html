@@ -186,7 +186,7 @@
 
 <div class="row">
   <div class="col-md-12" *ngIf="Domestic"  [@fadeInOut]>
-      <div class="wrapper" *ngFor="let data of totalTours | paginate: {id: 'pagination1', itemsPerPage: 2, currentPage: x }">
+      <div class="wrapper" *ngFor="let data of totalTours | paginate: {id: 'pagination1', itemsPerPage: 3, currentPage: x }">
           <div class="product-img">
             <img src="../../../assets/tour-3.jpg" height="420" width="327">
           </div>
@@ -206,7 +206,7 @@
         <pagination-controls id="pagination1" (pageChange)="x=$event" autoHide="true" style="text-align: center"></pagination-controls>
   </div>
   <div class="col-md-12" *ngIf="International"  [@fadeInOut]>
-      <div class="wrapper" *ngFor="let data of totalTours | paginate: { id: 'pagination2',itemsPerPage: 2, currentPage: r }">
+      <div class="wrapper" *ngFor="let data of totalTours | paginate: { id: 'pagination2',itemsPerPage: 3, currentPage: r }">
           <div class="product-img">
             <img src="../../../assets/tour-3.jpg" height="420" width="327">
           </div>
