@@ -86,6 +86,10 @@ export class DomesticComponent implements OnInit {
     this.tours.getTours('wayzook/tours').subscribe(Response=>
       {
           this.totalTours = Response;
+          for(var i=0;i<this.totalTours;i++)
+          {
+            
+          }
       });
 
     

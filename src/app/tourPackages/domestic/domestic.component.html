@@ -124,27 +124,26 @@
 
 <section class="content whitebg" style="margin-top: 20px">
   <div  class="container holidays" style="padding-top:0" >
-    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 pod" style="    margin-top: 20px" url="#" number="1" *ngFor="let data of countryName | paginate: {id: 'pagination3', itemsPerPage: 3, currentPage: p }">
+    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 pod" style="    margin-top: 20px" url="#" number="1" *ngFor="let data of totalTours | paginate: {id: 'pagination3', itemsPerPage: 3, currentPage: p }">
       <div class="hover-offer ehover1"><img class="img-responsive" src="https://www.edreams.es/content/img/OF/WebMasterPages/merch/img/672sized/672x584_barcelona-min.jpg" alt="Barcelona" />
         <div class="offer-content">
-          <div class="ribbon orange" *ngIf="data.offer">{{data.offer}}</div>
+          <div class="ribbon orange" *ngIf="data.discount">{{data.discount}}% OFF</div>
           <figcaption><i class="fa fa-hotel"></i>
           <i class="fa fa-plane"></i>
           <i class="fa fa-cab"></i>
           <i class="fa fa-cutlery"></i>
-            <h4 style="color: white">{{data.name}}</h4>
-            <p class="detail">{{data.tour}}</p>
+            <h4 style="color: white">{{data.name | titlecase}}</h4>
+            <p class="detail">Departure: {{data.departure | titlecase}}</p>
             <!--<p class="price-offer"><span>Price</span>{{data.price | currency: 'INR':true}}</p>-->
-            <div class="price-tag">{{data.price | currency: 'INR':true}}</div>
+            <div class="price-tag">{{data.cost | currency: 'INR':true}}</div>
             <div class="button2">Book Now</div>
           </figcaption>
         </div>
       </div>
       
     </div>
-    <pagination-controls id="pagination3" (pageChange)="p = $event" autoHide="true" style="text-align: center"></pagination-controls>
   </div>
- 
+  <pagination-controls id="pagination3" (pageChange)="p = $event" autoHide="true" style="text-align: center"></pagination-controls>
 </section>
 
 <!-- <ngx-carousel
