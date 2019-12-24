@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgxCarousel } from 'ngx-carousel';
 import { ToursService } from '../../service/tours.service';
 import { trigger, style, animate, transition } from '@angular/animations';
+import { Options, LabelType } from 'ng5-slider';
 
 @Component({
   selector: 'app-domestic',
@@ -26,42 +27,15 @@ export class DomesticComponent implements OnInit {
   public carouselTile: NgxCarousel;
   Domestic = false;
   International = false;
-
-  countryName = [
-    {
-      name:"Spain",
-      price:100000,
-      tour:"2 Days/ 1 Night"
-    },
-     {
-      name:"Australia",
-      price:100000,
-      tour:"2 Days/ 1 Night",
-      offer:"20% Off"
-    },
-     {
-      name:"Manali",
-      price:100000,
-      tour:"2 Days/ 1 Night"
-    },
-     {
-      name:"New York",
-      price:100000,
-      tour:"2 Days/ 1 Night",
-       offer:"10% Off"
-    },
-     {
-      name:"China",
-      price:100000,
-      tour:"2 Days/ 1 Night"
-    },
-     {
-      name:"Kerela",
-      price:100000,
-      tour:"2 Days/ 1 Night"
+  minValue: number = 100;
+  maxValue: number = 400;
+  options: Options = {
+    floor: 0,
+    ceil: 500,
+    translate: (value: number): string => {
+      return '₹' + value;
     }
-
-  ];
+  };
 
   totalTours;
 
@@ -86,11 +60,16 @@ export class DomesticComponent implements OnInit {
     this.tours.getTours('wayzook/tours').subscribe(Response=>
       {
           this.totalTours = Response;
-          for(var i=0;i<this.totalTours;i++)
+          for(var i=0;i<this.totalTours.length;i++)
           {
-            
+            let obj = this.totalTours[i].destImages;
+            // console.log(obj[Object.keys(obj)[0]]);
+            this.totalTours[i].imageLink = obj[Object.keys(obj)[0]].image;
           }
+          console.log(this.totalTours);
       });
+
+
 
     
   }

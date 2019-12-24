@@ -17,7 +17,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a [routerLink]="['/wayzook']">Home</a></li>
           <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="margin-top:-15px">Tours Packages
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tours Packages
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li ><a href="#">Domestic</a></li>
@@ -48,11 +48,11 @@
     <h1 class="title" style="text-transform: capitalize">Let us take to your dream destination</h1>
     <!-- <h3 class="subtitle">Dream </h3> -->
   </div>
-        <div class="bg-default enquiry-form ">
+        <!-- <div class="bg-default enquiry-form ">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-                        <!-- form -->
+                       
                         <form>
                             <div class="row">
                                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-3 col-12">
@@ -96,19 +96,17 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--<div class="col-xl-3 col-lg-12 col-md-6 col-sm-3 col-12">
-                                    <button type="submit" name="singlebutton" class="btn btn-primary btn-lg">Enquiry Now</button>
-                                </div>-->
+                               ]
                             </div>
                         </form>
-                        <!-- /.form -->
+                       
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- /.enguiry-form -->
     <div class="col-xs-12 explore">
-      <a href="#"><button type="button" class="btn btn-lg explorebtn">Search Now</button></a>
+      <a><button type="button" (click)="scrollToElement(tours)" class="btn btn-lg explorebtn">Explore Now</button></a>
     </div>
   </div>
   
@@ -118,11 +116,189 @@
 <div class="section-heading text-center">
     <h2>Best Offers</h2>
     <p class="text-muted">Check out our top rated tours!</p>
-    <hr>
   </div>
 
 
-<section class="content whitebg" style="margin-top: 20px">
+  <div class="colorlib-wrap" #tours>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="row">
+            <div class="wrap-division">
+              <div class="col-md-6 col-sm-6 animate-box" *ngFor="let data of totalTours | paginate: {id: 'pagination3', itemsPerPage: 6, currentPage: p }">
+                <div class="tour">
+                  <div class="ribbon orange" *ngIf="data.discount">{{data.discount}}% OFF</div>
+                  <a href="tour-place.html" class="tour-img" [style.background-image]="'url(' + data.imageLink + ')'">
+                    <p class="price"><span>{{data.cost | currency: 'INR':true}}</span><br/> <small> 3 Days</small></p>
+                  </a>
+                  <span class="desc">
+                    <!-- <p class="star"><span><i class="fa fa- star"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span> 545 Reviews</p> -->
+                    <h2><a href="tour-place.html">{{data.name}}</a></h2>
+                    <span class="city">{{data.destName}}</span>
+                  </span>
+                </div>
+              </div>
+
+
+              
+              
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <pagination-controls id="pagination3" (pageChange)="p = $event" autoHide="true" style="text-align: center"></pagination-controls>
+            </div>
+          </div>
+        </div>
+
+        <!-- SIDEBAR-->
+        <div class="col-md-4">
+          <div class="sidebar-wrap">
+            <div class="side search-wrap animate-box">
+              <h3 class="sidebar-heading">Find your tour</h3>
+              <form method="post" class="colorlib-form">
+                      <div class="row">
+                       <div class="col-md-12">
+                         <div class="form-group">
+                          <label for="date">Where:</label>
+                          <div class="form-field">
+                            <input type="text" id="location" class="form-control" placeholder="Search Location">
+                          </div>
+                        </div>
+                       </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="date">Check-in:</label>
+                          <div class="form-field">
+                            <i class="icon icon-calendar2"></i>
+                            <input type="text" id="date" class="form-control date" placeholder="Check-in date">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="date">Check-out:</label>
+                          <div class="form-field">
+                            <i class="icon icon-calendar2"></i>
+                            <input type="date" id="date" class="form-control date" placeholder="Check-out date">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="guests">Guest</label>
+                          <div class="form-field">
+                            <i class="icon icon-arrow-down3"></i>
+                            <select name="people" id="people" class="form-control">
+                              <option value="#">1</option>
+                              <option value="#">2</option>
+                              <option value="#">3</option>
+                              <option value="#">4</option>
+                              <option value="#">5+</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <input type="submit" name="submit" id="submit" value="Find Flights" class="btn btn-primary btn-block">
+                      </div>
+                    </div>
+                  </form>
+            </div>
+            <div class="side animate-box">
+              <div class="row">
+                <div class="col-md-12">
+                  <h3 class="sidebar-heading">Price Range</h3>
+                  <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+                    </div>
+              </div>
+            </div>
+            <!-- <div class="side animate-box">
+              <div class="row">
+                <div class="col-md-12">
+                  <h3 class="sidebar-heading">Review Rating</h3>
+                  <form method="post" class="colorlib-form-2">
+                     <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">
+                        <p class="rate"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span></p>
+                      </label>
+                     </div>
+                     <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">
+                           <p class="rate"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span></p>
+                        </label>
+                     </div>
+                     <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">
+                          <p class="rate"><span><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span></p>
+                       </label>
+                     </div>
+                     <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">
+                          <p class="rate"><span><i class="icon-star-full"></i><i class="icon-star-full"></i></span></p>
+                       </label>
+                     </div>
+                     <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">
+                          <p class="rate"><span><i class="icon-star-full"></i></span></p>
+                       </label>
+                     </div>
+                  </form>
+                </div>
+              </div>
+            </div> -->
+            <div class="side animate-box">
+              <div class="row">
+                <div class="col-md-12">
+                  <h3 class="sidebar-heading">Location</h3>
+                  <form method="post" class="colorlib-form-2">
+                     <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">
+                        <h4 class="place">Greece</h4>
+                      </label>
+                     </div>
+                     <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">
+                        <h4 class="place">Italy</h4>
+                      </label>
+                     </div>
+                     <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">
+                        <h4 class="place">Spain</h4>
+                      </label>
+                     </div>
+                     <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">
+                        <h4 class="place">Germany</h4>
+                      </label>
+                     </div>
+                     <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">
+                        <h4 class="place">Japan</h4>
+                      </label>
+                     </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- <section class="content whitebg" style="margin-top: 20px">
   <div  class="container holidays" style="padding-top:0" >
     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 pod" style="    margin-top: 20px" url="#" number="1" *ngFor="let data of totalTours | paginate: {id: 'pagination3', itemsPerPage: 3, currentPage: p }">
       <div class="hover-offer ehover1"><img class="img-responsive" src="https://www.edreams.es/content/img/OF/WebMasterPages/merch/img/672sized/672x584_barcelona-min.jpg" alt="Barcelona" />
@@ -134,7 +310,7 @@
           <i class="fa fa-cutlery"></i>
             <h4 style="color: white">{{data.name | titlecase}}</h4>
             <p class="detail">Departure: {{data.departure | titlecase}}</p>
-            <!--<p class="price-offer"><span>Price</span>{{data.price | currency: 'INR':true}}</p>-->
+          
             <div class="price-tag">{{data.cost | currency: 'INR':true}}</div>
             <div class="button2">Book Now</div>
           </figcaption>
@@ -144,7 +320,7 @@
     </div>
   </div>
   <pagination-controls id="pagination3" (pageChange)="p = $event" autoHide="true" style="text-align: center"></pagination-controls>
-</section>
+</section> -->
 
 <!-- <ngx-carousel
       [inputs]="carouselTile"
