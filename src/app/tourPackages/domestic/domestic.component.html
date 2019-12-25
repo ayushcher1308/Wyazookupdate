@@ -126,14 +126,14 @@
           <div class="row">
             <div class="wrap-division">
               <div class="col-md-6 col-sm-6 animate-box" *ngFor="let data of totalTours | paginate: {id: 'pagination3', itemsPerPage: 6, currentPage: p }">
-                <div class="tour">
+                <div class="tour" (click)="goToTour(data.key)" style="cursor: pointer;">
                   <div class="ribbon orange" *ngIf="data.discount">{{data.discount}}% OFF</div>
-                  <a href="tour-place.html" class="tour-img" [style.background-image]="'url(' + data.imageLink + ')'">
-                    <p class="price"><span>{{data.cost | currency: 'INR':true}}</span><br/> <small> 3 Days</small></p>
+                  <a  class="tour-img" [style.background-image]="'url(' + data.imageLink + ')'">
+                    <p class="price"><span>{{data.cost | currency: 'INR':true}}</span><br/> <small>{{data.nod}} Days / {{data.non}} Nights</small></p>
                   </a>
                   <span class="desc">
                     <!-- <p class="star"><span><i class="fa fa- star"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span> 545 Reviews</p> -->
-                    <h2><a href="tour-place.html">{{data.name}}</a></h2>
+                    <h2><a >{{data.name}}</a></h2>
                     <span class="city">{{data.destName}}</span>
                   </span>
                 </div>
@@ -368,13 +368,14 @@
           <div class="product-info">
             <div class="product-text">
               <h1>{{data.name | titlecase}}</h1>
-              <h2>by studio and friends</h2>
+              <h2>{{data.nod}} Days / {{data.non}} Nights</h2>
               <p>Harvest Vases are a reinterpretation of peeled fruits and vegetables as functional objects. The surfaces appear to be sliced and pulled aside, allowing room for growth. </p>
             </div>
             <div class="product-price-btn">
-              <p><span>78</span>$</p>
-              <button type="button">buy now</button>
+              <p><span>{{data.cost | currency: 'INR':true}}</span></p>
+              <button (click)="goToTour(data.key)" type="button">View More</button>
             </div>
+            
           </div>
         </div>
         
@@ -388,12 +389,12 @@
           <div class="product-info">
             <div class="product-text">
               <h1>{{data.name | titlecase}}</h1>
-              <h2>by studio and friends</h2>
+              <h2>{{data.nod}} Days / {{data.non}} Nights</h2>
               <p>Harvest Vases are a reinterpretation of peeled fruits and vegetables as functional objects. The surfaces appear to be sliced and pulled aside, allowing room for growth. </p>
             </div>
             <div class="product-price-btn">
-              <p><span>78</span>$</p>
-              <button type="button">buy now</button>
+              <p><span>{{data.cost | currency: 'INR':true}}</span></p>
+              <button (click)="goToTour(data.key)" type="button">View More</button>
             </div>
           </div>
         </div>

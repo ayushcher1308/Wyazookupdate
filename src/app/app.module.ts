@@ -15,12 +15,14 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng5SliderModule } from 'ng5-slider';
 import 'hammerjs';
+import { ProductDescriptionComponent } from './product-description/product-description.component';
 
 
 const appRoutes: Routes = [
   { path: 'wayzook', component: LandingPageComponent },
   { path: 'aboutUs', component: AboutUsComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'tour', component: ProductDescriptionComponent },
   { path: 'domesticTour', component: DomesticComponent },
   { path: '',
     redirectTo: 'wayzook',
@@ -35,7 +37,8 @@ const appRoutes: Routes = [
     LandingPageComponent,
     AboutUsComponent,
     DomesticComponent,
-    HomeComponent
+    HomeComponent,
+    ProductDescriptionComponent
   ],
   imports: [
     RouterModule.forRoot(

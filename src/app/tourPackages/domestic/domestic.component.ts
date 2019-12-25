@@ -3,6 +3,7 @@ import { NgxCarousel } from 'ngx-carousel';
 import { ToursService } from '../../service/tours.service';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { Options, LabelType } from 'ng5-slider';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-domestic',
@@ -22,7 +23,8 @@ import { Options, LabelType } from 'ng5-slider';
 })
 export class DomesticComponent implements OnInit {
 
-  constructor(private tours:ToursService) { }
+  constructor(private tours:ToursService,
+    private router:Router) { }
 
   public carouselTile: NgxCarousel;
   Domestic = false;
@@ -93,6 +95,13 @@ export class DomesticComponent implements OnInit {
     document.getElementById("dom").classList.remove("selected");
     this.International = true;
     this.Domestic = false;
+  }
+
+  goToTour(id)
+  {
+    this.router.navigate(['tour'], {
+      queryParams: { 'id':id}
+    });
   }
   
 
