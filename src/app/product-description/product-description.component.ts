@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ToursService } from '../service/tours.service';
+import { NgxSmartModalService } from 'ngx-smart-modal';
 
 @Component({
   selector: 'app-product-description',
@@ -10,7 +11,8 @@ import { ToursService } from '../service/tours.service';
 export class ProductDescriptionComponent implements OnInit {
 
   constructor(private route:ActivatedRoute,
-    private tours:ToursService) { }
+    private tours:ToursService,
+    public ngxSmartModalService: NgxSmartModalService) { }
   tourId;
   tourInfo;
 
@@ -26,6 +28,12 @@ export class ProductDescriptionComponent implements OnInit {
           this.tourInfo = Response;
           console.log(this.tourInfo);
       });
+  }
+
+  signup()
+  {
+    this.ngxSmartModalService.closeAll();
+    this.ngxSmartModalService.open("myModal2");
   }
 
 }

@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng5SliderModule } from 'ng5-slider';
 import 'hammerjs';
 import { ProductDescriptionComponent } from './product-description/product-description.component';
+import { NgxSmartModalModule } from 'ngx-smart-modal';
 
 
 const appRoutes: Routes = [
@@ -52,7 +53,8 @@ const appRoutes: Routes = [
     NgxCarouselModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
-    Ng5SliderModule
+    Ng5SliderModule,
+    NgxSmartModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
