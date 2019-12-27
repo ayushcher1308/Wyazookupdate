@@ -17,7 +17,7 @@ import { Ng5SliderModule } from 'ng5-slider';
 import 'hammerjs';
 import { ProductDescriptionComponent } from './product-description/product-description.component';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'wayzook', component: LandingPageComponent },
@@ -54,6 +54,7 @@ const appRoutes: Routes = [
     NgxPaginationModule,
     BrowserAnimationsModule,
     Ng5SliderModule,
+    ReactiveFormsModule,
     NgxSmartModalModule.forRoot()
   ],
   providers: [],

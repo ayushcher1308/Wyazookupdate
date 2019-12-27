@@ -1,7 +1,7 @@
 
 
 
-<main>
+<main #top>
   <div class="container">
     <div class="grid product">
       <div class="column-xs-12 column-md-7">
@@ -10,18 +10,18 @@
             <img class="active" src="https://source.unsplash.com/W1yjvf5idqA">
           </div>
           <ul class="image-list">
-            <li class="image-item"><img src="../../assets/3.jpg"></li>
-            <li class="image-item"><img src="https://source.unsplash.com/VgbUxvW3gS4"></li>
-            <li class="image-item"><img src="https://source.unsplash.com/5WbYFH0kf_8"></li>
+            <li class="image-item" *ngFor="let data of tourImages"><img src="data.image"></li>
+            
           </ul>
         </div>
       </div>
       <div class="column-xs-12 column-md-5">
-        <h1>Bonsai</h1>
-        <h2>$19.99</h2>
+        <h1>{{tourInfo.name | titlecase}}-{{tourInfo.destName | titlecase}}</h1>
+        <h3>{{tourInfo.nod}} Days / {{tourInfo.non}} Nights</h3>
+        <h2>{{tourInfo.cost | currency: 'INR':true}}</h2>
         <div class="description">
-          <p>The purposes of bonsai are primarily contemplation for the viewer, and the pleasant exercise of effort and ingenuity for the grower.</p>
-          <p>By contrast with other plant cultivation practices, bonsai is not intended for production of food or for medicine. Instead, bonsai practice focuses on long-term cultivation and shaping of one or more small trees growing in a container.</p>
+          <p>{{tourInfo.destAbout}}</p>
+          <!-- <p>By contrast with other plant cultivation practices, bonsai is not intended for production of food or for medicine. Instead, bonsai practice focuses on long-term cultivation and shaping of one or more small trees growing in a container.</p> -->
         </div>
         <button class="add-to-cart" (click)="ngxSmartModalService.getModal('myModal').open()">Add To Cart</button>
       </div>
@@ -56,9 +56,9 @@
     
     <h2 class="login-header">Log in</h2>
   
-    <form class="login-container">
-      <p><input type="email" placeholder="Email"></p>
-      <p><input type="password" placeholder="Password"></p>
+    <form class="login-container" [formGroup]="LoginForm" (ngSubmit)="checkLoginUser()">
+      <p><input type="email" placeholder="Email" formControlName="email"></p>
+      <p><input type="password" placeholder="Password" formControlName="password"></p>
       <p><input type="submit" value="Log in"></p>
     </form>
   </div>
@@ -76,12 +76,12 @@
     
     <h2 class="login-header">Sign Up</h2>
   
-    <form class="login-container">
-      <p><input type="text" placeholder="Enter Name"></p>
-      <p><input type="email" placeholder="Email"></p>
-      <p><input type="password" placeholder="Password"></p>
-      <p><input type="password" placeholder="Enter Password Again"></p>
-      <p><input type="text" placeholder="Enter Mobile Number"></p>
+    <form class="login-container" [formGroup]="Register" (ngSubmit) = "registerUser()">
+      <p><input type="text" formControlName="name" placeholder="Enter Name"></p>
+      <p><input type="email" formControlName="email" placeholder="Email"></p>
+      <p><input type="password"  placeholder="Password"></p>
+      <p><input type="password" formControlName="password" placeholder="Enter Password Again"></p>
+      <p><input type="text" formControlName="contact" placeholder="Enter Mobile Number"></p>
       <p><input type="submit" value="Sign Up"></p>
     </form>
   </div>
@@ -90,3 +90,6 @@
 
   <!-- <button (click)="myModal.close()">Close</button> -->
 </ngx-smart-modal>
+
+
+<div id="snackbar">{{message}}</div>

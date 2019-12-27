@@ -13,4 +13,9 @@ export class ToursService {
   {
     return this.http.get<any>(environment.API_URL+link);
   }
+
+  checkUser(link,header)
+  {
+    return this.http.post<any>(environment.API_URL+link,header);
+  }
 }
