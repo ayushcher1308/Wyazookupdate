@@ -33,13 +33,11 @@ message;
   tourInfo;
   image;
   tourImages = [];
+  iternary = [];
 
   ngAfterViewInit() {
     
     this.textarea.nativeElement.focus();
-    let element = document.getElementsByClassName("nsm-content") as HTMLCollectionOf<HTMLElement>;
-    console.log(element);
-  element[0].style.background = "#ebebeb";
   }
 
   ngOnInit() {
@@ -55,6 +53,7 @@ message;
           this.tourInfo = Response;
           console.log(this.tourInfo);
           let a = Object.keys(this.tourInfo.destImages);
+          let it = Object.keys(this.tourInfo.iternary);
           for(let i=0;i<3;i++)
           {
             if(this.tourInfo.destImages[a[i]])
@@ -64,6 +63,11 @@ message;
           }
           this.image = this.tourImages[0].image;
           console.log(this.tourImages);
+          for(let i=0;i<it.length;i++)
+          {
+              this.iternary.push(this.tourInfo.iternary[it[i]]);
+          }
+          console.log(this.iternary);
       });
     //   let element = document.getElementsByClassName("nsm-content") as HTMLCollectionOf<HTMLElement>;
     //   console.log(element);
@@ -74,6 +78,9 @@ message;
   {
     this.ngxSmartModalService.closeAll();
     this.ngxSmartModalService.open("myModal2");
+    let element = document.getElementsByClassName("nsm-content") as HTMLCollectionOf<HTMLElement>;
+    console.log(element[0]);
+  element[0].style.backgroundColor = "#ebebeb !important"; 
   }
 
   checkLoginUser()
