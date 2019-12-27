@@ -7,10 +7,10 @@
       <div class="column-xs-12 column-md-7">
         <div class="product-gallery">
           <div class="product-image">
-            <img class="active" src="https://source.unsplash.com/W1yjvf5idqA">
+            <img class="active" src="{{image}}">
           </div>
           <ul class="image-list">
-            <li class="image-item" *ngFor="let data of tourImages"><img src="data.image"></li>
+            <li class="image-item" *ngFor="let data of tourImages;let i=index"><img (click)="setImage(i)" src="{{data.image}}"></li>
             
           </ul>
         </div>
@@ -26,7 +26,7 @@
         <button class="add-to-cart" (click)="ngxSmartModalService.getModal('myModal').open()">Add To Cart</button>
       </div>
     </div>
-    <div class="grid related-products">
+    <!-- <div class="grid related-products">
       <div class="column-xs-12">
         <h3>You may also like</h3>
       </div>
@@ -45,7 +45,7 @@
         <h4>Cactus</h4>
         <p class="price">$19.99</p>
       </div>
-    </div>
+    </div> -->
   </div>
 </main>
 

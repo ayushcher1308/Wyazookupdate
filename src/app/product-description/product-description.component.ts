@@ -31,10 +31,15 @@ message;
     public ngxSmartModalService: NgxSmartModalService) { }
   tourId;
   tourInfo;
+  image;
   tourImages = [];
 
   ngAfterViewInit() {
-    this.textarea.nativeElement.focus()
+    
+    this.textarea.nativeElement.focus();
+    let element = document.getElementsByClassName("nsm-content") as HTMLCollectionOf<HTMLElement>;
+    console.log(element);
+  element[0].style.background = "#ebebeb";
   }
 
   ngOnInit() {
@@ -57,8 +62,12 @@ message;
               this.tourImages.push(this.tourInfo.destImages[a[i]]);
             }
           }
+          this.image = this.tourImages[0].image;
           console.log(this.tourImages);
       });
+    //   let element = document.getElementsByClassName("nsm-content") as HTMLCollectionOf<HTMLElement>;
+    //   console.log(element);
+    // element[0].style.background = "#ebebeb";
   }
 
   signup()
@@ -100,6 +109,11 @@ message;
   scrollToElement($element): void {
     console.log($element);
     $element.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+  }
+
+  setImage(i)
+  {
+    this.image = this.tourImages[i].image;
   }
 
 }
