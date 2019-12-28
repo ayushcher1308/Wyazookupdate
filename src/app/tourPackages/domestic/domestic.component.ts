@@ -29,17 +29,22 @@ export class DomesticComponent implements OnInit {
   public carouselTile: NgxCarousel;
   Domestic = false;
   International = false;
-  minValue: number = 100;
-  maxValue: number = 400;
+  cities = [];
+  minValue: number = 10000;
+  maxValue: number = 500000;
   options: Options = {
-    floor: 0,
-    ceil: 500,
+    floor: 1000,
+    ceil: 1000000,
     translate: (value: number): string => {
       return '₹' + value;
     }
   };
 
   totalTours;
+  filteredTours;
+  cityList;
+  cityS;
+  daysS;
 
   ngOnInit() {
     
@@ -59,6 +64,15 @@ export class DomesticComponent implements OnInit {
       easing: 'ease'
     }
 
+    
+
+this.getAllTours();
+
+    
+  }
+
+  getAllTours()
+  {
     this.tours.getTours('wayzook/tours').subscribe(Response=>
       {
           this.totalTours = Response;
@@ -67,13 +81,13 @@ export class DomesticComponent implements OnInit {
             let obj = this.totalTours[i].destImages;
             // console.log(obj[Object.keys(obj)[0]]);
             this.totalTours[i].imageLink = obj[Object.keys(obj)[0]].image;
+            this.cities.push(this.totalTours[i].destName);
           }
-          console.log(this.totalTours);
+          this.cityList = this.getUnique(this.cities);
+          console.log(this.cityList);
+          this.filteredTours = this.totalTours;
+          console.log(this.filteredTours);
       });
-
-
-
-    
   }
   
   scrollToElement($element): void {
@@ -103,6 +117,47 @@ export class DomesticComponent implements OnInit {
       queryParams: { 'id':id}
     });
   }
+
+  getUnique(array){
+    var uniqueArray = [];
+    
+    // Loop through array values
+    for(let i=0; i < array.length; i++){
+        if(uniqueArray.indexOf(array[i]) === -1) {
+            uniqueArray.push(array[i]);
+        }
+    }
+    return uniqueArray;
+}
+
+findTour()
+{
+  console.log(this.minValue,this.cityS,this.daysS,this.maxValue);
+  var filter1 = [];
+  for(var i=0;i<this.totalTours.length;i++)
+  {
+    if(this.totalTours[i].destName == this.cityS)
+    {
+      filter1.push(this.totalTours[i]);
+    }
+    
+  }
+  console.log('filtr1'+filter1);
+  let filter2 = [];
+  for(var i=0;i<filter1.length;i++)
+  {
+    let cost = parseInt(filter1[i].cost);
+    if(cost > this.minValue && cost < this.maxValue)
+    {
+      filter2.push(filter1[i]);
+    }
+  }
+  this.filteredTours.splice(0,this.filteredTours.length)
+  this.filteredTours = filter2;
+  
+}
+
+
   
 
 }

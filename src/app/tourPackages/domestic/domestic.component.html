@@ -20,8 +20,8 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tours Packages
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li ><a href="#">Domestic</a></li>
-          <li><a href="#">International</a></li>
+          <li ><a >Domestic</a></li>
+          <li><a >International</a></li>
         </ul>
       </li>
           <!--<li><a [routerLink]="['/aboutUs']">Why Us?</a></li>-->
@@ -71,31 +71,34 @@
           <div class="sidebar-wrap">
             <div class="side search-wrap animate-box">
               <h3 class="sidebar-heading">Find your tour</h3>
-              <form method="post" class="colorlib-form">
+              <form  class="colorlib-form">
                       <div class="row">
                        <div class="col-md-12">
                          <div class="form-group">
                           <label for="date">Where:</label>
                           <div class="form-field">
-                            <input type="text" id="location" class="form-control" placeholder="Search Location">
+                            <i class="icon icon-arrow-down3"></i>
+                            <select name="city" id="city" class="form-control" [(ngModel)]="cityS" style="background-color: #2C2E3E;">
+                              <option value="" disabled>Choose City Want to Travel</option>
+                              <option *ngFor="let select of cityList" value="{{select}}">{{select}}</option>
+                            </select>
                           </div>
                         </div>
                        </div>
-                      <!-- <div class="col-md-12">
+                      <div class="col-md-12">
                         <div class="form-group">
-                          <label for="date">Check-in:</label>
+                          <label for="date">Price Range:</label>
                           <div class="form-field">
-                            <i class="icon icon-calendar2"></i>
-                            <input type="text" id="date" class="form-control date" placeholder="Check-in date">
+                            <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
                           </div>
                         </div>
-                      </div> -->
+                      </div>
                       <div class="col-md-12">
                         <div class="form-group">
                           <label for="date">No of Days:</label>
                           <div class="form-field">
                             <i class="icon icon-arrow-down3"></i>
-                            <select name="days" id="days" class="form-control" style="background-color: #2C2E3E;">
+                            <select name="days" [(ngModel)]="daysS" id="days" class="form-control" style="background-color: #2C2E3E;">
                               <option value="" disabled></option>
                               <option value="3">1 Day - 3 Days</option>
                               <option value="5">4 Days - 5 Days</option>
@@ -106,82 +109,23 @@
                           </div>
                         </div>
                       </div>
+                    
                       <div class="col-md-12">
-                        <div class="form-group">
-                          <label for="guests">Guest</label>
-                          <div class="form-field">
-                            <i class="icon icon-arrow-down3"></i>
-                            <select name="people" id="people" class="form-control" style="background-color: #2C2E3E;">
-                              <option value="" disabled></option>
-                              <option value="#">1</option>
-                              <option value="#">2</option>
-                              <option value="#">3</option>
-                              <option value="#">4</option>
-                              <option value="#">5+</option>
-                            </select>
-                          </div>
-                        </div>
+                        <input type="submit" (click)="findTour()" name="submit" id="submit" value="Find Tour" class="btn btn-primary btn-block">
                       </div>
                       <div class="col-md-12">
-                        <input type="submit" name="submit" id="submit" value="Find Tour" class="btn btn-primary btn-block">
+                        <input type="submit" (click)="getAllTours()" name="submit" id="submit" value="Reset" class="btn btn-primary btn-block">
                       </div>
                     </div>
                   </form>
             </div>
-            <div class="side animate-box">
-              <div class="row">
-                <div class="col-md-12">
-                  <h3 class="sidebar-heading">Price Range</h3>
-                  <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
-                    </div>
-              </div>
-            </div>
-       
-            <div class="side animate-box">
-              <div class="row">
-                <div class="col-md-12">
-                  <h3 class="sidebar-heading">Location</h3>
-                  <form method="post" class="colorlib-form-2">
-                     <div class="form-check">
-                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                      <label class="form-check-label" for="exampleCheck1">
-                        <h4 class="place">Greece</h4>
-                      </label>
-                     </div>
-                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">
-                        <h4 class="place">Italy</h4>
-                      </label>
-                     </div>
-                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">
-                        <h4 class="place">Spain</h4>
-                      </label>
-                     </div>
-                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">
-                        <h4 class="place">Germany</h4>
-                      </label>
-                     </div>
-                     <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">
-                        <h4 class="place">Japan</h4>
-                      </label>
-                     </div>
-                  </form>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
         <div class="col-md-9">
           <div class="row">
             <div class="wrap-division">
-              <div class="col-md-6 col-sm-6 animate-box" *ngFor="let data of totalTours | paginate: {id: 'pagination3', itemsPerPage: 6, currentPage: p }">
+              <div class="col-md-6 col-sm-6 animate-box" *ngFor="let data of filteredTours | paginate: {id: 'pagination3', itemsPerPage: 6, currentPage: p }">
                 <div class="tour" (click)="goToTour(data.key)" style="cursor: pointer;">
                   <div class="ribbon orange" *ngIf="data.discount">{{data.discount}}% OFF</div>
                   <a  class="tour-img" [style.background-image]="'url(' + data.imageLink + ')'">

@@ -11,20 +11,9 @@ import { MustMatch } from '../Validator/password-validator';
   styleUrls: ['./product-description.component.scss']
 })
 export class ProductDescriptionComponent implements OnInit,AfterViewInit  {
-  @ViewChild('top') textarea: ElementRef
 
-  // LoginForm = new FormGroup({
-  //   email: new FormControl('', [Validators.required,Validators.minLength(4)]),
-  //   password: new FormControl('',[Validators.required,Validators.minLength(7)]),
-  // });
 
-  // Register = new FormGroup({
-  //   'name': new FormControl(''),
-  //   'password': new FormControl(''),
-  //   'email':new FormControl(''),
-  //   'contact':new FormControl('')
-  // });
-
+  
 message;
 
   constructor(private route:ActivatedRoute,
