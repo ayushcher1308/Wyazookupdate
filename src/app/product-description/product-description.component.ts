@@ -43,6 +43,12 @@ message;
   ngAfterViewInit() {
     
     // this.textarea.nativeElement.focus();
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+          return;
+      }
+      window.scrollTo(0, 0)
+  });
   }
 
   ngOnInit() {
