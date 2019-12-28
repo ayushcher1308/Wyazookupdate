@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { ToursService } from '../service/tours.service';
 import { NgxSmartModalService } from 'ngx-smart-modal';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
@@ -30,7 +30,8 @@ message;
   constructor(private route:ActivatedRoute,
     private tours:ToursService,
     public ngxSmartModalService: NgxSmartModalService,
-    private fb: FormBuilder) { }
+    private fb: FormBuilder,
+    private router:Router) { }
   tourId;
   tourInfo;
   image;
@@ -46,6 +47,12 @@ message;
 
   ngOnInit() {
     // this.scrollToElement(top);
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+          return;
+      }
+      window.scrollTo(0, 0)
+  });
     this.Register = this.fb.group({
       name: ['', [Validators.required,Validators.minLength(5)] ],
       password:['', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}') ]],
@@ -114,7 +121,7 @@ this.LoginForm = this.fb.group({
             localStorage.setItem("uid",Response.uid);
             localStorage.setItem("token",Response.token);
             this.ngxSmartModalService.closeAll();
-            this.message = "Login Successful";
+            this.message = "Login Successful !! Now you can enquire about this amazing trip.";
             this.snackBar();
           }
           else{
@@ -129,13 +136,17 @@ this.LoginForm = this.fb.group({
   {
     document.getElementById("loader").style.display="block";
     this.Register.value.role = "user";
-    this.ngxSmartModalService.closeAll();
+    
     console.log(this.Register.value);
       this.tours.checkUser('wayzook/auth/signup',this.Register.value).subscribe(Response=>
         {
           console.log(Response);
+          if(Response.message)
           this.message = Response.message;
+          if(Response.msg)
+          this.message = Response.msg;
           document.getElementById("loader").style.display="none";
+          this.ngxSmartModalService.closeAll();
           this.snackBar();
         });
   }

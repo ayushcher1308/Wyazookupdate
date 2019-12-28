@@ -111,6 +111,13 @@ console.log("anii");
  
   }
 
+  goToTour(id)
+  {
+    this.router.navigate(['tour'], {
+      queryParams: { 'id':id}
+    });
+  }
+
 
 
 }

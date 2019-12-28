@@ -59,7 +59,7 @@
         <span class="caret"></span></a>
       <ul class="dropdown-menu">
         <li><a [routerLink]="['/domesticTour']">Domestic</a></li>
-        <li><a >International</a></li>
+        <li><a [routerLink]="['/domesticTour']">International</a></li>
       </ul>
     </li>
     <!--<li><a [routerLink]="['/aboutUs']">Why Us?</a></li>-->
@@ -94,7 +94,7 @@
 <div class="carousel-caption">
   <ul class="cb-slideshow">
     <li *ngFor="let data of upcomingTrips"><span>Image 01</span>
-      <div class="cb-list">
+      <div class="cb-list" (click)="goToTour(data.key)" style="cursor: pointer;">
     
         <h3 class="intro"> {{data.name | titlecase}}<br/>Next Tour:{{data.startDate | date}}<br/>
           {{price | currency: 'INR':true}}
@@ -149,8 +149,8 @@
 <div class="accordion">
   <ul>
     <li *ngFor="let data of upcomingTrips">
-      <div>
-        <a href="#" class="sliderLink">
+      <div (click)="goToTour(data.key)" >
+        <a  class="sliderLink">
           <h2 style="font-weight: bold;">{{data.name | titlecase}}</h2>
           <p>Start Date: {{data.startDate | date}}<br> End Date: {{data.endDate | date}}<br><span *ngIf="data.destAbout"> About: {{data.destAbout | titlecase}}</span><br> Departure: {{data.departure}}
           </p>
