@@ -176,6 +176,11 @@ nav {
   padding: 1rem 0 0 0;
 }
 
+.description > p
+{
+  text-align: justify;
+}
+
 .add-to-cart {
   position: relative;
   display: inline-block;

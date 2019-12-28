@@ -1,4 +1,3 @@
-
 <!--navbar-->
 
 <div class="container-fluid main">
@@ -9,21 +8,21 @@
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-          <span class="icon-bar"></span> 
+          <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="#"><a class="navbar-brand" href="#">Wayzook</a></a>
       </div>
-       <div class="collapse navbar-collapse" id="myNavbar">
+      <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
           <li><a [routerLink]="['/wayzook']">Home</a></li>
           <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tours Packages
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li ><a >Domestic</a></li>
-          <li><a >International</a></li>
-        </ul>
-      </li>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tours Packages
+              <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a>Domestic</a></li>
+              <li><a>International</a></li>
+            </ul>
+          </li>
           <!--<li><a [routerLink]="['/aboutUs']">Why Us?</a></li>-->
           <!-- <li><a href="#">Book Flights</a></li> -->
           <li><a (click)="scrollToElement(target)" style="cursor: pointer;">Contact Us</a></li>
@@ -41,128 +40,133 @@
       <div class="item background c"></div>
     </div>
   </div>
-  
+
   <div class="covertext">
-   <!-- enguiry-form -->
-   <div class="col-lg-10" style="float:none; margin:0 auto;">
-    <h1 class="title" style="text-transform: capitalize">Let us take to your dream destination</h1>
-    <!-- <h3 class="subtitle">Dream </h3> -->
-  </div>
-      
-        <!-- /.enguiry-form -->
+    <!-- enguiry-form -->
+    <div class="col-lg-10" style="float:none; margin:0 auto;">
+      <h1 class="title" style="text-transform: capitalize">Let us take to your dream destination</h1>
+      <!-- <h3 class="subtitle">Dream </h3> -->
+    </div>
+
+    <!-- /.enguiry-form -->
     <div class="col-xs-12 explore">
       <a><button type="button" (click)="scrollToElement(tours)" class="btn btn-lg explorebtn">Explore Now</button></a>
     </div>
   </div>
-  
+
 </div>
 <!--navbar finish-->
- 
+
 <div class="section-heading text-center">
-    <h2>Best Offers</h2>
-    <p class="text-muted">Check out our top rated tours!</p>
-  </div>
+  <h2>Best Offers</h2>
+  <p class="text-muted">Check out our top rated tours!</p>
+</div>
 
 
-  <div class="colorlib-wrap" #tours>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <div class="sidebar-wrap">
-            <div class="side search-wrap animate-box">
-              <h3 class="sidebar-heading">Find your tour</h3>
-              <form  class="colorlib-form">
-                      <div class="row">
-                       <div class="col-md-12">
-                         <div class="form-group">
-                          <label for="date">Where:</label>
-                          <div class="form-field">
-                            <i class="icon icon-arrow-down3"></i>
-                            <select name="city" id="city" class="form-control" [(ngModel)]="cityS" style="background-color: #2C2E3E;">
-                              <option value="" disabled>Choose City Want to Travel</option>
-                              <option *ngFor="let select of cityList" value="{{select}}">{{select}}</option>
-                            </select>
-                          </div>
-                        </div>
-                       </div>
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label for="date">Price Range:</label>
-                          <div class="form-field">
-                            <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <label for="date">No of Days:</label>
-                          <div class="form-field">
-                            <i class="icon icon-arrow-down3"></i>
-                            <select name="days" [(ngModel)]="daysS" id="days" class="form-control" style="background-color: #2C2E3E;">
-                              <option value="" disabled></option>
-                              <option value="3">1 Day - 3 Days</option>
-                              <option value="5">4 Days - 5 Days</option>
-                              <option value="9">6 Days - 9 Days</option>
-                              <option value="10">9+ Days</option>
-                            
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                    
-                      <div class="col-md-12">
-                        <input type="submit" (click)="findTour()" name="submit" id="submit" value="Find Tour" class="btn btn-primary btn-block">
-                      </div>
-                      <div class="col-md-12">
-                        <input type="submit" (click)="getAllTours()" name="submit" id="submit" value="Reset" class="btn btn-primary btn-block">
-                      </div>
+<div class="colorlib-wrap" #tours>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="sidebar-wrap">
+          <div class="side search-wrap animate-box">
+            <h3 class="sidebar-heading">Find your tour</h3>
+            <form class="colorlib-form">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="date">Where:</label>
+                    <div class="form-field">
+                      <i class="icon icon-arrow-down3"></i>
+                      <select name="city" id="city" class="form-control" [(ngModel)]="cityS"
+                        style="background-color: #2C2E3E;">
+                        <option value="" disabled>Choose City Want to Travel</option>
+                        <option *ngFor="let select of cityList" value="{{select}}">{{select}}</option>
+                      </select>
                     </div>
-                  </form>
-            </div>
-            
-          </div>
-        </div>
-        <div class="col-md-9">
-          <div class="row">
-            <div class="wrap-division">
-              <div class="col-md-6 col-sm-6 animate-box" *ngFor="let data of filteredTours | paginate: {id: 'pagination3', itemsPerPage: 6, currentPage: p }">
-                <div class="tour" (click)="goToTour(data.key)" style="cursor: pointer;">
-                  <div class="ribbon orange" *ngIf="data.discount">{{data.discount}}% OFF</div>
-                  <a  class="tour-img" [style.background-image]="'url(' + data.imageLink + ')'">
-                    <p class="price"><span>{{data.cost | currency: 'INR':true}}</span><br/> <small>{{data.nod}} Days / {{data.non}} Nights</small></p>
-                  </a>
-                  <span class="desc">
-                    <!-- <p class="star"><span><i class="fa fa- star"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span> 545 Reviews</p> -->
-                    <h2><a >{{data.name}}</a></h2>
-                    <span class="city">{{data.destName}}</span>
-                  </span>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="date">Price Range:</label>
+                    <div class="form-field">
+                      <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="date">No of Days:</label>
+                    <div class="form-field">
+                      <i class="icon icon-arrow-down3"></i>
+                      <select name="days" [(ngModel)]="daysS" id="days" class="form-control"
+                        style="background-color: #2C2E3E;">
+                        <option value="" disabled></option>
+                        <option value="3">1 Day - 3 Days</option>
+                        <option value="5">4 Days - 5 Days</option>
+                        <option value="9">6 Days - 9 Days</option>
+                        <option value="10">9+ Days</option>
+
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <input type="submit" (click)="findTour()" name="submit" id="submit" value="Find Tour"
+                    class="btn btn-primary btn-block">
+                </div>
+                <div class="col-md-12">
+                  <input type="submit" (click)="getAllTours()" name="submit" id="submit" value="Reset"
+                    class="btn btn-primary btn-block">
                 </div>
               </div>
-
-
-              
-              
-            </div>
+            </form>
           </div>
-          <div class="row">
-            <div class="col-md-12 text-center">
-              <pagination-controls id="pagination3" (pageChange)="p = $event" autoHide="true" style="text-align: center"></pagination-controls>
+
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="row">
+          <div class="wrap-division">
+            <div class="col-md-6 col-sm-6 animate-box"
+              *ngFor="let data of filteredTours | paginate: {id: 'pagination3', itemsPerPage: 6, currentPage: p }">
+              <div class="tour" (click)="goToTour(data.key)" style="cursor: pointer;">
+                <div class="ribbon orange" *ngIf="data.discount">{{data.discount}}% OFF</div>
+                <a class="tour-img" [style.background-image]="'url(' + data.imageLink + ')'">
+                  <p class="price"><span>{{data.cost | currency: 'INR':true}}</span><br /> <small>{{data.nod}} Days /
+                      {{data.non}} Nights</small></p>
+                </a>
+                <span class="desc">
+                  <!-- <p class="star"><span><i class="fa fa- star"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span> 545 Reviews</p> -->
+                  <h2><a>{{data.name}}</a></h2>
+                  <span class="city">{{data.destName}}</span>
+                </span>
+              </div>
             </div>
+
+
+
+
           </div>
         </div>
 
-        <!-- SIDEBAR-->
-        
+        <div class="col-md-12 text-center">
+          <pagination-controls id="pagination3" (pageChange)="p = $event" autoHide="true" style="text-align: center">
+          </pagination-controls>
+        </div>
+
       </div>
+
+      <!-- SIDEBAR-->
+
     </div>
   </div>
+</div>
 
 
 
-<hr>
 
-
-<div class="row">
+<div class="row hideforphone">
   <div class="col-md-12">
     <div id="dom" class="col-md-6 text-center tourtab" (click)="domTours()">Domestic Tours</div>
     <div id="int" class="col-md-6 text-center tourtab" (click)="intTours()">International Tours</div>
@@ -170,45 +174,51 @@
 </div>
 
 <div class="row">
-  <div class="col-md-12" *ngIf="Domestic"  [@fadeInOut]>
-      <div class="wrapper" *ngFor="let data of totalTours | paginate: {id: 'pagination1', itemsPerPage: 3, currentPage: x }">
-          <div class="product-img">
-            <img src="../../../assets/tour-3.jpg" height="420" width="327">
-          </div>
-          <div class="product-info">
-            <div class="product-text">
-              <h1>{{data.name | titlecase}}</h1>
-              <h2>{{data.nod}} Days / {{data.non}} Nights</h2>
-              <p>Harvest Vases are a reinterpretation of peeled fruits and vegetables as functional objects. The surfaces appear to be sliced and pulled aside, allowing room for growth. </p>
-            </div>
-            <div class="product-price-btn">
-              <p><span>{{data.cost | currency: 'INR':true}}</span></p>
-              <button (click)="goToTour(data.key)" type="button">View More</button>
-            </div>
-            
-          </div>
+  <div class="col-md-12" *ngIf="Domestic" [@fadeInOut]>
+    <div class="wrapper"
+      *ngFor="let data of totalTours | paginate: {id: 'pagination1', itemsPerPage: 3, currentPage: x }">
+      <div class="product-img">
+        <img src="../../../assets/tour-3.jpg" height="420" width="327">
+      </div>
+      <div class="product-info">
+        <div class="product-text">
+          <h1>{{data.name | titlecase}}</h1>
+          <h2>{{data.nod}} Days / {{data.non}} Nights</h2>
+          <p>Harvest Vases are a reinterpretation of peeled fruits and vegetables as functional objects. The surfaces
+            appear to be sliced and pulled aside, allowing room for growth. </p>
         </div>
-        
-        <pagination-controls id="pagination1" (pageChange)="x=$event" autoHide="true" style="text-align: center"></pagination-controls>
+        <div class="product-price-btn">
+          <p><span>{{data.cost | currency: 'INR':true}}</span></p>
+          <button (click)="goToTour(data.key)" type="button">View More</button>
+        </div>
+
+      </div>
+    </div>
+
+    <pagination-controls id="pagination1" (pageChange)="x=$event" autoHide="true" style="text-align: center">
+    </pagination-controls>
   </div>
-  <div class="col-md-12" *ngIf="International"  [@fadeInOut]>
-      <div class="wrapper" *ngFor="let data of totalTours | paginate: { id: 'pagination2',itemsPerPage: 3, currentPage: r }">
-          <div class="product-img">
-            <img src="../../../assets/tour-3.jpg" height="420" width="327">
-          </div>
-          <div class="product-info">
-            <div class="product-text">
-              <h1>{{data.name | titlecase}}</h1>
-              <h2>{{data.nod}} Days / {{data.non}} Nights</h2>
-              <p>Harvest Vases are a reinterpretation of peeled fruits and vegetables as functional objects. The surfaces appear to be sliced and pulled aside, allowing room for growth. </p>
-            </div>
-            <div class="product-price-btn">
-              <p><span>{{data.cost | currency: 'INR':true}}</span></p>
-              <button (click)="goToTour(data.key)" type="button">View More</button>
-            </div>
-          </div>
+  <div class="col-md-12" *ngIf="International" [@fadeInOut]>
+    <div class="wrapper"
+      *ngFor="let data of totalTours | paginate: { id: 'pagination2',itemsPerPage: 3, currentPage: r }">
+      <div class="product-img">
+        <img src="../../../assets/tour-3.jpg" height="420" width="327">
+      </div>
+      <div class="product-info">
+        <div class="product-text">
+          <h1>{{data.name | titlecase}}</h1>
+          <h2>{{data.nod}} Days / {{data.non}} Nights</h2>
+          <p>Harvest Vases are a reinterpretation of peeled fruits and vegetables as functional objects. The surfaces
+            appear to be sliced and pulled aside, allowing room for growth. </p>
         </div>
-        <pagination-controls id="pagination2" (pageChange)="r = $event" autoHide="true" style="text-align: center"></pagination-controls>
+        <div class="product-price-btn">
+          <p><span>{{data.cost | currency: 'INR':true}}</span></p>
+          <button (click)="goToTour(data.key)" type="button">View More</button>
+        </div>
+      </div>
+    </div>
+    <pagination-controls id="pagination2" (pageChange)="r = $event" autoHide="true" style="text-align: center">
+    </pagination-controls>
   </div>
 </div>
 
@@ -217,100 +227,103 @@
 <section class="cta">
   <div class="cta-content">
     <div class="col-lg-10" style="float:none; margin:0 auto;">
-        <h1 class="title" style="text-transform: capitalize">why choose us?</h1>
-        <!-- <h3 class="subtitle">Dream </h3> -->
-      </div>
-</div>
-<div class="container cta-content">
+      <h1 class="title" style="text-transform: capitalize">why choose us?</h1>
+      <!-- <h3 class="subtitle">Dream </h3> -->
+    </div>
+  </div>
+  <div class="container cta-content">
     <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 faitem">
-            <div class="feature-item">
-                <i class="fa fa-plane"></i>
-                <h3>Air Ticket Bookings</h3>
-                <!--<p class="text-muted">Put an image, video, animation, or anything else in the screen!</p>-->
-              </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 faitem">
-            <div class="feature-item">
-                <i class="fa fa-hotel"></i>
-                <h3>Hotel Bookings</h3>
-                <!--<p class="text-muted">Put an image, video, animation, or anything else in the screen!</p>-->
-              </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 faitem">
-            <div class="feature-item">
-                <i class="fa fa-cab"></i>
-                <h3>Cab Bookings</h3>
-                <!--<p class="text-muted">Put an image, video, animation, or anything else in the screen!</p>-->
-              </div>
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 faitem">
+        <div class="feature-item">
+          <i class="fa fa-plane"></i>
+          <h3>Air Ticket Bookings</h3>
+          <!--<p class="text-muted">Put an image, video, animation, or anything else in the screen!</p>-->
         </div>
       </div>
-</div>
-<div class="overlay"></div>
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 faitem">
+        <div class="feature-item">
+          <i class="fa fa-hotel"></i>
+          <h3>Hotel Bookings</h3>
+          <!--<p class="text-muted">Put an image, video, animation, or anything else in the screen!</p>-->
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 faitem">
+        <div class="feature-item">
+          <i class="fa fa-cab"></i>
+          <h3>Cab Bookings</h3>
+          <!--<p class="text-muted">Put an image, video, animation, or anything else in the screen!</p>-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="overlay"></div>
 </section>
 
 
 <footer class="new_footer_area bg_color" #target>
-        <div class="new_footer_top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <img src="../../assets/wayzooklogo.png" style="width: 250px" alt="">
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
-                            <h3 class="f-title f_600 t_color f_size_18">Tours We Offer</h3>
-                            <ul class="list-unstyled f_list">
-                                <li>Honeymoon Tours</li>
-                                <li>Educational Tours</li>
-                                <li>Family Tours</li>
-                                <li>Official Tours</li>
-                                <li>Pilgrimage Tours</li>
-                                <li>International Tours</li>
-                                <li>Adventure Tours</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInLeft;">
-                            <h3 class="f-title f_600 t_color f_size_18">Get in Touch</h3>
-                            <p>Don’t miss any updates of our new templates and extensions.!</p>
-                            <form action="#" class="f_subscribe_two mailchimp" method="post" novalidate="true" _lpchecked="1">
-                                <input type="text" name="EMAIL" class="form-control memail" placeholder="Email">
-                                <button class="btn btn_get btn_get_two" type="submit" >Subscribe</button>
-                                <p class="mchimp-errmessage" style="display: none;"></p>
-                                <p class="mchimp-sucmessage" style="display: none;"></p>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
-                            <h3 class="f-title f_600 t_color f_size_18">Team Solutions</h3>
-                            <div class="f_social_icon">
-                                <a href="#" class="fa fa-facebook"></a>
-                                <a href="#" class="fa fa-twitter"></a>
-                                <a href="#" class="fa fa-linkedin"></a>
-                                <a href="#" class="fa fa-pinterest"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer_bg">
-                <div class="footer_bg_one"></div>
-                <div class="footer_bg_two"></div>
-            </div>
+  <div class="new_footer_top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6">
+          <img src="../../assets/wayzooklogo.png" style="width: 250px" alt="">
         </div>
-        <div class="footer_bottom">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-sm-7">
-                        <p class="mb-0 f_400">© Wayzook 2019 All rights reserved.</p>
-                    </div>
-                    <div class="col-lg-6 col-sm-5 text-right">
-                        <!--<p>Made with <i class="icon_heart"></i> in <a href="#">CakeCounter</a></p>-->
-                    </div>
-                </div>
-            </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.4s"
+            style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
+            <h3 class="f-title f_600 t_color f_size_18">Tours We Offer</h3>
+            <ul class="list-unstyled f_list">
+              <li>Honeymoon Tours</li>
+              <li>Educational Tours</li>
+              <li>Family Tours</li>
+              <li>Official Tours</li>
+              <li>Pilgrimage Tours</li>
+              <li>International Tours</li>
+              <li>Adventure Tours</li>
+            </ul>
+          </div>
         </div>
-      </footer>
+        <div class="col-lg-3 col-md-6">
+          <div class="f_widget company_widget wow fadeInLeft" data-wow-delay="0.2s"
+            style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInLeft;">
+            <h3 class="f-title f_600 t_color f_size_18">Get in Touch</h3>
+            <p>Don’t miss any updates of our new templates and extensions.!</p>
+            <form action="#" class="f_subscribe_two mailchimp" method="post" novalidate="true" _lpchecked="1">
+              <input type="text" name="EMAIL" class="form-control memail" placeholder="Email">
+              <button class="btn btn_get btn_get_two" type="submit">Subscribe</button>
+              <p class="mchimp-errmessage" style="display: none;"></p>
+              <p class="mchimp-sucmessage" style="display: none;"></p>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s"
+            style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
+            <h3 class="f-title f_600 t_color f_size_18">Team Solutions</h3>
+            <div class="f_social_icon">
+              <a href="#" class="fa fa-facebook"></a>
+              <a href="#" class="fa fa-twitter"></a>
+              <a href="#" class="fa fa-linkedin"></a>
+              <a href="#" class="fa fa-pinterest"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer_bg">
+      <div class="footer_bg_one"></div>
+      <div class="footer_bg_two"></div>
+    </div>
+  </div>
+  <div class="footer_bottom">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-sm-7">
+          <p class="mb-0 f_400">© Wayzook 2019 All rights reserved.</p>
+        </div>
+        <div class="col-lg-6 col-sm-5 text-right">
+          <!--<p>Made with <i class="icon_heart"></i> in <a href="#">CakeCounter</a></p>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

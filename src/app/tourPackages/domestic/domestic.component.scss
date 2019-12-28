@@ -1231,6 +1231,10 @@ overflow: hidden; }
     z-index: 2;
     margin: 0 auto; }
     @media screen and (max-width: 768px) {
+      .bottomTrip
+      {
+        display: none;
+      }
       .colorlib-nav {
         margin: 0; } }
     .colorlib-nav .top-menu {
@@ -3042,3 +3046,11 @@ overflow: hidden; }
   
   .js .animate-box {
     opacity: 0; }    
+
+    @media screen and (max-width: 892px)
+    {
+      .hideforphone
+      {
+        display:none;
+      }
+    }
