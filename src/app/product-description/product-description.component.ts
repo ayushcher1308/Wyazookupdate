@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angula
 import { ActivatedRoute } from '@angular/router';
 import { ToursService } from '../service/tours.service';
 import { NgxSmartModalService } from 'ngx-smart-modal';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { MustMatch } from '../Validator/password-validator';
 
 @Component({
   selector: 'app-product-description',
@@ -12,36 +13,54 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class ProductDescriptionComponent implements OnInit,AfterViewInit  {
   @ViewChild('top') textarea: ElementRef
 
-  LoginForm = new FormGroup({
-    email: new FormControl('', [Validators.required,Validators.minLength(4)]),
-    password: new FormControl('',[Validators.required,Validators.minLength(7)]),
-  });
+  // LoginForm = new FormGroup({
+  //   email: new FormControl('', [Validators.required,Validators.minLength(4)]),
+  //   password: new FormControl('',[Validators.required,Validators.minLength(7)]),
+  // });
 
-  Register = new FormGroup({
-    name: new FormControl(''),
-    password: new FormControl(''),
-    email:new FormControl(''),
-    contact:new FormControl('')
-  });
+  // Register = new FormGroup({
+  //   'name': new FormControl(''),
+  //   'password': new FormControl(''),
+  //   'email':new FormControl(''),
+  //   'contact':new FormControl('')
+  // });
 
 message;
 
   constructor(private route:ActivatedRoute,
     private tours:ToursService,
-    public ngxSmartModalService: NgxSmartModalService) { }
+    public ngxSmartModalService: NgxSmartModalService,
+    private fb: FormBuilder) { }
   tourId;
   tourInfo;
   image;
   tourImages = [];
   iternary = [];
+  Register: FormGroup;
+  LoginForm: FormGroup;
 
   ngAfterViewInit() {
     
-    this.textarea.nativeElement.focus();
+    // this.textarea.nativeElement.focus();
   }
 
   ngOnInit() {
     // this.scrollToElement(top);
+    this.Register = this.fb.group({
+      name: ['', [Validators.required,Validators.minLength(5)] ],
+      password:['', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}') ]],
+      confirmpassword:['',Validators.required],
+      email:['', [Validators.required,Validators.email]],
+        contact:['', [Validators.required,Validators.pattern(/^[6-9]\d{9}$/)] ]
+
+   }, {
+    validator: MustMatch('password', 'confirmpassword')
+});
+
+this.LoginForm = this.fb.group({
+  email:['',[Validators.required,Validators.email]],
+  password:['',Validators.required]
+})
     this.route.queryParamMap.subscribe(queryParams => {
       this.tourId = queryParams.get("id");
     })
@@ -78,30 +97,45 @@ message;
   {
     this.ngxSmartModalService.closeAll();
     this.ngxSmartModalService.open("myModal2");
-    let element = document.getElementsByClassName("nsm-content") as HTMLCollectionOf<HTMLElement>;
-    console.log(element[0]);
-  element[0].style.backgroundColor = "#ebebeb !important"; 
+    (document.getElementsByClassName("nsm-content")[0] as HTMLElement).style.backgroundColor = '#ededed';
   }
 
   checkLoginUser()
   {
+    document.getElementById("loader").style.display="block";
       console.log(this.LoginForm.value);
+      
       this.tours.checkUser('wayzook/auth/login',this.LoginForm.value).subscribe(Response=>
         {
           console.log(Response);
+          document.getElementById("loader").style.display = "none";
+          if(Response.uid)
+          {
+            localStorage.setItem("uid",Response.uid);
+            localStorage.setItem("token",Response.token);
+            this.ngxSmartModalService.closeAll();
+            this.message = "Login Successful";
+            this.snackBar();
+          }
+          else{
           this.message = Response.message;
+          this.LoginForm.reset();
           this.snackBar();
+        }
         });
   }
 
   registerUser()
   {
+    document.getElementById("loader").style.display="block";
     this.Register.value.role = "user";
+    this.ngxSmartModalService.closeAll();
     console.log(this.Register.value);
       this.tours.checkUser('wayzook/auth/signup',this.Register.value).subscribe(Response=>
         {
           console.log(Response);
           this.message = Response.message;
+          document.getElementById("loader").style.display="none";
           this.snackBar();
         });
   }
@@ -121,6 +155,26 @@ message;
   setImage(i)
   {
     this.image = this.tourImages[i].image;
+  }
+
+  enquireNow()
+  {
+    let header = {uid:localStorage.getItem("uid"),
+                  tourId:this.tourId};
+    if(localStorage.getItem("uid"))
+    {
+        this.tours.checkUser('wayzook/enquiry/add',header).subscribe(Response=>{
+          console.log(Response);
+          this.message = "Your enquiry has been submitted successfully. We will contact you shortly";
+        this.snackBar();
+        });
+        
+    }
+    else
+    {
+      this.ngxSmartModalService.open("myModal");
+      (document.getElementsByClassName("nsm-content")[0] as HTMLElement).style.backgroundColor = '#ededed'
+    }
   }
 
 }

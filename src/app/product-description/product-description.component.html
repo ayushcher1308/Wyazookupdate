@@ -96,7 +96,7 @@
             <!-- <p>By contrast with other plant cultivation practices, bonsai is not intended for production of food or for medicine. Instead, bonsai practice focuses on long-term cultivation and shaping of one or more small trees growing in a container.</p> -->
           </div>
       </div>
-      <button class="add-to-cart" (click)="ngxSmartModalService.getModal('myModal').open()">Enquire Now</button>
+      <button class="add-to-cart" (click)="enquireNow()">Enquire Now</button>
     </div>
    
   </div>
@@ -104,6 +104,7 @@
 
 
 <ngx-smart-modal #myModal identifier="myModal" customClass="nsm-dialog-animation-rtl">
+  <div class="loader" id="loader"></div>
   <div class="login">
     <div class="login-triangle"></div>
     
@@ -111,8 +112,24 @@
   
     <form class="login-container" [formGroup]="LoginForm" (ngSubmit)="checkLoginUser()">
       <p><input type="email" placeholder="Email" formControlName="email"></p>
+      <div *ngIf="LoginForm.controls['email'].invalid && (LoginForm.controls['email'].dirty || LoginForm.controls['email'].touched)">
+        <div *ngIf="LoginForm.controls['email'].errors.required" style="color: red;font-size: 14px;">
+        *Email is required.
+      </div>
+      <div *ngIf="LoginForm.controls['email'].errors.email" style="color: red;font-size: 14px;">
+        *It is a not a valid email address.
+      </div>
+    </div>
       <p><input type="password" placeholder="Password" formControlName="password"></p>
-      <p><input type="submit" value="Log in"></p>
+      <div *ngIf="LoginForm.controls['password'].invalid && (LoginForm.controls['password'].dirty || LoginForm.controls['password'].touched)">
+        <div *ngIf="LoginForm.controls['password'].errors.required" style="color: red;font-size: 14px;">
+        *Password is required.
+      </div>
+      <!-- <div *ngIf="LoginForm.controls['name'].errors.minlength" style="color: red;font-size: 14px;">
+        *Password should be of minimum 7 characters long.
+      </div> -->
+    </div>
+      <p><input type="submit" [disabled]="LoginForm.invalid" value="Log in"></p>
     </form>
   </div>
 
@@ -124,6 +141,7 @@
 
 
 <ngx-smart-modal #myModal2 identifier="myModal2" customClass="nsm-dialog-animation-rtl">
+  <div class="loader" id="loader"></div>
   <div class="login">
     <div class="login-triangle"></div>
     
@@ -131,11 +149,51 @@
   
     <form class="login-container" [formGroup]="Register" (ngSubmit) = "registerUser()">
       <p><input type="text" formControlName="name" placeholder="Enter Name"></p>
+      <div *ngIf="Register.controls['name'].invalid && (Register.controls['name'].dirty || Register.controls['name'].touched)">
+        <div *ngIf="Register.controls['name'].errors.required" style="color: red;font-size: 14px;">
+        *Name is required.
+      </div>
+      <div *ngIf="Register.controls['name'].errors.minlength" style="color: red;font-size: 14px;">
+        *Name should be of minimum 5 characters.
+      </div>
+    </div>
       <p><input type="email" formControlName="email" placeholder="Email"></p>
-      <p><input type="password"  placeholder="Password"></p>
-      <p><input type="password" formControlName="password" placeholder="Enter Password Again"></p>
+      <div *ngIf="Register.controls['email'].invalid && (Register.controls['email'].dirty || Register.controls['email'].touched)">
+        <div *ngIf="Register.controls['email'].errors.required" style="color: red;font-size: 14px;">
+        *Email is required.
+      </div>
+      <div *ngIf="Register.controls['email'].errors.email" style="color: red;font-size: 14px;">
+        *It is a not a valid email address.
+      </div>
+    </div>
+      <p><input type="password" formControlName="password" placeholder="Password (Must be 8 digit long and special character)"></p>
+      <div *ngIf="Register.controls['password'].invalid && (Register.controls['password'].dirty || Register.controls['password'].touched)">
+        <div *ngIf="Register.controls['password'].errors.required" style="color: red;font-size: 14px;">
+        *Password is required.
+      </div>
+      <div *ngIf="Register.controls['password'].errors.pattern" style="color: red;font-size: 14px;">
+        *Password should be strong.
+      </div>
+    </div>
+      <p><input type="password" formControlName="confirmpassword" placeholder="Enter Password Again"></p>
+      <div *ngIf="Register.controls['confirmpassword'].invalid && (Register.controls['confirmpassword'].dirty || Register.controls['confirmpassword'].touched)">
+        <div *ngIf="Register.controls['confirmpassword'].errors.required" style="color: red;font-size: 14px;">
+        *Confirm Password is required.
+      </div>
+      <div *ngIf="Register.controls['confirmpassword'].errors.mustMatch" style="color: red;font-size: 14px;">
+        *Confirm Password and Password should match.
+      </div>
+    </div>
       <p><input type="text" formControlName="contact" placeholder="Enter Mobile Number"></p>
-      <p><input type="submit" value="Sign Up"></p>
+      <div *ngIf="Register.controls['contact'].invalid && (Register.controls['contact'].dirty || Register.controls['contact'].touched)">
+        <div *ngIf="Register.controls['contact'].errors.required" style="color: red;font-size: 14px;">
+        *Contact number is required.
+      </div>
+      <div *ngIf="Register.controls['contact'].errors.pattern" style="color: red;font-size: 14px;">
+        *It is a not a valid contact number.
+      </div>
+    </div>
+      <p><input type="submit" [disabled]="!Register.valid" value="Sign Up"></p>
     </form>
   </div>
 
