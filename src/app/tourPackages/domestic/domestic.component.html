@@ -69,16 +69,16 @@
       <div class="col-md-3">
         <div class="sidebar-wrap">
           <div class="side search-wrap animate-box">
-            <h3 class="sidebar-heading">Enquire your tour</h3>
-            <form class="colorlib-form">
+            <h3 style="text-align: center;" class="sidebar-heading">Enquire your tour</h3>
+            <div class="colorlib-form">
               <div class="row">
 
                 <div class="col-md-12">
                   <div class="form-group">
                     <!-- <label for="date">Destination Name:</label> -->
                     <div class="form-field">
-                      <input type="radio" value="international"><span style="color: white;font-size: 17px;margin-right: 20px;">International</span>
-                      <input type="radio" value="domestic"><span style="color: white;font-size: 17px;">Domestic</span>
+                      <input type="radio" name="tour" id="r1"  ><span style="color: white;font-size: 17px;margin-right: 20px;">International</span>
+                      <input type="radio" name="tour" id="r2"  ><span style="color: white;font-size: 17px;">Domestic</span>
                     </div>
                   </div>
                 </div>
@@ -87,7 +87,7 @@
                   <div class="form-group">
                     <label for="date">Destination Name:</label>
                     <div class="form-field">
-                      <input type="text" placeholder="Enter destination">
+                      <input type="text" placeholder="Enter destination" [(ngModel)]="enquiryForm.destination">
                     </div>
                   </div>
                 </div>
@@ -96,7 +96,7 @@
                   <div class="form-group">
                     <label for="date">City of Departure:</label>
                     <div class="form-field">
-                      <input type="text" placeholder="Enter departure city">
+                      <input type="text" placeholder="Enter departure city" [(ngModel)]="enquiryForm.departureCity">
                     </div>
                   </div>
                 </div>
@@ -115,7 +115,7 @@
                   <div class="form-group">
                     <label for="date">Date of Departure:</label>
                     <div class="form-field">
-                      <input type="date" id="myDate" >
+                      <input type="date" id="myDate" [(ngModel)]="enquiryForm.departureDate">
                     </div>
                   </div>
                 </div>
@@ -123,15 +123,15 @@
                   <div class="form-group">
                     <label for="date">Contact Details:</label>
                     <div class="form-field">
-                      <input type="text" placeholder="Enter your name">
-                      <input type="text" placeholder="Enter your email address">
-                      <input type="text" placeholder="Enter your contact number">
+                      <input type="text" placeholder="Enter your name" [(ngModel)]="enquiryForm.name">
+                      <input type="email" placeholder="Enter your email address" [(ngModel)]="enquiryForm.emailid">
+                      <input type="text" placeholder="Enter your contact number" [(ngModel)]="enquiryForm.contact">
                     </div>
                   </div>
                 </div>
 
                 <div class="col-md-12">
-                  <input type="submit" (click)="findTour()" name="submit" id="submit" value="Enquire Tour"
+                  <input type="submit" (click)="submitEnquiry()" name="submit" id="submit" value="Enquire Tour"
                     class="btn btn-primary btn-block">
                 </div>
                 <!-- <div class="col-md-12">
@@ -139,9 +139,9 @@
                     class="btn btn-primary btn-block">
                 </div> -->
               </div>
-            </form>
+            
           </div>
-
+          </div>
         </div>
       </div>
       <div class="col-md-9">
@@ -186,7 +186,7 @@
           <span style="
           font-size: 16px;
           color: #545454;margin-left: 10px">Starting From: <span style="font-size: 25px;
-          color: #ef6614;font-weight: bolder;">{{data.cost | currency: 'INR':true}}</span></span>
+          color: #ef6614;font-weight: bolder;">{{data.cost | currency: 'INR':'symbol-narrow'}}</span></span>
         </div>
         
         <div class="box">
@@ -494,3 +494,5 @@
     </div>
   </div>
 </footer>
+
+<div id="snackbar">Enquiry Submitted Sucessfully. We will contact you shortly.</div>

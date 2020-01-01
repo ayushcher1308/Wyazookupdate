@@ -47,6 +47,19 @@ export class DomesticComponent implements OnInit {
   daysS;
   maxLeft;
   maxRight;
+  r1;
+  r2;
+  enquiryForm = {
+    destination:'',
+    departureCity:'',
+    departureDate:'',
+    type:'',
+    contact:'+91-',
+    name:'',
+    emailid:'',
+    min:this.minValue,
+    max:this.maxValue
+  };
 
   ngOnInit() {
 
@@ -285,6 +298,37 @@ export class DomesticComponent implements OnInit {
         day = '0' + day;
 
     return [year, month, day].join('-');
+}
+
+submitEnquiry()
+{
+  this.enquiryForm.min = this.minValue;
+  this.enquiryForm.max = this.maxValue;
+  console.log(this.enquiryForm);
+  this.tours.checkUser("wayzook/enquiry/add",this.enquiryForm).subscribe(response=>{
+    console.log(response);
+    this.enquiryForm = {
+      destination:'',
+      departureCity:'',
+      departureDate:'',
+      type:'',
+      contact:'+91-',
+      name:'',
+      emailid:'',
+      min:this.minValue,
+      max:this.maxValue
+    };
+    if(response.msg)
+    {
+      var x = document.getElementById("snackbar");
+
+  // Add the "show" class to DIV
+  x.className = "show";
+
+  // After 3 seconds, remove the show class from DIV
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    }
+  })
 }
 
 }
