@@ -45,10 +45,12 @@ export class DomesticComponent implements OnInit {
   cityList;
   cityS;
   daysS;
+  maxLeft;
+  maxRight;
 
   ngOnInit() {
 
-    document.getElementById("dom").classList.add("selected");
+    // document.getElementById("dom").classList.add("selected");
     this.Domestic = true;
 
     this.carouselTile = {
@@ -64,7 +66,9 @@ export class DomesticComponent implements OnInit {
       easing: 'ease'
     }
 
-
+    this.maxLeft = 0;
+    this.maxRight = -9*320;
+    document.getElementById("transform").style.width = "800px";
 
     this.getAllTours();
 
@@ -150,6 +154,121 @@ export class DomesticComponent implements OnInit {
   }
 
 
+  translateright()
+  {
+    const myEl = document.getElementById("transform");
+    let currentX = window.getComputedStyle(myEl).transform.split(',')[4];
+    console.log(currentX);
+    if( parseInt(currentX)-this.maxRight  < 320)
+    {
+      var t =parseInt(currentX)-1;
+    }
+    else
+    {
+      var t = parseInt(currentX) - 320;
+    }
+      if(t>this.maxRight)
+      {
+        myEl.style.transform = "translateX("+t+"px)";
+      }
+    
+  }
 
+  translateLeft()
+  {
+    const myEl = document.getElementById("transform");
+    let currentX = window.getComputedStyle(myEl).transform.split(',')[4];
+    console.log(currentX);
+    if(parseInt(currentX) < 320 && parseInt(currentX)>0)
+    {
+        var t = 320 - parseInt(currentX);
+    }
+    else
+    {
+      var t = parseInt(currentX) + 320;
+    }
+    if(t != 320)
+    {
+      myEl.style.transform = "translateX("+t+"px)";
+    }
+
+
+}
+
+  domesticLeft()
+  {
+    const myEl = document.getElementById("transform2");
+    let currentX = window.getComputedStyle(myEl).transform.split(',')[4];
+    console.log(currentX);
+    if(parseInt(currentX) < 320 && parseInt(currentX)>0)
+    {
+        var t = 320 - parseInt(currentX);
+    }
+    else
+    {
+      var t = parseInt(currentX) + 320;
+    }
+    if(t != 320)
+    {
+      myEl.style.transform = "translateX("+t+"px)";
+    }
+  }
+
+  domesticRight()
+  {
+    const myEl = document.getElementById("transform2");
+    let currentX = window.getComputedStyle(myEl).transform.split(',')[4];
+    console.log(currentX);
+    if( parseInt(currentX)-this.maxRight  < 320)
+    {
+      var t =parseInt(currentX)-1;
+    }
+    else
+    {
+      var t = parseInt(currentX) - 320;
+    }
+      if(t>this.maxRight)
+      {
+        myEl.style.transform = "translateX("+t+"px)";
+      }
+  }
+
+  internationalLeft()
+  {
+    const myEl = document.getElementById("transform3");
+    let currentX = window.getComputedStyle(myEl).transform.split(',')[4];
+    console.log(currentX);
+    if(parseInt(currentX) < 320 && parseInt(currentX)>0)
+    {
+        var t = 320 - parseInt(currentX);
+    }
+    else
+    {
+      var t = parseInt(currentX) + 320;
+    }
+    if(t != 320)
+    {
+      myEl.style.transform = "translateX("+t+"px)";
+    }
+  }
+
+  internationalRight()
+  {
+    const myEl = document.getElementById("transform3");
+    let currentX = window.getComputedStyle(myEl).transform.split(',')[4];
+    console.log(currentX);
+    if( parseInt(currentX)-this.maxRight  < 320)
+    {
+      var t =parseInt(currentX)-1;
+    }
+    else
+    {
+      var t = parseInt(currentX) - 320;
+    }
+      if(t>this.maxRight)
+      {
+        myEl.style.transform = "translateX("+t+"px)";
+      }
+  }
 
 }

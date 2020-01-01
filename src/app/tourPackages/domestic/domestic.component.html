@@ -57,10 +57,10 @@
 </div>
 <!--navbar finish-->
 
-<div class="section-heading text-center">
-  <h2>Best Offers</h2>
+<!-- <div class="section-heading text-center">
+  <h2>Our Best Tours</h2>
   <p class="text-muted">Check out our top rated tours!</p>
-</div>
+</div> -->
 
 
 <div class="colorlib-wrap" #tours>
@@ -69,22 +69,39 @@
       <div class="col-md-3">
         <div class="sidebar-wrap">
           <div class="side search-wrap animate-box">
-            <h3 class="sidebar-heading">Find your tour</h3>
+            <h3 class="sidebar-heading">Enquire your tour</h3>
             <form class="colorlib-form">
               <div class="row">
+
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="date">Where:</label>
+                    <!-- <label for="date">Destination Name:</label> -->
                     <div class="form-field">
-                      <i class="icon icon-arrow-down3"></i>
-                      <select name="city" id="city" class="form-control" [(ngModel)]="cityS"
-                        style="background-color: #2C2E3E;">
-                        <option value="" disabled>Choose City Want to Travel</option>
-                        <option *ngFor="let select of cityList" value="{{select}}">{{select}}</option>
-                      </select>
+                      <input type="radio" value="international"><span style="color: white;font-size: 17px;margin-right: 20px;">International</span>
+                      <input type="radio" value="domestic"><span style="color: white;font-size: 17px;">Domestic</span>
                     </div>
                   </div>
                 </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="date">Destination Name:</label>
+                    <div class="form-field">
+                      <input type="text" placeholder="Enter destination">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="date">City of Departure:</label>
+                    <div class="form-field">
+                      <input type="text" placeholder="Enter departure city">
+                    </div>
+                  </div>
+                </div>
+
+
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="date">Price Range:</label>
@@ -93,32 +110,34 @@
                     </div>
                   </div>
                 </div>
+
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="date">No of Days:</label>
+                    <label for="date">Date of Departure:</label>
                     <div class="form-field">
-                      <i class="icon icon-arrow-down3"></i>
-                      <select name="days" [(ngModel)]="daysS" id="days" class="form-control"
-                        style="background-color: #2C2E3E;">
-                        <option value="" disabled></option>
-                        <option value="3">1 Day - 3 Days</option>
-                        <option value="5">4 Days - 5 Days</option>
-                        <option value="9">6 Days - 9 Days</option>
-                        <option value="10">9+ Days</option>
-
-                      </select>
+                      <input type="date" >
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="date">Contact Details:</label>
+                    <div class="form-field">
+                      <input type="text" placeholder="Enter your name">
+                      <input type="text" placeholder="Enter your email address">
+                      <input type="text" placeholder="Enter your contact number">
                     </div>
                   </div>
                 </div>
 
                 <div class="col-md-12">
-                  <input type="submit" (click)="findTour()" name="submit" id="submit" value="Find Tour"
+                  <input type="submit" (click)="findTour()" name="submit" id="submit" value="Enquire Tour"
                     class="btn btn-primary btn-block">
                 </div>
-                <div class="col-md-12">
+                <!-- <div class="col-md-12">
                   <input type="submit" (click)="getAllTours()" name="submit" id="submit" value="Reset"
                     class="btn btn-primary btn-block">
-                </div>
+                </div> -->
               </div>
             </form>
           </div>
@@ -126,7 +145,7 @@
         </div>
       </div>
       <div class="col-md-9">
-        <div class="row">
+        <!-- <div class="row">
           <div class="wrap-division">
             <div class="col-md-6 col-sm-6 animate-box"
               *ngFor="let data of filteredTours | paginate: {id: 'pagination3', itemsPerPage: 6, currentPage: p }">
@@ -137,7 +156,6 @@
                       {{data.non}} Nights</small></p>
                 </a>
                 <span class="desc">
-                  <!-- <p class="star"><span><i class="fa fa- star"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i><i class="icon-star-full"></i></span> 545 Reviews</p> -->
                   <h2><a>{{data.name}}</a></h2>
                   <span class="city">{{data.destName}}</span>
                 </span>
@@ -148,13 +166,166 @@
 
 
           </div>
+        </div> -->
+        <h2 style="color:#232323;font-weight:bold">Popular Trips</h2>
+        <div class="buttons">
+          <i class="fa fa-arrow-left" (click)="translateLeft()" aria-hidden="true"></i>
+          <i class="fa fa-arrow-right" (click)="translateright()" aria-hidden="true"></i>
         </div>
-
-        <div class="col-md-12 text-center">
-          <pagination-controls id="pagination3" (pageChange)="p = $event" autoHide="true" style="text-align: center">
-          </pagination-controls>
+        <div class="major-box">
+          <div class="box-cover" id="transform">
+          <div class="box" *ngFor="let data of totalTours">
+            <img class="product-image" src="{{data.imageLink}}" alt="">
+            <span style="display: block;
+            font-size: 25px;
+            color: #232323;
+            font-weight: 600;font-family: sans-serif;margin-left: 10px;">{{data.destName}}</span>
+          <span style="    display: block;
+          font-size: 14px;
+          color: #545454;margin-left: 10px">{{data.non}} Nights/{{data.nod}} Days</span>
+          <span style="
+          font-size: 16px;
+          color: #545454;margin-left: 10px">Starting From: <span style="font-size: 25px;
+          color: #ef6614;font-weight: bolder;">{{data.cost | currency: 'INR':true}}</span></span>
         </div>
+        
+        <div class="box">
+          <img class="product-image" src="../../assets/hotel-6.jpg" alt="">
+        
+        </div>
+        <div class="box">
+          <img class="product-image" src="../../assets/hotel-6.jpg" alt="">
+        
+        </div>
+        <div class="box">
+          <img class="product-image" src="../../assets/hotel-6.jpg" alt="">
+        
+        </div>
+        <div class="box">
+          <img class="product-image" src="../../assets/hotel-6.jpg" alt="">
+        
+        </div>
+        <div class="box">
+          <img class="product-image" src="../../assets/hotel-6.jpg" alt="">
+        
+        </div>
+        <div class="box">
+          <img class="product-image" src="../../assets/hotel-6.jpg" alt="">
+        
+        </div>
+        <div class="box">
+          <img class="product-image" src="../../assets/hotel-6.jpg" alt="">
+        
+        </div>
+        </div>
+      </div>
 
+      <h2 style="color:#232323;font-weight:bold">Domestic Tours</h2>
+        <div class="buttons">
+          <i class="fa fa-arrow-left" (click)="domesticLeft()" aria-hidden="true"></i>
+          <i class="fa fa-arrow-right" (click)="domesticRight()" aria-hidden="true"></i>
+        </div>
+        <div class="major-box">
+          <div class="box-cover2" id="transform2">
+          <div class="box" *ngFor="let data of totalTours">
+            <img class="product-image" src="{{data.imageLink}}" alt="">
+            <span style="display: block;
+            font-size: 25px;
+            color: #232323;
+            font-weight: 600;font-family: sans-serif;margin-left: 10px;">{{data.destName}}</span>
+          <span style="    display: block;
+          font-size: 14px;
+          color: #545454;margin-left: 10px">{{data.non}} Nights/{{data.nod}} Days</span>
+          <span style="
+          font-size: 16px;
+          color: #545454;margin-left: 10px">Starting From: <span style="font-size: 25px;
+          color: #ef6614;font-weight: bolder;">{{data.cost | currency: 'INR':true}}</span></span>
+        </div>
+        
+        <div class="box">
+          <img class="product-image" src="../../assets/hotel-6.jpg" alt="">
+        
+        </div>
+        <div class="box">
+          <img class="product-image" src="../../assets/hotel-6.jpg" alt="">
+        
+        </div>
+        <div class="box">
+          <img class="product-image" src="../../assets/hotel-6.jpg" alt="">
+        
+        </div>
+        <div class="box">
+          <img class="product-image" src="../../assets/hotel-6.jpg" alt="">
+        
+        </div>
+        <div class="box">
+          <img class="product-image" src="../../assets/hotel-6.jpg" alt="">
+        
+        </div>
+        <div class="box">
+          <img class="product-image" src="../../assets/hotel-6.jpg" alt="">
+        
+        </div>
+        <div class="box">
+          <img class="product-image" src="../../assets/hotel-6.jpg" alt="">
+        
+        </div>
+        </div>
+      </div>
+
+      <h2 style="color:#232323;font-weight:bold">International Tours</h2>
+        <div class="buttons">
+          <i class="fa fa-arrow-left" (click)="internationalLeft()" aria-hidden="true"></i>
+          <i class="fa fa-arrow-right" (click)="internationalRight()" aria-hidden="true"></i>
+        </div>
+        <div class="major-box">
+          <div class="box-cover3" id="transform3">
+          <div class="box" *ngFor="let data of totalTours">
+            <img class="product-image" src="{{data.imageLink}}" alt="">
+            <span style="display: block;
+            font-size: 25px;
+            color: #232323;
+            font-weight: 600;font-family: sans-serif;margin-left: 10px;">{{data.destName}}</span>
+          <span style="    display: block;
+          font-size: 14px;
+          color: #545454;margin-left: 10px">{{data.non}} Nights/{{data.nod}} Days</span>
+          <span style="
+          font-size: 16px;
+          color: #545454;margin-left: 10px">Starting From: <span style="font-size: 25px;
+          color: #ef6614;font-weight: bolder;">{{data.cost | currency: 'INR':true}}</span></span>
+        </div>
+        
+        <div class="box">
+          <img class="product-image" src="../../assets/hotel-6.jpg" alt="">
+        
+        </div>
+        <div class="box">
+          <img class="product-image" src="../../assets/hotel-6.jpg" alt="">
+        
+        </div>
+        <div class="box">
+          <img class="product-image" src="../../assets/hotel-6.jpg" alt="">
+        
+        </div>
+        <div class="box">
+          <img class="product-image" src="../../assets/hotel-6.jpg" alt="">
+        
+        </div>
+        <div class="box">
+          <img class="product-image" src="../../assets/hotel-6.jpg" alt="">
+        
+        </div>
+        <div class="box">
+          <img class="product-image" src="../../assets/hotel-6.jpg" alt="">
+        
+        </div>
+        <div class="box">
+          <img class="product-image" src="../../assets/hotel-6.jpg" alt="">
+        
+        </div>
+        </div>
+      </div>
+       
       </div>
 
       <!-- SIDEBAR-->
@@ -166,7 +337,7 @@
 
 
 
-<div class="row hideforphone">
+<!-- <div class="row hideforphone">
   <div class="col-md-12">
     <div id="dom" class="col-md-6 text-center tourtab" (click)="domTours()">Domestic Tours</div>
     <div id="int" class="col-md-6 text-center tourtab" (click)="intTours()">International Tours</div>
@@ -220,15 +391,14 @@
     <pagination-controls id="pagination2" (pageChange)="r = $event" autoHide="true" style="text-align: center">
     </pagination-controls>
   </div>
-</div>
+</div> -->
 
 
 
-<section class="cta">
+<!-- <section class="cta">
   <div class="cta-content">
     <div class="col-lg-10" style="float:none; margin:0 auto;">
       <h1 class="title" style="text-transform: capitalize">why choose us?</h1>
-      <!-- <h3 class="subtitle">Dream </h3> -->
     </div>
   </div>
   <div class="container cta-content">
@@ -237,27 +407,24 @@
         <div class="feature-item">
           <i class="fa fa-plane"></i>
           <h3>Air Ticket Bookings</h3>
-          <!--<p class="text-muted">Put an image, video, animation, or anything else in the screen!</p>-->
         </div>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 faitem">
         <div class="feature-item">
           <i class="fa fa-hotel"></i>
           <h3>Hotel Bookings</h3>
-          <!--<p class="text-muted">Put an image, video, animation, or anything else in the screen!</p>-->
         </div>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 faitem">
         <div class="feature-item">
           <i class="fa fa-cab"></i>
           <h3>Cab Bookings</h3>
-          <!--<p class="text-muted">Put an image, video, animation, or anything else in the screen!</p>-->
         </div>
       </div>
     </div>
   </div>
   <div class="overlay"></div>
-</section>
+</section> -->
 
 
 <footer class="new_footer_area bg_color" #target>
