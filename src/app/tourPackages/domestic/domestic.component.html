@@ -115,7 +115,7 @@
                   <div class="form-group">
                     <label for="date">Date of Departure:</label>
                     <div class="form-field">
-                      <input type="date" >
+                      <input type="date" id="myDate" >
                     </div>
                   </div>
                 </div>
@@ -169,12 +169,12 @@
         </div> -->
         <h2 style="color:#232323;font-weight:bold">Popular Trips</h2>
         <div class="buttons">
-          <i class="fa fa-arrow-left" (click)="translateLeft()" aria-hidden="true"></i>
-          <i class="fa fa-arrow-right" (click)="translateright()" aria-hidden="true"></i>
+          <i class="fa fa-arrow-left" id="leftbut" (click)="translateLeft()" aria-hidden="true"></i>
+          <i class="fa fa-arrow-right" id="rtbut" (click)="translateright()" aria-hidden="true"></i>
         </div>
         <div class="major-box">
           <div class="box-cover" id="transform">
-          <div class="box" *ngFor="let data of totalTours">
+          <div class="box" *ngFor="let data of totalTours" (click)="goToTour(data.key)">
             <img class="product-image" src="{{data.imageLink}}" alt="">
             <span style="display: block;
             font-size: 25px;
@@ -227,7 +227,7 @@
         </div>
         <div class="major-box">
           <div class="box-cover2" id="transform2">
-          <div class="box" *ngFor="let data of totalTours">
+          <div class="box" *ngFor="let data of totalTours" (click)="goToTour(data.key)">
             <img class="product-image" src="{{data.imageLink}}" alt="">
             <span style="display: block;
             font-size: 25px;
@@ -280,7 +280,7 @@
         </div>
         <div class="major-box">
           <div class="box-cover3" id="transform3">
-          <div class="box" *ngFor="let data of totalTours">
+          <div class="box" *ngFor="let data of totalTours" (click)="goToTour(data.key)">
             <img class="product-image" src="{{data.imageLink}}" alt="">
             <span style="display: block;
             font-size: 25px;
