@@ -741,7 +741,7 @@ section.contact ul.list-social li.social-google-plus a:hover {
 
 
 .new_footer_top {
-  padding: 120px 0px 270px;
+  padding: 0px 0px 270px;
   position: relative;
     overflow-x: hidden;
 }
@@ -1231,6 +1231,10 @@ overflow: hidden; }
     z-index: 2;
     margin: 0 auto; }
     @media screen and (max-width: 768px) {
+      .bottomTrip
+      {
+        display: none;
+      }
       .colorlib-nav {
         margin: 0; } }
     .colorlib-nav .top-menu {
@@ -1539,8 +1543,8 @@ overflow: hidden; }
   #colorlib-footer {
     width: 100%;
     display: block;
-    float: left;
-    padding: 9em 0;
+    // float: left;
+    padding: 5em 0;
     clear: both; }
     @media screen and (max-width: 768px) {
       #colorlib-hotel,
@@ -1890,7 +1894,7 @@ overflow: hidden; }
       margin-bottom: 30px; }
     .sidebar-wrap .search-wrap {
       background: #2C2E3E;
-      border: 1px solid #f0f0f0;
+      box-shadow: 0px 0px 10px;
       padding: 2em 20px;
       -webkit-border-radius: 4px;
       -moz-border-radius: 4px;
@@ -3042,3 +3046,123 @@ overflow: hidden; }
   
   .js .animate-box {
     opacity: 0; }    
+
+    @media screen and (max-width: 892px)
+    {
+      .hideforphone
+      {
+        display:none;
+      }
+    }
+
+    .major-box
+{
+  height: 350px;
+  width: 100%;
+  background-color: #fafafa;
+  // border: 1px solid #ccc;
+  overflow: hidden;
+  margin: 40px auto;
+  padding: 10px;
+  border-radius:4px;
+}
+
+.box{
+  width: 300px;
+  height: 310px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.6);
+  margin: 10px;
+  border-radius: 10px
+}
+
+.box-cover,.box-cover2,.box-cover3
+{
+  width: 100%;
+  height: 100%;
+  transition: 0.6s ease-in-out;
+  display: -webkit-inline-box;
+  transform: translateX(0px);
+  white-space: nowrap;
+  cursor:pointer;
+}
+
+.product-image
+{
+  width: 100%;
+  height: 200px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+i
+{
+  padding: 10px;
+  font-size: 20px;
+  color: #2196f3;
+  cursor: pointer;
+}
+
+.buttons
+{
+  display: inline-block;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+input[type=text],input[type=date],input[type=email]
+{
+  width: 100%;
+  border: 1px solid #afafaf;
+  margin: 0 0 5px;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.ng5-slider-pointer
+{
+  outline: none;
+}
+
+#snackbar {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: #333; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 30%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}

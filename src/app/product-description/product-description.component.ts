@@ -87,8 +87,11 @@ this.LoginForm = this.fb.group({
           for(let i=0;i<it.length;i++)
           {
               this.iternary.push(this.tourInfo.iternary[it[i]]);
+              let desc = this.tourInfo.iternary[it[i]].ld.split('\n');
+              this.tourInfo.iternary[it[i]].desc = desc;
           }
           console.log(this.iternary);
+          document.getElementById("loading").style.display="none";
       });
     //   let element = document.getElementsByClassName("nsm-content") as HTMLCollectionOf<HTMLElement>;
     //   console.log(element);

@@ -1,3 +1,8 @@
+<div class="loading" id="loading">
+  <div class='uil-ring-css' style='transform:scale(0.79);'>
+    <div></div>
+  </div>
+</div>
 <div class="container-fluid main">
 
   <nav class="navbar navbar-default">
@@ -73,9 +78,9 @@
         <br/><h5 class="nod">{{tourInfo?.nod}} Days / {{tourInfo?.non}} Nights</h5>
         <p>{{tourInfo?.cost | currency: 'INR':'symbol-narrow'}} / Person</p>
         <div class="description">
-          <p>{{tourInfo?.destAbout}}</p>
-          <p>Inclusion : {{tourInfo?.inclusion}}</p>
-          <p>Exclusion : {{tourInfo?.exclusion}}</p>
+          <p><strong>{{tourInfo?.destAbout}}</strong></p><hr>
+          <p><span style="color: black;font-weight: bold;">Inclusion</span> : {{tourInfo?.inclusion}}</p><hr>
+          <p><span style="color: black;font-weight: bold;">Exclusion </span>: {{tourInfo?.exclusion}}</p>
           <p>
             <i style="padding: 10px;" class="fa fa-cutlery"></i>
             <i style="padding: 10px;" class="fa fa-hotel"></i>
@@ -89,10 +94,10 @@
       <div class="column-xs-12 column-md-5 iternary" *ngFor="let data of iternary">
           <h5 style="font-weight: bold;">Day {{data.day}} : {{data.sd}}</h5>
           <div class="description">
-            <p>About : {{data.ld}}</p>
-            <p>Break Fast : <span *ngIf="data.breakfast">Included</span><span *ngIf="!data.breakfast">Not Included</span></p>
-            <p>Lunch : <span *ngIf="data.lunch">Included</span><span *ngIf="!data.lunch">Not Included</span></p>
-            <p>Dinner : <span *ngIf="data.dinner">Included</span><span *ngIf="!data.dinner">Not Included</span></p>
+            <p *ngFor="let desc of data.desc;let i=index">{{i+1}}) {{desc}}</p>
+            <p><strong>Break Fast :</strong> <span *ngIf="data.breakfast">Included</span><span *ngIf="!data.breakfast">Not Included</span></p>
+            <p><strong>Lunch :</strong><span *ngIf="data.lunch">Included</span><span *ngIf="!data.lunch">Not Included</span></p>
+            <p><strong>Dinner :</strong> <span *ngIf="data.dinner">Included</span><span *ngIf="!data.dinner">Not Included</span></p>
             <!-- <p>By contrast with other plant cultivation practices, bonsai is not intended for production of food or for medicine. Instead, bonsai practice focuses on long-term cultivation and shaping of one or more small trees growing in a container.</p> -->
           </div>
       </div>
