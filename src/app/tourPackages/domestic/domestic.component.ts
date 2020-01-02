@@ -153,6 +153,8 @@ export class DomesticComponent implements OnInit {
         }
 
       }
+
+      
       console.log('filtr1' + filter1);
       let filter2 = [];
       for (var i = 0; i < filter1.length; i++) {
