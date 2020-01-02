@@ -165,6 +165,7 @@ export class DomesticComponent implements OnInit {
       this.filteredTours = filter2;
     }
 
+    
   }
 
 
