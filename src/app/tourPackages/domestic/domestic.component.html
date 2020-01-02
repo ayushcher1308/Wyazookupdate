@@ -161,10 +161,6 @@
                 </span>
               </div>
             </div>
-
-
-
-
           </div>
         </div> -->
         <h2 style="color:#232323;font-weight:bold">Popular Trips</h2>
@@ -343,7 +339,6 @@
     <div id="int" class="col-md-6 text-center tourtab" (click)="intTours()">International Tours</div>
   </div>
 </div>
-
 <div class="row">
   <div class="col-md-12" *ngIf="Domestic" [@fadeInOut]>
     <div class="wrapper"
@@ -362,10 +357,8 @@
           <p><span>{{data.cost | currency: 'INR':true}}</span></p>
           <button (click)="goToTour(data.key)" type="button">View More</button>
         </div>
-
       </div>
     </div>
-
     <pagination-controls id="pagination1" (pageChange)="x=$event" autoHide="true" style="text-align: center">
     </pagination-controls>
   </div>

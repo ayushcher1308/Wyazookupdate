@@ -91,6 +91,7 @@ this.LoginForm = this.fb.group({
               this.tourInfo.iternary[it[i]].desc = desc;
           }
           console.log(this.iternary);
+          document.getElementById("loading").style.display="none";
       });
     //   let element = document.getElementsByClassName("nsm-content") as HTMLCollectionOf<HTMLElement>;
     //   console.log(element);
