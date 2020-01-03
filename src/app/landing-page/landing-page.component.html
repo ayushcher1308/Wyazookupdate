@@ -54,14 +54,15 @@
 <div class="collapse navbar-collapse" id="myNavbar">
   <ul class="nav navbar-nav navbar-right">
     <li class="active"><a [routerLink]="['/landing']">Home</a></li>
-    <li class="dropdown">
+    <li ><a [routerLink]="['/domesticTour']">Tour Packages</a></li>
+    <!-- <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tours Packages
         <span class="caret"></span></a>
       <ul class="dropdown-menu">
         <li><a [routerLink]="['/domesticTour']">Domestic</a></li>
         <li><a [routerLink]="['/domesticTour']">International</a></li>
       </ul>
-    </li>
+    </li> -->
     <!--<li><a [routerLink]="['/aboutUs']">Why Us?</a></li>-->
     <!-- <li><a href="#">Book Flights</a></li> -->
     <li><a (click)="scrollToElement(target)" style="cursor: pointer;">Contact Us</a></li>
