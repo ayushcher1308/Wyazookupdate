@@ -1,3 +1,8 @@
+<div class="loading" id="loading" style="display: none;">
+  <div class='uil-ring-css' style='transform:scale(0.79);'>
+    <div></div>
+  </div>
+</div>
 <!--navbar-->
 
 <div class="container-fluid main">
@@ -62,6 +67,25 @@
   <p class="text-muted">Check out our top rated tours!</p>
 </div> -->
 
+<div class="ng-autocomplete">
+  <ng-autocomplete 
+  placeHolder="Search for you tour here"
+    [data]="data"
+    [searchKeyword]="keyword"
+    (selected)='selectEvent($event)'
+    [itemTemplate]="itemTemplate"
+    [notFoundTemplate]="notFoundTemplate">                                 
+  </ng-autocomplete>
+   
+  <ng-template #itemTemplate let-item>
+  <a [innerHTML]="item.name"></a>
+  </ng-template>
+   
+  <ng-template #notFoundTemplate let-notFound>
+  <div [innerHTML]="notFound"></div>
+  </ng-template>
+  </div>
+
 
 <div class="colorlib-wrap" #tours>
   <div class="container">
@@ -102,14 +126,14 @@
                 </div>
 
 
-                <div class="col-md-12">
+                <!-- <div class="col-md-12">
                   <div class="form-group">
                     <label for="date">Price Range:</label>
                     <div class="form-field">
                       <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
                     </div>
                   </div>
-                </div>
+                </div> -->
 
                 <div class="col-md-12">
                   <div class="form-group">

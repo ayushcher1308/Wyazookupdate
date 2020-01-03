@@ -40,6 +40,9 @@ export class DomesticComponent implements OnInit {
     }
   };
 
+  keyword = 'name';
+  data = [];
+
   totalTours;
   filteredTours;
   cityList;
@@ -64,6 +67,7 @@ export class DomesticComponent implements OnInit {
   ngOnInit() {
 
     // document.getElementById("dom").classList.add("selected");
+    document.getElementById("loading").style.display="block";
     this.Domestic = true;
     document.getElementById("myDate").setAttribute("min",this.formatDate());
 
@@ -86,7 +90,6 @@ export class DomesticComponent implements OnInit {
 
     this.getAllTours();
 
-
   }
 
   getAllTours() {
@@ -100,9 +103,18 @@ export class DomesticComponent implements OnInit {
         this.cities.push(this.totalTours[i].destName);
       }
       this.cityList = this.getUnique(this.cities);
+      for(let i=0;i<this.cityList.length;i++)
+      {
+        let obj = {
+          id:i+1,
+          name:this.cityList[i]
+        }
+        this.data.push(obj);
+      }
       console.log(this.cityList);
       this.filteredTours = this.totalTours;
       console.log(this.filteredTours);
+      document.getElementById("loading").style.display="none";
     });
   }
 
@@ -305,6 +317,7 @@ export class DomesticComponent implements OnInit {
 
 submitEnquiry()
 {
+  document.getElementById("loading").style.display="block";
   this.enquiryForm.min = this.minValue;
   this.enquiryForm.max = this.maxValue;
   console.log(this.enquiryForm);
@@ -321,6 +334,7 @@ submitEnquiry()
       min:this.minValue,
       max:this.maxValue
     };
+    document.getElementById("loading").style.display="none";
     if(response.msg)
     {
       var x = document.getElementById("snackbar");
@@ -332,6 +346,14 @@ submitEnquiry()
   setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
     }
   })
+}
+
+selectEvent(item) {
+  // do something with selected item
+  console.log(item);
+  this.router.navigate(['searchResult'], {
+    queryParams: { 'tourName': item.name }
+  });
 }
 
 }

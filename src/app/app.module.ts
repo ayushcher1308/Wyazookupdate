@@ -18,6 +18,8 @@ import 'hammerjs';
 import { ProductDescriptionComponent } from './product-description/product-description.component';
 import { NgxSmartModalModule } from 'ngx-smart-modal';
 import { ReactiveFormsModule } from '@angular/forms';
+import {AutocompleteLibModule} from 'angular-ng-autocomplete';
+import { SearchResultComponent } from './search-result/search-result.component';
 
 const appRoutes: Routes = [
   { path: 'wayzook', component: LandingPageComponent },
@@ -25,6 +27,7 @@ const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'tour', component: ProductDescriptionComponent },
   { path: 'domesticTour', component: DomesticComponent },
+  {path:'searchResult',component:SearchResultComponent},
   { path: '',
     redirectTo: 'wayzook',
     pathMatch: 'full'
@@ -39,7 +42,8 @@ const appRoutes: Routes = [
     AboutUsComponent,
     DomesticComponent,
     HomeComponent,
-    ProductDescriptionComponent
+    ProductDescriptionComponent,
+    SearchResultComponent
   ],
   imports: [
     RouterModule.forRoot(
@@ -55,6 +59,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     Ng5SliderModule,
     ReactiveFormsModule,
+    AutocompleteLibModule,
     NgxSmartModalModule.forRoot()
   ],
   providers: [],
