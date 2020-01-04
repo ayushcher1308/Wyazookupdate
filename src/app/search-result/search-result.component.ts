@@ -18,6 +18,11 @@ export class SearchResultComponent implements OnInit {
     toursInfo;
 
   ngOnInit() {
+    var elems = document.querySelectorAll(".activeFilter");
+    [].forEach.call(elems, function(el) {
+      el.classList.remove("activeFilter");
+      console.log("remove");
+  });
     document.getElementById("popular").classList.add("activeFilter");
 
     this.route.queryParamMap.subscribe(queryParams => {
@@ -44,5 +49,47 @@ export class SearchResultComponent implements OnInit {
       queryParams: { 'id': id }
     });
   }
+
+sortPrice()
+{
+  var elems = document.querySelectorAll(".activeFilter");
+  [].forEach.call(elems, function(el) {
+    el.classList.remove("activeFilter");
+    console.log("remove");
+});
+document.getElementById("price").classList.add("activeFilter");
+  this.toursInfo = this.sortArrayOfObjects(this.toursInfo,'cost');
+  console.log(this.toursInfo);
+}
+
+sortNewest()
+{
+  var elems = document.querySelectorAll(".activeFilter");
+  [].forEach.call(elems, function(el) {
+    el.classList.remove("activeFilter");
+    console.log("remove");
+});
+document.getElementById("newest").classList.add("activeFilter");
+  this.toursInfo = this.sortArrayOfObjects(this.toursInfo,'startDate');
+  console.log(this.toursInfo);
+}
+
+sortDuration()
+{
+  var elems = document.querySelectorAll(".activeFilter");
+  [].forEach.call(elems, function(el) {
+    el.classList.remove("activeFilter");
+    console.log("remove");
+});
+document.getElementById("duration").classList.add("activeFilter");
+  this.toursInfo = this.sortArrayOfObjects(this.toursInfo,'nod');
+  console.log(this.toursInfo);
+}
+
+sortArrayOfObjects = (arr, key) => {
+  return arr.sort((a, b) => {
+      return a[key] - b[key];
+  });
+};
 
 }

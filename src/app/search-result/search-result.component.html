@@ -43,10 +43,10 @@
 <div class="ful-wid2">
   <div class="sort_sec11">
     <div style="cursor:initial;color: black;" >Sort By:</div>
-    <div id="popular">Popular</div>
-    <div id="newest">Newest</div>
-    <div id="price">Price</div>
-    <div id="duration">Duration</div>
+    <div (click)="ngOnInit()" id="popular">Popular</div>
+    <!-- <div id="newest" (click)="sortNewest()" id="newest">Newest</div> -->
+    <div (click)="sortPrice()" id="price">Price</div>
+    <div (click)="sortDuration()" id="duration">Duration</div>
     
   </div>
   <div class="sort_sec12">Showing {{totalTours}} Packages for {{tourName}}</div>

@@ -149,7 +149,7 @@
 
 <div class="accordion">
   <ul>
-    <li *ngFor="let data of upcomingTrips">
+    <li *ngFor="let data of upcomingTrips" >
       <div (click)="goToTour(data.key)" >
         <a  class="sliderLink">
           <h2 style="font-weight: bold;">{{data.name | titlecase}}</h2>
