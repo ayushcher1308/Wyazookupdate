@@ -59,7 +59,7 @@
 <div class="container">
   <main class="grid">
     <article *ngFor="let data of toursInfo">
-      <img src="https://picsum.photos/600/400?image=1083" alt="Sample photo">
+      <img style="height: 210px;width: 100%;object-fit: cover;" src="{{data.imageLink}}" alt="Sample photo">
       <div class="text">
         <h3>{{data.name}}</h3>
         <p>{{data.nod}} Days / {{data.non}} Nights</p>

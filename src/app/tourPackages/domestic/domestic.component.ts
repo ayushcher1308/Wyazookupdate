@@ -59,9 +59,7 @@ export class DomesticComponent implements OnInit {
     type:'',
     contact:'+91-',
     name:'',
-    emailid:'',
-    min:this.minValue,
-    max:this.maxValue
+    email:''
   };
 
   ngOnInit() {
@@ -318,10 +316,8 @@ export class DomesticComponent implements OnInit {
 submitEnquiry()
 {
   document.getElementById("loading").style.display="block";
-  this.enquiryForm.min = this.minValue;
-  this.enquiryForm.max = this.maxValue;
   console.log(this.enquiryForm);
-  this.tours.checkUser("wayzook/enquiry/add",this.enquiryForm).subscribe(response=>{
+  this.tours.checkUser("wayzook/userenquiry/add",this.enquiryForm).subscribe(response=>{
     console.log(response);
     this.enquiryForm = {
       destination:'',
@@ -330,9 +326,7 @@ submitEnquiry()
       type:'',
       contact:'+91-',
       name:'',
-      emailid:'',
-      min:this.minValue,
-      max:this.maxValue
+      email:''
     };
     document.getElementById("loading").style.display="none";
     if(response.msg)

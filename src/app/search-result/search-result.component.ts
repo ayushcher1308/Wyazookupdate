@@ -27,6 +27,12 @@ export class SearchResultComponent implements OnInit {
     this.tours.getTours('wayzook/tours/getTourbyDestName?name='+this.tourName).subscribe(Response=>{
       console.log(Response);
       this.toursInfo = Response;
+      for(var i=0;i<this.toursInfo.length;i++)
+      {
+        let obj = this.toursInfo[i].destImages;
+        console.log(obj[Object.keys(obj)[0]]);
+        this.toursInfo[i].imageLink = obj[Object.keys(obj)[0]].image;
+      }
       this.totalTours = Response.length;
       this.destAbout = Response[0].destAbout;
       document.getElementById("loading").style.display="none";
