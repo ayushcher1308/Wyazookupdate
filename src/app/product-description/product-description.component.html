@@ -56,19 +56,33 @@
         <h1 style="display: inline-block;">{{tourInfo?.name | titlecase}} ({{tourInfo?.destName | titlecase}})<span *ngIf="tourInfo?.discount" class="flag-discount">{{tourInfo?.discount}}% OFF</span></h1>
         <br/><h5 class="nod">{{tourInfo?.nod}} Days / {{tourInfo?.non}} Nights</h5>
         <p>{{tourInfo?.cost | currency: 'INR':'symbol-narrow'}} / Person</p>
-        <div class="description">
-          <p><strong>{{tourInfo?.destAbout}}</strong></p><hr>
-          <p><span style="color: black;font-weight: bold;">Inclusion</span> : {{tourInfo?.inclusion}}</p><hr>
-          <p><span style="color: black;font-weight: bold;">Exclusion </span>: {{tourInfo?.exclusion}}</p>
-          <p>
-            <i style="padding: 10px;" class="fa fa-cutlery"></i>
-            <i style="padding: 10px;" class="fa fa-hotel"></i>
-            <i style="padding: 10px;" class="fa fa-cab"></i>
-            <i style="padding: 10px;" class="fa fa-medkit"></i>
-          </p>
-          <!-- <p>By contrast with other plant cultivation practices, bonsai is not intended for production of food or for medicine. Instead, bonsai practice focuses on long-term cultivation and shaping of one or more small trees growing in a container.</p> -->
+        <p>Tour Date: {{tourInfo?.startDate |  date:'longDate'}}</p>
+        <p><strong>{{tourInfo?.destAbout}}</strong></p><hr>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6" >
+          <div class="inclusion">
+            <p><span style="color: black;font-weight: bold;text-align: justify">Inclusion</span><br/></p> 
+          <ul class="b">
+            <li *ngFor="let inc of inclusion">
+                {{inc}}
+            </li>
+          </ul>
+          </div>
+          
+      </div>
+      <div class="col-md-6" >
+        <div class="inclusion">
+          <p><span style="color: black;font-weight: bold;text-align: justify;">Exclusion </span></p>
+        <ul class="b">
+          <li *ngFor="let inc of exclusion">
+              {{inc}}
+          </li>
+        </ul>
         </div>
       </div>
+    </div>
 
       <div class="column-xs-12 column-md-5 iternary" *ngFor="let data of iternary">
           <h5 style="font-weight: bold;">Day {{data.day}} : {{data.sd}}</h5>
@@ -224,15 +238,14 @@
                   </div>
               </div>
               <div class="col-lg-3 col-md-6">
-                  <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
-                      <h3 class="f-title f_600 t_color f_size_18">Team Solutions</h3>
-                      <div class="f_social_icon">
-                          <a href="#" class="fa fa-facebook"></a>
-                          <a href="#" class="fa fa-twitter"></a>
-                          <a href="#" class="fa fa-linkedin"></a>
-                          <a href="#" class="fa fa-pinterest"></a>
-                      </div>
+                <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
+                  <h3 class="f-title f_600 t_color f_size_18">Team Solutions</h3>
+                  <div class="f_social_icon">
+                      <a href="https://www.facebook.com/Wayzook-103668791131828/" target="_blank" class="fa fa-facebook"></a>
+                      <a href="https://www.instagram.com/invites/contact/?i=1plz9qcdgz18e&utm_content=beufbgt" target="_blank" class="fa fa-instagram"></a>
+                      
                   </div>
+              </div>
               </div>
           </div>
       </div>

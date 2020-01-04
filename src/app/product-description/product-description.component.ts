@@ -28,6 +28,8 @@ message;
   iternary = [];
   Register: FormGroup;
   LoginForm: FormGroup;
+  inclusion;
+  exclusion;
 
   ngAfterViewInit() {
     
@@ -75,6 +77,8 @@ this.LoginForm = this.fb.group({
           console.log(this.tourInfo);
           let a = Object.keys(this.tourInfo.destImages);
           let it = Object.keys(this.tourInfo.iternary);
+          this.inclusion = this.tourInfo.inclusion.split('\n');
+          this.exclusion = this.tourInfo.exclusion.split('\n');
           for(let i=0;i<3;i++)
           {
             if(this.tourInfo.destImages[a[i]])
@@ -84,6 +88,7 @@ this.LoginForm = this.fb.group({
           }
           this.image = this.tourImages[0].image;
           console.log(this.tourImages);
+          
           for(let i=0;i<it.length;i++)
           {
               this.iternary.push(this.tourInfo.iternary[it[i]]);
