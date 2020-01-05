@@ -777,7 +777,10 @@ h1 {
 
 @media only screen and (max-width: 600px) {
 
- 
+  .logo
+  {
+    width:65px;
+  }
 
 // .card-cb
 // {
@@ -1656,7 +1659,10 @@ background-position: 50% 50%;
   -webkit-transform: translateX(0);
   transform: translateX(0);
 }
+
+
  @media screen and (max-width: 680px) {
+
 
   .accordion ul li div a p
   {
@@ -1848,6 +1854,12 @@ section h2 {
 }
 
 @media (min-width: 992px) {
+
+  .logo
+{
+  width:150px;
+}
+
   #mainNav {
     border-color: transparent;
     background-color: transparent;

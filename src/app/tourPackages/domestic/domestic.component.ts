@@ -112,6 +112,7 @@ export class DomesticComponent implements OnInit {
       console.log(this.cityList);
       this.filteredTours = this.totalTours;
       console.log(this.filteredTours);
+      this.maxRight = -this.totalTours.length*320;
       document.getElementById("loading").style.display="none";
     });
   }

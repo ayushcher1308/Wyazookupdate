@@ -49,14 +49,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span> 
         </button>
-        <img src="../../../assets/wayzooklogo.png" style="width: 150px;" alt="">
+        <img src="../../../assets/wayzooklogo.png" class="logo" alt="">
 </div>
 <div class="collapse navbar-collapse" id="myNavbar">
   <ul class="nav navbar-nav navbar-right">
     <li class="active"><a [routerLink]="['/landing']">Home</a></li>
     <li ><a [routerLink]="['/domesticTour']">Tour Packages</a></li>
     <!-- <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Tours Packages
+      <a class="dropdown-toggle" data-tcoggle="dropdown" href="#">Tours Packages
         <span class="caret"></span></a>
       <ul class="dropdown-menu">
         <li><a [routerLink]="['/domesticTour']">Domestic</a></li>
@@ -95,7 +95,7 @@
 <div class="carousel-caption">
   <ul class="cb-slideshow">
     <li *ngFor="let data of upcomingTrips"><span>Image 01</span>
-      <div class="cb-list" (click)="goToTour(data.key)" style="cursor: pointer;">
+      <div class="cb-list" style="cursor: pointer;">
     
         <h3 class="intro"> {{data.name | titlecase}}<br/>Next Tour:{{data.startDate | date}}<br/>
           {{price | currency: 'INR':true}}
