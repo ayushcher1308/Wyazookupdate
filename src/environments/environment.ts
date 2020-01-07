@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_URL: 'http://wayzook-api.solcode.in/'
+  API_URL: 'http://api.wayzook.com/'
 };
 /*
  * For easier debugging in development mode, you can import the following file

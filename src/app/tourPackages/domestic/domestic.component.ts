@@ -97,6 +97,7 @@ export class DomesticComponent implements OnInit {
       for (var i = 0; i < this.totalTours.length; i++) {
         let obj = this.totalTours[i].destImages;
         // console.log(obj[Object.keys(obj)[0]]);
+        if(obj)
         this.totalTours[i].imageLink = obj[Object.keys(obj)[0]].image;
         this.cities.push(this.totalTours[i].destName);
       }
