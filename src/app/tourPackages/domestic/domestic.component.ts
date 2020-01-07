@@ -44,12 +44,16 @@ export class DomesticComponent implements OnInit {
   data = [];
 
   totalTours;
+  domesticTours;
+  internationalTours;
   filteredTours;
   cityList;
   cityS;
   daysS;
   maxLeft;
   maxRight;
+  domMaxRight;
+  intMaxRight
   r1;
   r2;
   enquiryForm = {
@@ -61,6 +65,7 @@ export class DomesticComponent implements OnInit {
     name:'',
     email:''
   };
+  popularTours;
 
   ngOnInit() {
 
@@ -113,7 +118,9 @@ export class DomesticComponent implements OnInit {
       console.log(this.cityList);
       this.filteredTours = this.totalTours;
       console.log(this.filteredTours);
-      this.maxRight = -this.totalTours.length*320;
+      this.getDomesticTours();
+      this.getInternational();
+      this.getPopularTours();
       document.getElementById("loading").style.display="none";
     });
   }
@@ -123,19 +130,44 @@ export class DomesticComponent implements OnInit {
     $element.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
   }
 
-  domTours() {
-    document.getElementById("dom").classList.add("selected");
-    document.getElementById("int").classList.remove("selected");
-    this.Domestic = true;
-    this.International = false;
+  getPopularTours()
+  {
+      this.popularTours=[];
+      for(var i=0;i<this.totalTours.length;i++)
+    {
+      if(this.totalTours[i].popular)
+      {
+          this.popularTours.push(this.totalTours[i]);
+      }
+    }
+    this.maxRight = -(this.popularTours.length-1)*320;
   }
 
-  intTours() {
-    document.getElementById("int").classList.add("selected");
-    document.getElementById("dom").classList.remove("selected");
-    this.International = true;
-    this.Domestic = false;
-  }
+ getDomesticTours()
+ {
+   this.domesticTours=[];
+    for(var i=0;i<this.totalTours.length;i++)
+    {
+      if(this.totalTours[i].catName=="Domestic")
+      {
+          this.domesticTours.push(this.totalTours[i]);
+      }
+    }
+    this.domMaxRight = -(this.domesticTours.length-1)*320;
+ }
+
+ getInternational()
+ {
+   this.internationalTours=[];
+   for(var i=0;i<this.totalTours.length;i++)
+   {
+     if(this.totalTours[i].catName=="International")
+     {
+       this.internationalTours.push(this.totalTours[i]);
+     }
+   }
+   this.intMaxRight = -(this.internationalTours.length-1)*320;
+ }
 
   goToTour(id) {
     this.router.navigate(['tour'], {
@@ -256,7 +288,7 @@ export class DomesticComponent implements OnInit {
     {
       var t = parseInt(currentX) - 320;
     }
-      if(t>this.maxRight)
+      if(t>this.domMaxRight)
       {
         myEl.style.transform = "translateX("+t+"px)";
       }
@@ -294,7 +326,7 @@ export class DomesticComponent implements OnInit {
     {
       var t = parseInt(currentX) - 320;
     }
-      if(t>this.maxRight)
+      if(t>this.intMaxRight)
       {
         myEl.style.transform = "translateX("+t+"px)";
       }

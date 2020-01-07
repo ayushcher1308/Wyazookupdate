@@ -149,63 +149,16 @@
 
 <div class="accordion">
   <ul>
-    <li *ngFor="let data of upcomingTrips" >
-      <div (click)="goToTour(data.key)" >
+    <li *ngFor="let data of upcomingTrips" [ngStyle]="{'background-image': 'url(' + data.imageLink + ')'}">
+      <div (click)="goToTour(data.key)" style="cursor: pointer;">
         <a  class="sliderLink">
           <h2 style="font-weight: bold;">{{data.name | titlecase}}</h2>
-          <p>Start Date: {{data.startDate | date}}<br> End Date: {{data.endDate | date}}<br><span *ngIf="data.destAbout"> About: {{data.destAbout | titlecase}}</span><br> Departure: {{data.departure}}
+          <p>Start Date: {{data.startDate | date}}<br> End Date: {{data.endDate | date}}<br><span *ngIf="data.destAbout"> About: {{data.destAbout | titlecase}}</span><br><span *ngIf="data.departure"> Departure: {{data.departure}}</span>
           </p>
         </a>
       </div>
     </li>
-    <!-- <li>
-      <div>
-        <a href="#" class="sliderLink">
-          <h2>Filmmaking Gear</h2>
-          <p>LED Lighting<br> Scrim Jim Cine<br> Chroma-Key
-          </p>
-        </a>
-      </div>
-    </li>
-    <li>
-      <div>
-        <a href="#" class="sliderLink">
-          <h2>Speedlight Modifiers</h2>
-          <p>Apollo<br> LunaGrip
-            <br> Rapid Box</p>
-        </a>
-      </div>
-    </li>
-    <li>
-      <div>
-        <a href="#" class="sliderLink">
-          <h2>Travel Photography</h2>
-          <p>Rapid Box<br> Reflectors
-            <br> Cases
-          </p>
-        </a>
-      </div>
-    </li>
-    <li>
-      <div>
-        <a href="#" class="sliderLink">
-          <h2>Newborn Photography</h2>
-          <p>Props<br> Backdrops
-            <br> Lighting
-          </p>
-        </a>
-      </div>
-    </li>
-    <li>
-      <div>
-        <a href="#" class="sliderLink">
-          <h2>Photo Enthusiast</h2>
-          <p>CFL Lighting<br> Reflectors
-            <br> Backdrops
-          </p>
-        </a>
-      </div>
-    </li> -->
+   
   </ul>
 </div>
 
@@ -424,8 +377,8 @@ had on your own.</div>
       <i class="fa fa-heart"></i> new friends!</h2>
     <ul class="list-inline list-social">
       <li class="list-inline-item social-twitter">
-        <a href="https://www.instagram.com/invites/contact/?i=1plz9qcdgz18e&utm_content=beufbgt" target="_blank">
-          <i class="fa fa-instagram"></i>
+        <a href="https://mobile.twitter.com/wayzook1">
+          <i class="fa fa-linkedin"></i>
         </a>
       </li>
       <li class="list-inline-item social-facebook" target="_blank">
@@ -433,11 +386,12 @@ had on your own.</div>
           <i class="fa fa-facebook-f"></i>
         </a>
       </li>
-      <!-- <li class="list-inline-item social-google-plus">
-        <a href="#">
-          <i class="fa fa-google-plus"></i>
+      <li class="list-inline-item social-google-plus" target="_blank">
+        <a href="https://www.instagram.com/invites/contact/?i=1plz9qcdgz18e&utm_content=beufbgt" target="_blank">
+          <i class="fa fa-instagram"></i>
+       
         </a>
-      </li> -->
+      </li>
     </ul>
   </div>
 </section>
@@ -485,7 +439,7 @@ had on your own.</div>
                         <div class="f_social_icon">
                             <a href="https://www.facebook.com/Wayzook-103668791131828/" target="_blank" class="fa fa-facebook"></a>
                             <a href="https://www.instagram.com/invites/contact/?i=1plz9qcdgz18e&utm_content=beufbgt" target="_blank" class="fa fa-instagram"></a>
-                            
+                            <a href="https://mobile.twitter.com/wayzook1" class="fa fa-twitter"></a>
                         </div>
                     </div>
                 </div>

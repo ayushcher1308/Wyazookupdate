@@ -75,10 +75,12 @@ this.LoginForm = this.fb.group({
       {
           this.tourInfo = Response;
           console.log(this.tourInfo);
+          
+          if(this.tourInfo.inclusion)
+          this.inclusion = this.tourInfo.inclusion.split('\n').map((item: string) => item.trim());
+          if(this.tourInfo.exclusion)
+          this.exclusion = this.tourInfo.exclusion.split('\n').map((item: string) => item.trim());;
           let a = Object.keys(this.tourInfo.destImages);
-          let it = Object.keys(this.tourInfo.iternary);
-          this.inclusion = this.tourInfo.inclusion.split('\n');
-          this.exclusion = this.tourInfo.exclusion.split('\n');
           for(let i=0;i<3;i++)
           {
             if(this.tourInfo.destImages[a[i]])
@@ -88,13 +90,16 @@ this.LoginForm = this.fb.group({
           }
           this.image = this.tourImages[0].image;
           console.log(this.tourImages);
-          
+          if(this.tourInfo.iternary)
+          {
+            let it = Object.keys(this.tourInfo.iternary);
           for(let i=0;i<it.length;i++)
           {
               this.iternary.push(this.tourInfo.iternary[it[i]]);
               let desc = this.tourInfo.iternary[it[i]].ld.split('\n');
               this.tourInfo.iternary[it[i]].desc = desc;
           }
+        }
           console.log(this.iternary);
           document.getElementById("loading").style.display="none";
       });

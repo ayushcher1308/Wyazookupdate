@@ -57,15 +57,23 @@ this.carouselBanner = {
   {
       this.tours.getTours('wayzook/tours').subscribe(Response=>
         {
-            console.log(Response);
             this.tour = Response;
+            console.log(Response);
             for(var i=0;i<5;i++)
             {
                 if(this.tour[i])
-                this.upcomingTrips.push(this.tour[i]);
+                {
+                  let obj = this.tour[i].destImages;
+                  if(obj)
+                  this.tour[i].imageLink = obj[Object.keys(obj)[0]].image;
+                  this.upcomingTrips.push(this.tour[i]);
+                }
                 else
                 break;
+                
+                
             }
+            console.log(this.tour);
         })
   }
 
