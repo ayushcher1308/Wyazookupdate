@@ -55,8 +55,8 @@
       </div>
       <div class="column-xs-12 column-md-5">
         <h1 style="display: inline-block;">{{tourInfo?.name | titlecase}} ({{tourInfo?.destName | titlecase}})<span *ngIf="tourInfo?.discount" class="flag-discount">{{tourInfo?.discount}}% OFF</span></h1>
-        <br/><h5 class="nod">{{tourInfo?.nod}} Days / {{tourInfo?.non}} Nights</h5>
-        <p>{{tourInfo?.cost | currency: 'INR':'symbol-narrow'}} / Person</p>
+        <br/><h5 class="nod">{{tourInfo?.cost | currency: 'INR':'symbol-narrow'}} / Person</h5>
+        <p>{{tourInfo?.nod}} Days / {{tourInfo?.non}} Nights</p>
         <p>Tour Date: {{tourInfo?.startDate |  date:'longDate'}}</p>
         <p><strong>{{tourInfo?.destAbout}}</strong></p><hr>
       </div>
@@ -85,10 +85,13 @@
       </div>
     </div>
 
-      <div class="column-xs-12 column-md-5 iternary" *ngFor="let data of iternary">
-          <h5 style="font-weight: bold;">Day {{data.day}} : {{data.sd}}</h5>
-          <div class="description">
-            <p *ngFor="let desc of data.desc;let i=index">{{i+1}}) {{desc}}</p>
+      <div class="column-xs-12 column-md-5 " *ngFor="let data of iternary">
+        <div class="ribbon">
+          <span class="ribbon5">Day {{data.day}} : {{data.sd}}</span>
+        </div>
+          <!-- <h5 style="font-weight: bold;">Day {{data.day}} : {{data.sd}}</h5> -->
+          <div style="text-align:center">
+            <p *ngFor="let desc of data.desc;let i=index">{{desc}}</p>
             <p><strong>Break Fast :</strong> <span *ngIf="data.breakfast">Included</span><span *ngIf="!data.breakfast">Not Included</span></p>
             <p><strong>Lunch :</strong><span *ngIf="data.lunch">Included</span><span *ngIf="!data.lunch">Not Included</span></p>
             <p><strong>Dinner :</strong> <span *ngIf="data.dinner">Included</span><span *ngIf="!data.dinner">Not Included</span></p>

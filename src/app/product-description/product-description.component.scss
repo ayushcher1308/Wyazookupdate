@@ -557,12 +557,15 @@ i{
 
 .nod
 {
+  
+  box-shadow: 5px 5px 10px 0px grey;
   display: inline-block;
-    border: 1px solid #ebebeb;
-    padding: 10px;
-    font-weight: bold;
-    border-radius: 5px;
-    background-color: #ebebeb;
+  border: 1px solid #103258;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: #103258;
+  color: #fcf8e3;
 
 
 }
@@ -1048,4 +1051,49 @@ div.loading{
 ul.b {
   list-style-type: square;
   padding: 0px 5px 20px 20px;
+}
+
+
+.ribbon {
+  // height: 188px;
+  position: relative;
+  margin-bottom: 30px;
+  // background: url(https://html5book.ru/wp-content/uploads/2015/10/snow-road.jpg);
+  background-size: cover;
+  text-transform: uppercase;
+  color: white;
+}
+
+
+.ribbon5 {
+  display: block;
+  width: calc(100% + 20px);
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  margin-left: -10px;
+  margin-right: -10px;
+  background: #f26b3e;
+  position: relative;
+  top: 20px;
+}
+.ribbon5:before, .ribbon5:after {
+  content: "";
+  position: absolute;
+}
+.ribbon5:before {
+  height: 0;
+  width: 0;
+  bottom: -10px;
+  left: 0;
+  border-top: 10px solid #f26b3e;
+  border-left: 10px solid transparent;
+}
+.ribbon5:after {
+  height: 0;
+  width: 0;
+  right: 0;
+  bottom: -10px;
+  border-top: 10px solid #f26b3e;
+  border-right: 10px solid transparent;
 }

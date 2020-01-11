@@ -189,6 +189,9 @@
         <div class="major-box">
           <div class="box-cover" id="transform">
           <div class="box" *ngFor="let data of totalTours" (click)="goToTour(data.key)">
+            <div class="ribbon" *ngIf="data.discountDesc">
+              <span class="ribbon1"><span>{{data.discountDesc}}</span></span>
+            </div>
             <img class="product-image" src="{{data.imageLink}}" alt="">
             <span style="display: block;
             font-size: 25px;
@@ -215,6 +218,9 @@
         <div class="major-box">
           <div class="box-cover2" id="transform2">
           <div class="box" *ngFor="let data of domesticTours" (click)="goToTour(data.key)">
+            <div class="ribbon" *ngIf="data.discountDesc">
+              <span class="ribbon1"><span>{{data.discountDesc}}</span></span>
+            </div>
             <img class="product-image" src="{{data.imageLink}}" alt="">
             <span style="display: block;
             font-size: 25px;
@@ -241,6 +247,9 @@
         <div class="major-box">
           <div class="box-cover3" id="transform3">
           <div class="box" *ngFor="let data of internationalTours" (click)="goToTour(data.key)">
+            <div class="ribbon" *ngIf="data.discountDesc">
+              <span class="ribbon1"><span>{{data.discountDesc}}</span></span>
+            </div>
             <img class="product-image" src="{{data.imageLink}}" alt="">
             <span style="display: block;
             font-size: 25px;
@@ -351,6 +360,8 @@
           <h3>Cab Bookings</h3>
         </div>
       </div>
+    </div><div class="ribbon">
+      <span class="ribbon1"><span>Скидка 10%</span></span>
     </div>
   </div>
   <div class="overlay"></div>
