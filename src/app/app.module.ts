@@ -20,6 +20,7 @@ import { NgxSmartModalModule } from 'ngx-smart-modal';
 import { ReactiveFormsModule } from '@angular/forms';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { FooterComponent } from './footer/footer.component';
 
 const appRoutes: Routes = [
   { path: 'wayzook', component: LandingPageComponent },
@@ -43,7 +44,8 @@ const appRoutes: Routes = [
     DomesticComponent,
     HomeComponent,
     ProductDescriptionComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    FooterComponent
   ],
   imports: [
     RouterModule.forRoot(
