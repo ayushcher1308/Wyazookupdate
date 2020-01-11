@@ -49,7 +49,25 @@
 
     <!-- /.enguiry-form -->
     <div class="col-xs-12 explore">
-      <a><button type="button" (click)="scrollToElement(tours)" class="btn btn-lg explorebtn">Explore Now</button></a>
+      <div class="ng-autocomplete">
+        <ng-autocomplete 
+        placeHolder="Search for you tour here"
+          [data]="data"
+          [searchKeyword]="keyword"
+          (selected)='selectEvent($event)'
+          [itemTemplate]="itemTemplate"
+          [notFoundTemplate]="notFoundTemplate">                                 
+        </ng-autocomplete>
+         
+        <ng-template #itemTemplate let-item>
+        <a [innerHTML]="item.name"></a>
+        </ng-template>
+         
+        <ng-template #notFoundTemplate let-notFound>
+        <div [innerHTML]="notFound"></div>
+        </ng-template>
+        </div>
+      <!-- <a><button type="button" (click)="scrollToElement(tours)" class="btn btn-lg explorebtn">Explore Now</button></a> -->
     </div>
   </div>
 
@@ -61,24 +79,7 @@
   <p class="text-muted">Check out our top rated tours!</p>
 </div> -->
 
-<div class="ng-autocomplete">
-  <ng-autocomplete 
-  placeHolder="Search for you tour here"
-    [data]="data"
-    [searchKeyword]="keyword"
-    (selected)='selectEvent($event)'
-    [itemTemplate]="itemTemplate"
-    [notFoundTemplate]="notFoundTemplate">                                 
-  </ng-autocomplete>
-   
-  <ng-template #itemTemplate let-item>
-  <a [innerHTML]="item.name"></a>
-  </ng-template>
-   
-  <ng-template #notFoundTemplate let-notFound>
-  <div [innerHTML]="notFound"></div>
-  </ng-template>
-  </div>
+
 
 
 <div class="colorlib-wrap" #tours>

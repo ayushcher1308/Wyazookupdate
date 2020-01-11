@@ -92,9 +92,10 @@
           <!-- <h5 style="font-weight: bold;">Day {{data.day}} : {{data.sd}}</h5> -->
           <div style="text-align:center">
             <p *ngFor="let desc of data.desc;let i=index">{{desc}}</p>
-            <p><strong>Break Fast :</strong> <span *ngIf="data.breakfast">Included</span><span *ngIf="!data.breakfast">Not Included</span></p>
+            <p><strong>Food Inclusion:<span *ngIf="data.breakfast">Breakfast</span><span *ngIf="data.lunch">, Lunch</span><span *ngIf="data.dinner">, Dinner</span></strong></p>
+            <!-- <p><strong>Break Fast :</strong> <span *ngIf="data.breakfast">Included</span><span *ngIf="!data.breakfast">Not Included</span></p>
             <p><strong>Lunch :</strong><span *ngIf="data.lunch">Included</span><span *ngIf="!data.lunch">Not Included</span></p>
-            <p><strong>Dinner :</strong> <span *ngIf="data.dinner">Included</span><span *ngIf="!data.dinner">Not Included</span></p>
+            <p><strong>Dinner :</strong> <span *ngIf="data.dinner">Included</span><span *ngIf="!data.dinner">Not Included</span></p> -->
             <!-- <p>By contrast with other plant cultivation practices, bonsai is not intended for production of food or for medicine. Instead, bonsai practice focuses on long-term cultivation and shaping of one or more small trees growing in a container.</p> -->
           </div>
       </div>
