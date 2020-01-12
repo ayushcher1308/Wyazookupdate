@@ -36,16 +36,44 @@
   </div>
 </nav>
 
+<div class="center">
 
+  <div class="offer">
+    <div class="layerimg" [ngStyle]="{'background-image': 'url(' + image + ')'}"></div>
+    <div class="layer"></div>
+
+    <div class="text">
+      <span class="topline">{{tourInfo?.name}}</span>
+
+      <h4>Explore {{tourInfo?.destName}}</h4>
+      <div class="date">{{tourInfo?.startDate | date:'longDate'}} - {{tourInfo?.endDate | date:'longDate'}}</div>
+      <p>{{tourInfo?.destAbout}}</p>
+      <div class="price">Price: {{tourInfo?.cost | currency: 'INR':'symbol-narrow'}} / Person</div>
+      <p>{{tourInfo?.nod}} Days / {{tourInfo?.non}} Nights</p>
+      <p  *ngIf="tourInfo?.discountName" style="float: right;">Offer Valid Till: {{tourInfo?.discountExpiry | date:'longDate'}}</p>
+      <!-- <br/><p  *ngIf="tourInfo?.discountName" style="float: right;">Max Discount: {{tourInfo?.discountMax | currency: 'INR':'symbol-narrow'}}</p> -->
+    </div>
+
+    <div class="info" *ngIf="tourInfo?.discountName">
+      <span>
+      <i class="fa fa-gift"></i>
+     </span>
+      <span>
+      Use Code {{tourInfo?.discountName}} to get {{tourInfo?.discountDesc}}
+    </span>
+    </div>
+
+  </div>
+</div>
 
 <main #top>
   <div class="container">
     <div class="grid product">
       <div class="column-xs-12 column-md-7">
         <div class="product-gallery">
-          <div class="product-image">
+          <!-- <div class="product-image">
             <img class="active" src="{{image}}">
-          </div>
+          </div> -->
           <ul class="image-list">
             <li class="image-item" *ngFor="let data of tourImages;let i=index"><img (click)="setImage(i)" src="{{data.image}}"></li>
             
@@ -55,10 +83,12 @@
       </div>
       <div class="column-xs-12 column-md-5">
         <h1 style="display: inline-block;">{{tourInfo?.name | titlecase}} ({{tourInfo?.destName | titlecase}})<span *ngIf="tourInfo?.discount" class="flag-discount">{{tourInfo?.discount}}% OFF</span></h1>
-        <br/><h5 class="nod">{{tourInfo?.cost | currency: 'INR':'symbol-narrow'}} / Person</h5>
+        <br/>
+        <!-- <h5 class="nod">{{tourInfo?.cost | currency: 'INR':'symbol-narrow'}} / Person</h5>
         <p>{{tourInfo?.nod}} Days / {{tourInfo?.non}} Nights</p>
         <p>Tour Date: {{tourInfo?.startDate |  date:'longDate'}}</p>
-        <p><strong>{{tourInfo?.destAbout}}</strong></p><hr>
+        <p><strong>{{tourInfo?.destAbout}}</strong></p> -->
+        <hr>
       </div>
 
       <div class="row">
