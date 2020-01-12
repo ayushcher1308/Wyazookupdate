@@ -2,7 +2,7 @@
 @import "~ngx-smart-modal/ngx-smart-modal";
 body
 {
-    font-family: Courier;
+    font-family: unset;
 }
 
 .navbar-nav>li>.dropdown-menu
