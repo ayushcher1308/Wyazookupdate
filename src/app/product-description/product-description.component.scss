@@ -11,6 +11,10 @@ $button-hover: #565657;
  $color-overlay:#ebebeb;
  $colorMain: #ebebeb;
 
+ body{
+   font-family: unset;
+ }
+
 * {
   box-sizing: border-box;
   &::before, &::after {
