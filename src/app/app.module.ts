@@ -21,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { FooterComponent } from './footer/footer.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 const appRoutes: Routes = [
   { path: 'wayzook', component: LandingPageComponent },
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
   { path: 'tour', component: ProductDescriptionComponent },
   { path: 'domesticTour', component: DomesticComponent },
   {path:'searchResult',component:SearchResultComponent},
+  {path:'contact',component:ContactUsComponent},
   { path: '',
     redirectTo: 'wayzook',
     pathMatch: 'full'
@@ -45,7 +47,8 @@ const appRoutes: Routes = [
     HomeComponent,
     ProductDescriptionComponent,
     SearchResultComponent,
-    FooterComponent
+    FooterComponent,
+    ContactUsComponent
   ],
   imports: [
     RouterModule.forRoot(
