@@ -22,6 +22,8 @@ import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import { SearchResultComponent } from './search-result/search-result.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { VisaComponent } from './visa/visa.component';
+import { PassportComponent } from './passport/passport.component';
 
 const appRoutes: Routes = [
   { path: 'wayzook', component: LandingPageComponent },
@@ -31,10 +33,13 @@ const appRoutes: Routes = [
   { path: 'domesticTour', component: DomesticComponent },
   {path:'searchResult',component:SearchResultComponent},
   {path:'contact',component:ContactUsComponent},
+  {path:'visa',component:VisaComponent},
+  {path:'insurance',component:PassportComponent},
   { path: '',
     redirectTo: 'wayzook',
     pathMatch: 'full'
   },
+  {path:'**',component:LandingPageComponent},
 
 ];
 
@@ -48,7 +53,9 @@ const appRoutes: Routes = [
     ProductDescriptionComponent,
     SearchResultComponent,
     FooterComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    VisaComponent,
+    PassportComponent
   ],
   imports: [
     RouterModule.forRoot(
