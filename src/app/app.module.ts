@@ -24,6 +24,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { VisaComponent } from './visa/visa.component';
 import { PassportComponent } from './passport/passport.component';
+import { BookingComponent } from './booking/booking.component';
 
 const appRoutes: Routes = [
   { path: 'wayzook', component: LandingPageComponent },
@@ -35,6 +36,7 @@ const appRoutes: Routes = [
   {path:'contact',component:ContactUsComponent},
   {path:'visa',component:VisaComponent},
   {path:'insurance',component:PassportComponent},
+  {path:'booking/:tour',component:BookingComponent},
   { path: '',
     redirectTo: 'wayzook',
     pathMatch: 'full'
@@ -55,7 +57,8 @@ const appRoutes: Routes = [
     FooterComponent,
     ContactUsComponent,
     VisaComponent,
-    PassportComponent
+    PassportComponent,
+    BookingComponent
   ],
   imports: [
     RouterModule.forRoot(

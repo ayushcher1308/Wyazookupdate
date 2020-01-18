@@ -217,12 +217,16 @@ this.LoginForm = this.fb.group({
 
   paymentResponseHander(response) {
     console.log(response.razorpay_payment_id);
+    let pid = response.razorpay_payment_id;
+    this.router.navigate(['booking',this.tourId], {
+      queryParams: { 'booking': pid}
+    });
     }
 
   makePayment()
   {
     var options = {
-      "key": "rzp_live_iRd4rldb3lCttf",
+      "key": "rzp_test_zA10L8ub6qSVEi",
       "amount":this.tourInfo.cost*100, // 2000 paise = INR 20
       "name": " Wayzook Holiday Planner Pvt. Ltd.",
       "description": this.tourInfo.destName,
@@ -234,7 +238,7 @@ this.LoginForm = this.fb.group({
           "contact": this.UserDetail.contact,
      
       },
-      "notes": {  },
+      "notes": { "test":"test" },
       "theme": {
           "color": "#f26a3e"
       },
