@@ -4,11 +4,13 @@ import { ToursService } from '../service/tours.service';
 import { NgxSmartModalService } from 'ngx-smart-modal';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { MustMatch } from '../Validator/password-validator';
+import { WindowRefService } from '../service/window-ref.service';
 
 @Component({
   selector: 'app-product-description',
   templateUrl: './product-description.component.html',
-  styleUrls: ['./product-description.component.scss']
+  styleUrls: ['./product-description.component.scss'],
+  providers: [WindowRefService]
 })
 export class ProductDescriptionComponent implements OnInit,AfterViewInit  {
 
@@ -20,7 +22,8 @@ message;
     private tours:ToursService,
     public ngxSmartModalService: NgxSmartModalService,
     private fb: FormBuilder,
-    private router:Router) { }
+    private router:Router,
+    private winRef:WindowRefService) { }
   tourId;
   tourInfo;
   image;
@@ -30,6 +33,7 @@ message;
   LoginForm: FormGroup;
   inclusion;
   exclusion;
+  UserDetail;
 
   ngAfterViewInit() {
     
@@ -182,12 +186,27 @@ this.LoginForm = this.fb.group({
                   tourId:this.tourId};
     if(localStorage.getItem("uid"))
     {
+      document.getElementById("loading").style.display="block";
+      let uid = localStorage.getItem("uid");
         this.tours.checkUser('wayzook/enquiry/add',header).subscribe(Response=>{
           console.log(Response);
           this.message = "Your enquiry has been submitted successfully. We will contact you shortly";
-        this.snackBar();
+        // this.snackBar();
         });
+
+        this.tours.getTours('wayzook/users/findById?id='+uid).subscribe(Response=>{
+              this.UserDetail={
+                name:Response.name,
+                contact:Response.contact,
+                email:Response.email
+              };
+              document.getElementById("loading").style.display="none";
+              this.makePayment();
+        })
+
         
+      
+    
     }
     else
     {
@@ -195,5 +214,35 @@ this.LoginForm = this.fb.group({
       (document.getElementsByClassName("nsm-content")[0] as HTMLElement).style.backgroundColor = '#ededed'
     }
   }
+
+  paymentResponseHander(response) {
+    console.log(response.razorpay_payment_id);
+    }
+
+  makePayment()
+  {
+    var options = {
+      "key": "rzp_live_iRd4rldb3lCttf",
+      "amount":this.tourInfo.cost*100, // 2000 paise = INR 20
+      "name": " Wayzook Holiday Planner Pvt. Ltd.",
+      "description": this.tourInfo.destName,
+      "payment_capture": 1,
+      "handler": this.paymentResponseHander.bind(this),
+      "prefill": {
+          "name":  this.UserDetail.name,
+          "email": this.UserDetail.email,
+          "contact": this.UserDetail.contact,
+     
+      },
+      "notes": {  },
+      "theme": {
+          "color": "#f26a3e"
+      },
+  };
+
+  let rzp = new this.winRef.nativeWindow.Razorpay(options);
+  rzp.open();
+
+  }  
 
 }
