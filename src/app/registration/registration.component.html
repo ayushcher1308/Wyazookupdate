@@ -1,3 +1,85 @@
-<p>
-  registration works!
-</p>
+<div class="loading" id="loader">
+  <div class='uil-ring-css' style='transform:scale(0.79);'>
+    <div></div>
+  </div>
+</div>
+
+<div class="signup__container">
+  <div class="container__child signup__thumbnail">
+    <div class="thumbnail__logo">
+     
+      <h1 class="logo__text">Wayzook Holiday Planner Pvt. Ltd.</h1>
+    </div>
+    <div class="thumbnail__content text-center">
+      <h1 class="heading--primary">Welcome to Wayzook</h1>
+      <h2 class="heading--secondary">Are you ready to join our Tours?</h2>
+    </div>
+    <!-- <div class="thumbnail__links">
+      <ul class="list-inline m-b-0 text-center">
+        <li><a href="http://alexdevero.com/" target="_blank"><i class="fa fa-globe"></i></a></li>
+        <li><a href="https://www.behance.net/alexdevero" target="_blank"><fa class="fa fa-behance"></fa></a></li>
+        <li><a href="https://github.com/alexdevero" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a href="https://twitter.com/alexdevero" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      </ul>
+    </div> -->
+    <div class="signup__overlay"></div>
+  </div>
+  <div class="container__child signup__form">
+    <form [formGroup]="Register" (ngSubmit)="registerUser()">
+      <div class="form-group">
+        <label for="username">Name</label>
+        <input class="form-control" type="text" name="username" formControlName="name" id="username"  placeholder="James Bond" required />
+      </div>
+
+      <div class="form-group">
+        <label for="passwordRepeat">Contact</label>
+        <input class="form-control" (keypress)="numberOnly($event)" maxlength="10" type="text" formControlName="contact" placeholder="9********" required />
+      </div>
+
+      <div *ngIf="Register.controls['contact'].touched && (Register.controls['contact'].dirty || Register.controls['contact'].invalid)">
+      <div *ngIf="Register.controls['contact'].errors.pattern" style="color: red;font-size: 14px;">
+        *Contact number is not valid
+      </div>
+    </div>
+      
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input class="form-control" type="text" formControlName="email" name="email" id="email" placeholder="james.bond@wayzook.com" required />
+      </div>
+      <div *ngIf="Register.controls['email'].touched && (Register.controls['email'].dirty || Register.controls['email'].invalid)">
+      
+      <div *ngIf="Register.controls['email'].errors.email" style="color: red;font-size: 14px;">
+        *Not valid email <address></address>
+      </div>
+    </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input class="form-control" type="password" formControlName="password" name="password" id="password" formControlName="password" placeholder="********" required />
+      </div>
+      <div class="form-group">
+        <label for="passwordRepeat">Repeat Password</label>
+        <input class="form-control" type="password" formControlName="confirmpassword" name="passwordRepeat" id="passwordRepeat" placeholder="********" required />
+      </div>
+      <div *ngIf="Register.controls['confirmpassword'].touched && (Register.controls['confirmpassword'].dirty || Register.controls['confirmpassword'].invalid)">
+        <div *ngIf="Register.controls['confirmpassword'].errors.required" style="color: red;font-size: 14px;">
+        *Confirm Password is required.
+      </div>
+      <div *ngIf="Register.controls['confirmpassword'].errors.mustMatch" style="color: red;font-size: 14px;">
+        *Passoword does not match.
+      </div>
+    </div>
+      <div class="m-t-lg">
+        <ul class="list-inline">
+          <li>
+            <input class="btn btn--form" [disabled]="!Register.valid" type="submit" value="Sign Up" />
+          </li><br/><br/>
+          <li>
+            <a class="signup__link" [routerLink]="['/login']">Login Here</a>
+          </li>
+        </ul>
+      </div>
+    </form>  
+  </div>
+</div>
+
+<div id="snackbar">{{message}}</div>

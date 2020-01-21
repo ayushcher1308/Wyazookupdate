@@ -43,6 +43,7 @@ const appRoutes: Routes = [
   {path:'visa',component:VisaComponent},
   {path:'insurance',component:PassportComponent},
   {path:'profile',component:ProfilePageComponent},
+  {path:'register',component:RegistrationComponent},
   {path:'booking/:tour',component:BookingComponent},
   { path: '',
     redirectTo: 'wayzook',
