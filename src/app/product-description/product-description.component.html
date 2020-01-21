@@ -32,6 +32,16 @@
         <li><a [routerLink]="['/aboutUs']">About Us</a></li>
         <li><a [routerLink]="['/insurance']">Insurance</a></li>
     <li><a [routerLink]="['/visa']">Visa</a></li>
+    <li appLogin><a style="cursor:pointer" (click)="login()">Login</a></li>
+     <li class="dropdown" appProfile>
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span>Tours Packages</span>
+        <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li><a [routerLink]="['/profile']">Profile</a></li>
+        <!-- <li><a [routerLink]="['/domesticTour']">Bookings</a></li> -->
+        <li><a style="cursor:pointer" (click)="logout()">Logout</a></li>
+      </ul>
+    </li>
         <!--<li><a href="#">Contact</a></li>-->
       </ul>
     </div>
@@ -132,9 +142,18 @@
           </div>
       </div>
       <button class="add-to-cart" (click)="enquireNow()">Enquire Now</button>
+
+      <form class="example" style="max-width:300px;float:right" [formGroup]="applyCoupon" (ngSubmit) = "coupon()">
+        <input type="text" placeholder="Apply Coupon" formControlName="coupon" name="search2">
+        <i class="clearable__clear" style="margin-left: -95px;cursor: pointer;" (click)="clearField()">&times;</i>
+        <button type="submit" [disabled]="applyCoupon.invalid">Apply</button>
+        <p style="color: red;">{{couponMessage}}</p>
+      </form>
+
     </div>
    
   </div>
+  
 </main>
 
 

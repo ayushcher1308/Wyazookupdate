@@ -170,8 +170,7 @@ export class DomesticComponent implements OnInit {
  }
 
   goToTour(id) {
-    this.router.navigate(['tour'], {
-      queryParams: { 'id': id }
+    this.router.navigate(['tour',id], {
     });
   }
 
@@ -379,9 +378,20 @@ submitEnquiry()
 selectEvent(item) {
   // do something with selected item
   console.log(item);
-  this.router.navigate(['searchResult'], {
-    queryParams: { 'tourName': item.name }
-  });
+  this.router.navigate(['searchResult',item.name]);
+}
+
+login()
+{
+  localStorage.setItem("previousRoute",this.router.url);
+  this.router.navigate(['login']);
+}
+
+logout()
+{
+  localStorage.removeItem("uid");
+  localStorage.removeItem("token");
+  location.reload();
 }
 
 }

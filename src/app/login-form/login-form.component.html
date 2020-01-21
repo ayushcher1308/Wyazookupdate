@@ -1,0 +1,60 @@
+<div class="loading" id="loader">
+  <div class='uil-ring-css' style='transform:scale(0.79);'>
+    <div></div>
+  </div>
+</div>
+
+<div class="signup__container">
+  <div class="container__child signup__thumbnail">
+    <div class="thumbnail__logo">
+     
+      <h1 class="logo__text">Wayzook Holiday Planner Pvt. Ltd.</h1>
+    </div>
+    <div class="thumbnail__content text-center">
+      <h1 class="heading--primary">Welcome to Wayzook</h1>
+      <h2 class="heading--secondary">Are you ready to join our Tours?</h2>
+    </div>
+    <!-- <div class="thumbnail__links">
+      <ul class="list-inline m-b-0 text-center">
+        <li><a href="http://alexdevero.com/" target="_blank"><i class="fa fa-globe"></i></a></li>
+        <li><a href="https://www.behance.net/alexdevero" target="_blank"><fa class="fa fa-behance"></fa></a></li>
+        <li><a href="https://github.com/alexdevero" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a href="https://twitter.com/alexdevero" target="_blank"><i class="fa fa-twitter"></i></a></li>
+      </ul>
+    </div> -->
+    <div class="signup__overlay"></div>
+  </div>
+  <div class="container__child signup__form">
+    <form [formGroup]="LoginForm" (ngSubmit)="checkLoginUser()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input class="form-control" type="text" name="username" id="username" formControlName="email" placeholder="james.bond@gmail.com" required />
+      </div>
+      
+      <!-- <div class="form-group">
+        <label for="email">Email</label>
+        <input class="form-control" type="text" name="email" id="email" placeholder="james.bond@spectre.com" required />
+      </div> -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input class="form-control" type="password" name="password" id="password" formControlName="password" placeholder="********" required />
+      </div>
+      <!-- <div class="form-group">
+        <label for="passwordRepeat">Repeat Password</label>
+        <input class="form-control" type="password" name="passwordRepeat" id="passwordRepeat" placeholder="********" required />
+      </div> -->
+      <div class="m-t-lg">
+        <ul class="list-inline">
+          <li>
+            <input class="btn btn--form" type="submit" value="Login" />
+          </li><br/><br/>
+          <li>
+            <a class="signup__link" href="#">Register Here for new member</a>
+          </li>
+        </ul>
+      </div>
+    </form>  
+  </div>
+</div>
+
+<div id="snackbar">{{message}}</div>

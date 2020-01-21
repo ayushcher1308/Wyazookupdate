@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToursService } from '../service/tours.service';
+import { NgxSmartModalService } from 'ngx-smart-modal';
 // import { Response } from '@angular/http';
 import { NgxCarousel } from 'ngx-carousel';
 
@@ -14,7 +15,8 @@ export class LandingPageComponent implements OnInit {
   public carouselBannerItems: Array<any>;
   public carouselBanner: NgxCarousel;
 
-  constructor(private router: Router,
+  constructor(public ngxSmartModalService: NgxSmartModalService,
+    private router: Router,
     private tours:ToursService) { }
 
   people;
@@ -121,11 +123,21 @@ console.log("anii");
 
   goToTour(id)
   {
-    this.router.navigate(['tour'], {
-      queryParams: { 'id':id}
-    });
+    this.router.navigate(['tour',id]);
   }
 
+login()
+{
+  localStorage.setItem("previousRoute",this.router.url);
+  this.router.navigate(['login']);
+}
+
+logout()
+{
+  localStorage.removeItem("uid");
+  localStorage.removeItem("token");
+  location.reload();
+}
 
 
 }

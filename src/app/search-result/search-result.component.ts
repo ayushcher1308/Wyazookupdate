@@ -25,9 +25,11 @@ export class SearchResultComponent implements OnInit {
   });
     document.getElementById("popular").classList.add("activeFilter");
 
-    this.route.queryParamMap.subscribe(queryParams => {
-      this.tourName = queryParams.get("tourName");
-    })
+    // this.route.queryParamMap.subscribe(queryParams => {
+    //   this.tourName = queryParams.get("tourName");
+    // })
+
+    this.tourName = this.route.snapshot.paramMap.get('tourName');
 
     this.tours.getTours('wayzook/tours/getTourbyDestName?name='+this.tourName).subscribe(Response=>{
       console.log(Response);
@@ -45,9 +47,7 @@ export class SearchResultComponent implements OnInit {
   }
 
   goToTour(id) {
-    this.router.navigate(['tour'], {
-      queryParams: { 'id': id }
-    });
+    this.router.navigate(['tour',id]);
   }
 
 sortPrice()
@@ -90,6 +90,19 @@ sortArrayOfObjects = (arr, key) => {
   return arr.sort((a, b) => {
       return a[key] - b[key];
   });
-};
+}
+
+login()
+{
+  localStorage.setItem("previousRoute",this.router.url);
+  this.router.navigate(['login']);
+}
+
+logout()
+{
+  localStorage.removeItem("uid");
+  localStorage.removeItem("token");
+  location.reload();
+}
 
 }

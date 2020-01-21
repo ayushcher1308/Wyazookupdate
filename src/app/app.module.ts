@@ -25,17 +25,24 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { VisaComponent } from './visa/visa.component';
 import { PassportComponent } from './passport/passport.component';
 import { BookingComponent } from './booking/booking.component';
+import { ProfileDirective } from './directive/profile.directive';
+import { ProfilePageComponent } from './profile-page/profile-page.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { LoginDirective } from './directive/login.directive';
 
 const appRoutes: Routes = [
+  { path: 'login', component: LoginFormComponent },
   { path: 'wayzook', component: LandingPageComponent },
   { path: 'aboutUs', component: AboutUsComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'tour', component: ProductDescriptionComponent },
+  { path: 'tour/:tourId', component: ProductDescriptionComponent },
   { path: 'domesticTour', component: DomesticComponent },
-  {path:'searchResult',component:SearchResultComponent},
+  {path:'searchResult/:tourName',component:SearchResultComponent},
   {path:'contact',component:ContactUsComponent},
   {path:'visa',component:VisaComponent},
   {path:'insurance',component:PassportComponent},
+  {path:'profile',component:ProfilePageComponent},
   {path:'booking/:tour',component:BookingComponent},
   { path: '',
     redirectTo: 'wayzook',
@@ -58,7 +65,12 @@ const appRoutes: Routes = [
     ContactUsComponent,
     VisaComponent,
     PassportComponent,
-    BookingComponent
+    BookingComponent,
+    ProfileDirective,
+    ProfilePageComponent,
+    LoginFormComponent,
+    RegistrationComponent,
+    LoginDirective
   ],
   imports: [
     RouterModule.forRoot(

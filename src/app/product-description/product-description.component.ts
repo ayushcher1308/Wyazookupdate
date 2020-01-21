@@ -31,9 +31,12 @@ message;
   iternary = [];
   Register: FormGroup;
   LoginForm: FormGroup;
+  applyCoupon:FormGroup;
   inclusion;
   exclusion;
   UserDetail;
+  price;
+  couponMessage="";
 
   ngAfterViewInit() {
     
@@ -68,10 +71,12 @@ message;
 this.LoginForm = this.fb.group({
   email:['',[Validators.required,Validators.email]],
   password:['',Validators.required]
+});
+
+this.applyCoupon = this.fb.group({
+  coupon:['',Validators.required],
 })
-    this.route.queryParamMap.subscribe(queryParams => {
-      this.tourId = queryParams.get("id");
-    })
+this.tourId = this.route.snapshot.paramMap.get('tourId');
     console.log(this.tourId);
 
 
@@ -105,6 +110,7 @@ this.LoginForm = this.fb.group({
           }
         }
           console.log(this.iternary);
+          this.price = this.tourInfo.cost;
           document.getElementById("loading").style.display="none";
       });
     //   let element = document.getElementsByClassName("nsm-content") as HTMLCollectionOf<HTMLElement>;
@@ -227,7 +233,7 @@ this.LoginForm = this.fb.group({
   {
     var options = {
       "key": "rzp_test_zA10L8ub6qSVEi",
-      "amount":this.tourInfo.cost*100, // 2000 paise = INR 20
+      "amount":this.price*100, // 2000 paise = INR 20
       "name": " Wayzook Holiday Planner Pvt. Ltd.",
       "description": this.tourInfo.destName,
       "payment_capture": 1,
@@ -248,5 +254,52 @@ this.LoginForm = this.fb.group({
   rzp.open();
 
   }  
+
+  coupon()
+  {
+      var text = this.applyCoupon.value.coupon;
+      if(text == this.tourInfo.discountName)
+      {
+        var discP = parseInt(this.tourInfo.discountPercent)/100;
+        var tDisc; 
+        if(discP * this.price<this.tourInfo.discountMax)
+        {
+          tDisc = discP * this.price;
+          this.price = this.price - tDisc;
+        }
+        else
+        {
+          tDisc = this.tourInfo.discountMax;
+          this.price = this.price - tDisc;
+        }
+        this.couponMessage="** Yaay got an instant discount of ₹"+tDisc;
+      }
+      else
+      {
+        this.price = this.tourInfo.cost;
+          this.couponMessage = "** Coupon not applicable";
+      }
+  }
+
+  clearField()
+  {
+    this.applyCoupon.reset();
+    this.price = this.tourInfo.cost;
+    this.couponMessage = "";
+  }
+
+  login()
+{
+  localStorage.setItem("previousRoute",this.router.url);
+  this.router.navigate(['login']);
+}
+
+logout()
+{
+  localStorage.removeItem("uid");
+  localStorage.removeItem("token");
+  location.reload();
+}
+
 
 }

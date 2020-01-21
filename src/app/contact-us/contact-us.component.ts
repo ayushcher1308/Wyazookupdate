@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToursService } from '../service/tours.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact-us',
@@ -10,7 +11,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class ContactUsComponent implements OnInit {
 
   constructor(private tours:ToursService,
-    private fb:FormBuilder) { }
+    private fb:FormBuilder,
+    private router:Router) { }
     enquiryForm;
 
   ngOnInit() {
@@ -59,5 +61,17 @@ export class ContactUsComponent implements OnInit {
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   }
 
+  login()
+{
+  localStorage.setItem("previousRoute",this.router.url);
+  this.router.navigate(['login']);
+}
+
+logout()
+{
+  localStorage.removeItem("uid");
+  localStorage.removeItem("token");
+  location.reload();
+}
 
 }

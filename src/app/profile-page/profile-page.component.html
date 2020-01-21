@@ -1,9 +1,8 @@
-<div class="loading" id="loading">
+<div class="loading" id="loader">
   <div class='uil-ring-css' style='transform:scale(0.79);'>
     <div></div>
   </div>
 </div>
-
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -34,58 +33,32 @@
         <li><a [routerLink]="['/insurance']">Insurance</a></li>
     <li><a [routerLink]="['/visa']">Visa</a></li>
     <li appLogin><a style="cursor:pointer" (click)="login()">Login</a></li>
-     <li class="dropdown" appProfile>
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span>Tours Packages</span>
-        <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-        <li><a [routerLink]="['/profile']">Profile</a></li>
-        <!-- <li><a [routerLink]="['/domesticTour']">Bookings</a></li> -->
-        <li><a style="cursor:pointer" (click)="logout()">Logout</a></li>
-      </ul>
-    </li>
+    <li class="dropdown" appProfile>
+     <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span>Tours Packages</span>
+       <span class="caret"></span></a>
+     <ul class="dropdown-menu">
+       <li><a [routerLink]="['/profile']">Profile</a></li>
+       <!-- <li><a [routerLink]="['/domesticTour']">Bookings</a></li> -->
+       <li><a style="cursor:pointer" (click)="logout()">Logout</a></li>
+     </ul>
+   </li>
         <!--<li><a href="#">Contact</a></li>-->
       </ul>
     </div>
   </div>
 </nav>
-
-<p class="destAbout">
-  {{this.destAbout}}
-</p>
-
-<div class="ful-wid2">
-  <div class="sort_sec11">
-    <div style="cursor:initial;color: black;" >Sort By:</div>
-    <div (click)="ngOnInit()" id="popular">Popular</div>
-    <!-- <div id="newest" (click)="sortNewest()" id="newest">Newest</div> -->
-    <div (click)="sortPrice()" id="price">Price</div>
-    <div (click)="sortDuration()" id="duration">Duration</div>
-    
+<!-- <h1 class="title"> My Profile</h1> -->
+<div class="user-profile">
+	<img id="avatar" src="https://pngimage.net/wp-content/uploads/2018/06/user-avatar-png-4.png" />
+    <div id="fullname">{{Users?.name}}</div>
+  <div id="username">
+  	Role:{{Users?.role}}
   </div>
-  <div class="sort_sec12">Showing {{totalTours}} Packages for {{tourName}}</div>
-</div>
-
-
-
-
-
-<div class="container">
-  <main class="grid">
-    <article *ngFor="let data of toursInfo">
-      <img style="height: 210px;width: 100%;object-fit: cover;" src="{{data.imageLink}}" alt="Sample photo">
-      <div class="text">
-        <h3>{{data.name}}</h3>
-        <p>{{data.nod}} Days / {{data.non}} Nights</p>
-        <p><span class="cost">{{data.cost | currency: 'INR':'symbol-narrow'}}</span> per person</p>
-        <a  class="btn btn-primary btn-block" (click)="goToTour(data.key)">READ MORE</a>
-      </div>
-    </article>
-    
-  </main>
-</div>
-
-
-<div #target>
-  <app-footer ></app-footer>
+    <div class="description">
+      <div>Email: <span id="email">{{Users?.email}}</span></div>
+      <div>Contact: <span id="city">{{Users?.contact}}</span></div>
   </div>
-
+  <div class="footer">
+    <button id="btn">Edit</button>
+ </div>
+</div>
