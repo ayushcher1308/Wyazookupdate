@@ -5,6 +5,7 @@ import { NgxSmartModalService } from 'ngx-smart-modal';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { MustMatch } from '../Validator/password-validator';
 import { WindowRefService } from '../service/window-ref.service';
+// import  {Razorpay} from 'razorpay';
 
 @Component({
   selector: 'app-product-description',
@@ -37,6 +38,7 @@ message;
   UserDetail;
   price;
   couponMessage="";
+  orderId;
 
   ngAfterViewInit() {
     
@@ -194,11 +196,11 @@ this.tourId = this.route.snapshot.paramMap.get('tourId');
     {
       document.getElementById("loading").style.display="block";
       let uid = localStorage.getItem("uid");
-        this.tours.checkUser('wayzook/enquiry/add',header).subscribe(Response=>{
-          console.log(Response);
-          this.message = "Your enquiry has been submitted successfully. We will contact you shortly";
-        // this.snackBar();
-        });
+        // this.tours.checkUser('wayzook/enquiry/add',header).subscribe(Response=>{
+        //   console.log(Response);
+        //   this.message = "Your enquiry has been submitted successfully. We will contact you shortly";
+   
+        // });
 
         this.tours.getTours('wayzook/users/findById?id='+uid).subscribe(Response=>{
               this.UserDetail={
@@ -206,8 +208,10 @@ this.tourId = this.route.snapshot.paramMap.get('tourId');
                 contact:Response.contact,
                 email:Response.email
               };
-              document.getElementById("loading").style.display="none";
-              this.makePayment();
+              
+              this.createOrder();
+        //        document.getElementById("loading").style.display="none";
+        // this.makePayment();
         })
 
         
@@ -222,17 +226,36 @@ this.tourId = this.route.snapshot.paramMap.get('tourId');
   }
 
   paymentResponseHander(response) {
-    console.log(response.razorpay_payment_id);
+    console.log(response);
     let pid = response.razorpay_payment_id;
-    this.router.navigate(['booking',this.tourId], {
-      queryParams: { 'booking': pid}
-    });
+    this.router.navigate(['booking',this.tourId,pid,this.orderId]);
+    }
+
+    createOrder()
+    {
+      
+      let header = {
+        "amount":this.price*100,
+        "currency":"INR",
+        "tourid":this.tourId,
+        "userid":localStorage.getItem("uid")
+      }
+
+      console.log(header);
+      this.tours.checkUser("wayzook/bookings/orders/createOrder",header).subscribe(Response=>{
+        console.log(Response);
+        this.orderId = Response.order.id;
+        document.getElementById("loading").style.display="none";
+        this.makePayment();
+      })
+
     }
 
   makePayment()
   {
     var options = {
       "key": "rzp_test_zA10L8ub6qSVEi",
+      "order_id": this.orderId,
       "amount":this.price*100, // 2000 paise = INR 20
       "name": " Wayzook Holiday Planner Pvt. Ltd.",
       "description": this.tourInfo.destName,
@@ -251,6 +274,7 @@ this.tourId = this.route.snapshot.paramMap.get('tourId');
   };
 
   let rzp = new this.winRef.nativeWindow.Razorpay(options);
+  console.log(options);
   rzp.open();
 
   }  

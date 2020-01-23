@@ -17,18 +17,44 @@ export class BookingComponent implements OnInit {
   tourImages = [];
   transactionId;
   UserDetail;
+  orderId;
   ngOnInit() {
-
-    this.route.queryParamMap.subscribe(queryParams => {
-      this.transactionId = queryParams.get("booking");
-    });
-
-    this.tourId = this.route.snapshot.paramMap.get('tour');
-    
-    console.log(this.tourId+"  "+this.transactionId);
-
     document.getElementById("loading").style.display="block";
 
+    // this.route.queryParamMap.subscribe(queryParams => {
+    //   this.transactionId = queryParams.get("booking");
+    // });
+
+
+    this.route.paramMap.subscribe(Response => {
+      console.log(Response['params'].tour);
+      this.transactionId = Response['params'].pid;
+      this.tourId = Response['params'].tour;
+      this.orderId = Response['params'].orderId;
+      this.getTourInfo();
+      // this.transactionId = Response.params.tour;
+    });
+  
+
+
+  }
+
+  getUserDetails()
+  {
+    let uid = localStorage.getItem("uid");
+    this.tours.getTours('wayzook/users/findById?id='+uid).subscribe(Response=>{
+      console.log(Response)
+      this.UserDetail={
+        name:Response.name,
+        contact:Response.contact,
+        email:Response.email
+      };
+      document.getElementById("loading").style.display="none";
+      })
+  }
+
+  getTourInfo()
+  {
     this.tours.getTours('wayzook/tours/findById?id='+this.tourId).subscribe(Response=>
       {
           this.tourInfo = Response;
@@ -45,23 +71,7 @@ export class BookingComponent implements OnInit {
           this.image = this.tourImages[0].image;
           console.log(this.tourImages);
           this.getUserDetails();
-          document.getElementById("loading").style.display="none";
       });
-
-
-  }
-
-  getUserDetails()
-  {
-    let uid = localStorage.getItem("uid");
-    this.tours.getTours('wayzook/users/findById?id='+uid).subscribe(Response=>{
-      this.UserDetail={
-        name:Response.name,
-        contact:Response.contact,
-        email:Response.email
-      };
-      document.getElementById("loading").style.display="none";
-      })
   }
 
 }

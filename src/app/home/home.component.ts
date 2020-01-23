@@ -5,7 +5,7 @@ import { WindowRefService } from '../service/window-ref.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  styleUrls: ['./home.component.scss'],
   providers: [WindowRefService]
 })
 export class HomeComponent implements OnInit {

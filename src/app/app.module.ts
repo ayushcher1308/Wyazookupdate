@@ -44,7 +44,7 @@ const appRoutes: Routes = [
   {path:'insurance',component:PassportComponent},
   {path:'profile',component:ProfilePageComponent},
   {path:'register',component:RegistrationComponent},
-  {path:'booking/:tour',component:BookingComponent},
+  {path:'booking/:tour/:pid/:orderId',component:BookingComponent},
   { path: '',
     redirectTo: 'wayzook',
     pathMatch: 'full'

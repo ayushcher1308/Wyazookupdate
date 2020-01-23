@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_URL: 'http://api.wayzook.com/'
+  API_URL: 'http://18.220.228.221:3000/'
 };
 /*
  * For easier debugging in development mode, you can import the following file
