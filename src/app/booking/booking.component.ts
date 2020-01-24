@@ -39,6 +39,7 @@ export class BookingComponent implements OnInit {
 
   }
 
+
   getUserDetails()
   {
     let uid = localStorage.getItem("uid");

@@ -68,125 +68,45 @@
 <div style="background-color: #ddd;">
   <div class="container">
     <h1 class="upcomming"> bookings</h1>
-    <div class="item">
+    <div class="item" *ngFor="let data of bookingDetails">
       <div class="item-right">
-        <h2 class="num">23</h2>
-        <p class="day">Feb</p>
+        <h2 class="num">{{data?.date}}</h2>
+        <p class="day">{{data?.month}}</p>
         <span class="up-border"></span>
         <span class="down-border"></span>
       </div> <!-- end item-right -->
       
       <div class="item-left">
-        <p class="event">Music Event</p>
-        <h2 class="title">Live In Sydney</h2>
+        <p class="event">{{data?.tour.name | uppercase}}</p>
+        <h2 class="title">{{data?.tour.destination.name | uppercase}}</h2>
         
         <div class="sce">
           <div class="icon">
-            <i class="fa fa-table"></i>
+            <i class="fa fa-history"></i>
           </div>
-          <p>Monday 15th 2016 <br/> 15:20Pm & 11:00Am</p>
+          <p>Order ID <br/>{{data?.orderid}}</p>
         </div>
         <div class="fix"></div>
         <div class="loc">
           <div class="icon">
-            <i class="fa fa-map-marker"></i>
+            <i class="fa fa-money"></i>
           </div>
-          <p>North,Soth, United State , Amre <br/> Party Number 16,20</p>
+          <p>Amount Paid <br/>{{data?.order.amount_paid/100 | currency: 'INR':'symbol-narrow'}}</p>
         </div>
+        <!-- <div class="fix"></div>
+        <div class="loc"*ngIf="data?.order.amount_due != 0">
+          <div class="icon">
+            <i class="fa fa-money"></i>
+          </div>
+          <p>Amount Pending<br/>{{data?.order.amount_due/100 | currency: 'INR':'symbol-narrow'}}</p>
+        </div> -->
         <div class="fix"></div>
-        <button class="tickets">Tickets</button>
+        <button class="tickets" style="background-color: green;" *ngIf="data?.order.amount_due == 0">Confirmed</button>
+        <button class="tickets" style="background-color: red;" *ngIf="data?.order.amount_due != 0">Payment Due</button>
       </div> <!-- end item-right -->
     </div> <!-- end item -->
     
-    <div class="item">
-      <div class="item-right">
-        <h2 class="num">23</h2>
-        <p class="day">Feb</p>
-        <span class="up-border"></span>
-        <span class="down-border"></span>
-      </div> <!-- end item-right -->
-      
-      <div class="item-left">
-        <p class="event">Music Event</p>
-        <h2 class="title">Live Been Corrage</h2>
-        
-        <div class="sce">
-          <div class="icon">
-            <i class="fa fa-table"></i>
-          </div>
-          <p>Monday 15th 2016 <br/> 15:20Pm & 11:00Am</p>
-        </div>
-        <div class="fix"></div>
-        <div class="loc">
-          <div class="icon">
-            <i class="fa fa-map-marker"></i>
-          </div>
-          <p>North,Soth, United State , Amre <br/> Party Number 16,20</p>
-        </div>
-        <div class="fix"></div>
-        <button class="tickets">Tickets</button>
-      </div> <!-- end item-right -->
-    </div> <!-- end item -->
     
-    <div class="item">
-      <div class="item-right">
-        <h2 class="num">23</h2>
-        <p class="day">Feb</p>
-        <span class="up-border"></span>
-        <span class="down-border"></span>
-      </div> <!-- end item-right -->
-      
-      <div class="item-left">
-        <p class="event">Music Kaboom</p>
-        <h2 class="title">Music Party</h2>
-        
-        <div class="sce">
-          <div class="icon">
-            <i class="fa fa-table"></i>
-          </div>
-          <p>Monday 15th 2016 <br/> 15:20Pm & 11:00Am</p>
-        </div>
-        <div class="fix"></div>
-        <div class="loc">
-          <div class="icon">
-            <i class="fa fa-map-marker"></i>
-          </div>
-          <p>North,Soth, United State , Amre <br/> Party Number 16,20</p>
-        </div>
-        <div class="fix"></div>
-        <button class="booked">Booked</button>
-      </div> <!-- end item-right -->
-    </div> <!-- end item -->
-    
-    <div class="item">
-      <div class="item-right">
-        <h2 class="num">23</h2>
-        <p class="day">Feb</p>
-        <span class="up-border"></span>
-        <span class="down-border"></span>
-      </div> <!-- end item-right -->
-      
-      <div class="item-left">
-        <p class="event">Music Event</p>
-        <h2 class="title linethrough">Hello Dubail Visivle</h2>
-        
-        <div class="sce">
-          <div class="icon">
-            <i class="fa fa-table"></i>
-          </div>
-          <p>Monday 15th 2016 <br/> 15:20Pm & 11:00Am</p>
-        </div>
-        <div class="fix"></div>
-        <div class="loc">
-          <div class="icon">
-            <i class="fa fa-map-marker"></i>
-          </div>
-          <p>North,Soth, United State , Amre <br/> Party Number 16,20</p>
-        </div>
-        <div class="fix"></div>
-        <button class="cancel">Cancele</button>
-      </div> <!-- end item-right -->
-    </div> <!-- end item -->
   </div>
 </div>
 

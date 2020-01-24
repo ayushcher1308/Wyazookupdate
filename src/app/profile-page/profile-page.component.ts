@@ -12,6 +12,7 @@ export class ProfilePageComponent implements OnInit {
   constructor(private tours:ToursService,
     private router:Router) { }
   Users;
+  bookingDetails;
 
   ngOnInit() {
     document.getElementById("loader").style.display = "block";
@@ -20,6 +21,25 @@ export class ProfilePageComponent implements OnInit {
         this.Users = Response;
         document.getElementById("loader").style.display = "none";
     })
+
+    this.getAllBookings();
+  }
+
+  getAllBookings()
+  {
+    let uid = localStorage.getItem("uid");
+    this.tours.getTours("wayzook/bookings/getAllBookingForUser?userid="+uid).subscribe(Response=>
+      {
+        console.log(Response);
+        this.bookingDetails = Response;
+        for(var i=0;i<Response.length;i++)
+        {
+          var date = new Date(Response[i].tour.startDate).toString();
+          var datearr = date.split(" ");
+          this.bookingDetails[i].month = datearr[1];
+          this.bookingDetails[i].date = datearr[2];
+        }
+      })
   }
 
   login()
