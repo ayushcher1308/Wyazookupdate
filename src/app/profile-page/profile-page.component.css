@@ -403,3 +403,32 @@ div.container {
     margin: 0 20px auto
   }
 }
+
+.eventno{
+  color: #555;
+  font-size: 20px;
+  margin-bottom: 9px;
+  margin-left: 20px;
+}
+
+.cancellation{
+  text-align: center;
+    padding: 15px;
+}
+
+.cancelBut{
+  color: #fff;
+  padding: 6px 14px;
+  float: right;
+  margin-top: 10px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  border-radius: 7px;
+  background-color: red;
+}
+
+.cancelBut:disabled{
+  cursor: not-allowed;
+  background-color: #e08282;
+}

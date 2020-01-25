@@ -68,6 +68,7 @@
 <div style="background-color: #ddd;">
   <div class="container">
     <h1 class="upcomming"> bookings</h1>
+    <p class="eventno" *ngIf='bookingDetails?.length === 0'>No Bookings Available</p>
     <div class="item" *ngFor="let data of bookingDetails">
       <div class="item-right">
         <h2 class="num">{{data?.date}}</h2>
@@ -103,6 +104,7 @@
         <div class="fix"></div>
         <button class="tickets" style="background-color: green;" *ngIf="data?.order.amount_due == 0">Confirmed</button>
         <button class="tickets" style="background-color: red;" *ngIf="data?.order.amount_due != 0">Payment Due</button>
+        <button class="tickets" style="background-color: #1c2d4f; margin-right: 5px;" (click)="cancel()" *ngIf="data?.order.amount_due == 0">Request Cancellation</button>
       </div> <!-- end item-right -->
     </div> <!-- end item -->
     
@@ -111,3 +113,19 @@
 </div>
 
 <app-footer></app-footer>
+
+
+
+<ngx-smart-modal #myModal identifier="myModal" customClass="nsm-dialog-animation-rtl">
+ <h2 class="cancellation">Confirm Cancellation</h2><hr>
+ <p style="text-align: justify;padding: 10px;">Cancellation any time after making the 1st payment instalment till the 2nd payment date:
+  The entire amount paid as 1st payment installment (deposit) would be non-refundable.
+  Cancellation after 2nd payment instalment and before 3rd or final payment date:
+  The total amount that was due at the 2nd payment installment as per your payment schedule would be non-refundable; anything that you have paid over and above this amount would be refundable.
+  Cancellation after 3rd or final payment date:
+  The full amount paid by you would be non-refundable.</p><hr>
+  <div class="checkbox" style="padding: 10px;">
+    <label><input type="checkbox" [(ngModel)]="confirmCancel" >I accept terms and Conditions</label>
+  </div>
+  <button class="cancelBut" [disabled]="!confirmCancel">Cancel Booking</button>
+</ngx-smart-modal>

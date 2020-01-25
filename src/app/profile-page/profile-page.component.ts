@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ToursService } from '../service/tours.service';
 import { Router } from '@angular/router';
+import { NgxSmartModalService } from 'ngx-smart-modal';
 
 @Component({
   selector: 'app-profile-page',
@@ -10,9 +11,11 @@ import { Router } from '@angular/router';
 export class ProfilePageComponent implements OnInit {
 
   constructor(private tours:ToursService,
-    private router:Router) { }
+    private router:Router,
+    public ngxSmartModalService: NgxSmartModalService) { }
   Users;
   bookingDetails;
+  confirmCancel=false;
 
   ngOnInit() {
     document.getElementById("loader").style.display = "block";
@@ -54,5 +57,11 @@ logout()
   localStorage.removeItem("token");
   location.reload();
 }
+
+cancel()
+{
+  this.ngxSmartModalService.open("myModal");
+}
+
 
 }
