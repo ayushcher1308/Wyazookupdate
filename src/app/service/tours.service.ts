@@ -19,8 +19,8 @@ export class ToursService {
     return this.http.post<any>(environment.API_URL+link,header);
   }
 
-  createOrder(header)
+  cancelBooking(link,header)
   {
-      return this.http.post<any>("https://api.razorpay.com/v1/orders",header);
+    return this.http.put<any>(environment.API_URL+link,header);
   }
 }
